@@ -40,3 +40,55 @@ body {
 .btn-secondary:hover {
   background: rgba(0,88,195,0.13);
 }
+
+.article-body h2 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #181c1e;
+  margin-top: 40px;
+  margin-bottom: 14px;
+  line-height: 1.25;
+}
+
+.article-body h3 {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #181c1e;
+  margin-top: 32px;
+  margin-bottom: 10px;
+}
+
+.article-body p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #2d3748;
+  margin-bottom: 18px;
+  letter-spacing: -0.01em;
+}
+
+.article-body strong {
+  font-weight: 700;
+  color: #181c1e;
+}
+
+.article-body a {
+  color: #0058c3;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.article-body a:hover {
+  color: #0070f3;
+}
+
+.article-body code {
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 13px;
+  background: #f1f4f6;
+  padding: 2px 7px;
+  border-radius: 4px;
+  color: #0058c3;
+}
