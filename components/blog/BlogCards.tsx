@@ -70,7 +70,7 @@ export function PostCard({ post }: { post: Post }) {
           borderRadius: 8,
           padding: "28px 28px 24px",
           boxShadow: "0px 2px 8px rgba(24,28,30,0.06)",
-          height: "100%",
+          minHeight: 280,
           display: "flex",
           flexDirection: "column" as const,
           cursor: "pointer",

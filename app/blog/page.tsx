@@ -51,7 +51,7 @@ export default function BlogIndexPage() {
         <div style={{ marginTop: -32 }}>
           <FeaturedCard post={featuredPost} />
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(360px, 1fr))", gap: 20, marginTop: 24, paddingBottom: 80 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(360px, 1fr))", gap: 28, marginTop: 28, paddingBottom: 80, alignItems: "start" }}>
           {restPosts.map((post) => (
             <PostCard key={post.slug} post={post} />
           ))}
