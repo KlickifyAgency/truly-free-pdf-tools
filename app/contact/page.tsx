@@ -50,7 +50,7 @@ export default function ContactPage() {
     }
     setError("")
     const body = encodeURIComponent(`Name: ${name}\n\nSubject: ${subject}\n\nMessage:\n${message}`)
-    const mailto = `mailto:hello@trulyfreetools.com?subject=${encodeURIComponent(`[${subject}] ${name}`)}&body=${body}`
+    const mailto = `mailto:info@klickifyagency.com?subject=${encodeURIComponent(`[${subject}] ${name}`)}&body=${body}`
     window.location.href = mailto
   }
 
@@ -142,8 +142,8 @@ export default function ContactPage() {
 
         <p style={{ fontSize: 13, color: "#718096", letterSpacing: "-0.02em", marginTop: 20, textAlign: "center" }}>
           Or email us directly at{" "}
-          <a href="mailto:hello@trulyfreetools.com" style={{ color: "#0058c3", textDecoration: "none" }}>
-            hello@trulyfreetools.com
+          <a href="mailto:info@klickifyagency.com" style={{ color: "#0058c3", textDecoration: "none" }}>
+            info@klickifyagency.com
           </a>
         </p>
       </section>
