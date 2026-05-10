@@ -30,7 +30,8 @@ export default function AlternativasSmallpdfGratis() {
           { href: "/blog/smallpdf-alternatives", label: "Smallpdf Alternatives in English" },
           { href: "/compress-pdf", label: "Comprimir PDF Gratis" },
         ]}>
-        <h2>Por Que la Gente Busca Alternativas a Smallpdf</h2>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+      <h2>Por Que la Gente Busca Alternativas a Smallpdf</h2>
         <p>Smallpdf es un producto bien construido. La interfaz es limpia, la calidad del resultado es buena y la seleccion de herramientas es amplia. El problema es el nivel gratuito. Dos tareas PDF cada 24 horas no es una herramienta gratuita — es una demo de producto con temporizador.</p>
         <h2>Alternativa 1: TrulyFreeTools — Sin Limites, Sin Subida de Archivos</h2>
         <p>TrulyFreeTools es la respuesta mas directa a la limitacion principal de Smallpdf. Donde Smallpdf limita a 2 tareas al dia, TrulyFreeTools no tiene ningun limite de tareas. Donde Smallpdf sube tu archivo a sus servidores, TrulyFreeTools procesa todo localmente en tu navegador usando WebAssembly.</p>

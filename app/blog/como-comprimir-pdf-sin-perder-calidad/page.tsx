@@ -105,7 +105,8 @@ export default function ComoComprimirPDFSinPerderCalidad() {
 
         <div className="prose prose-gray max-w-none">
 
-          <h2>Que Hace Grande a un PDF</h2>
+          <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+      <h2>Que Hace Grande a un PDF</h2>
           <p>
             Antes de comprimir un PDF, es util entender que esta ocupando espacio dentro del archivo. Un PDF no es una imagen plana — es un formato de documento estructurado que contiene multiples tipos de datos que contribuyen al tamano del archivo de diferentes maneras.
           </p>

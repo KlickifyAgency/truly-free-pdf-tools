@@ -23,6 +23,7 @@ export default function HowToSplitPDFFree() {
         { href: "/blog/how-to-merge-pdf-free", label: "How to Merge PDF Files Free" },
         { href: "/blog/how-to-remove-pdf-password", label: "How to Remove a PDF Password" },
       ]}>
+      <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
       <h2>What Splitting a PDF Actually Does</h2>
       <p>Splitting a PDF is a structural operation. The tool reads the internal page tree of the PDF, selects the pages you specify, and writes a new PDF containing only those pages. No content is re-encoded during this process. Images retain their original resolution, text retains its vector sharpness, and any interactive elements on the extracted pages are preserved. Quality loss from a split operation is impossible.</p>
       <h2>Method 1: Browser-Based Split — Fastest, No Install, No Upload</h2>

@@ -53,7 +53,8 @@ export default function WhySmallpdfLimitsPage() {
           { href: "/blog/smallpdf-alternatives", label: "Best Smallpdf Alternatives 2026" },
         ]}
       >
-        <h2>The 2-Task Limit Is Not a Technical Constraint</h2>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+      <h2>The 2-Task Limit Is Not a Technical Constraint</h2>
         <p>The most important thing to understand about Smallpdf free tier restrictions is that they are not caused by server costs, file size complexity, or any technical limitation. PDF compression, merging, and splitting are computationally inexpensive operations. The limit exists because Smallpdf is a software business with a freemium model, and the free tier is engineered to frustrate users into upgrading.</p>
         <p>This is not a criticism — it is a standard and legitimate business strategy. Smallpdf raised venture capital and operates at scale. They need revenue. But users deserve to understand that the wall they hit is a product decision, not a platform constraint.</p>
 

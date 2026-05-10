@@ -23,6 +23,7 @@ export default function PDFFileSizeReducerGuide() {
         { href: "/blog/compress-pdf-without-losing-quality", label: "Compress Without Losing Quality" },
         { href: "/blog/pdf-statistics-2026", label: "PDF Statistics 2026" },
       ]}>
+      <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
       <h2>Why PDFs Get Large — The Four Root Causes</h2>
       <p><strong>High-resolution embedded images</strong> are responsible for the majority of large PDFs. A single full-page color photograph at 300 DPI stores approximately 25 to 30 megabytes of uncompressed data. A 10-page document of scanned pages can easily reach 200MB.</p>
       <p><strong>Full embedded font files</strong> are a less obvious but significant source of bloat. A PDF can embed either the complete font file or a subset containing only the characters actually used. Full font embedding adds 200KB to 1MB per font family. A document using 5 typefaces with full embedding carries 1 to 5MB of font data before any content.</p>

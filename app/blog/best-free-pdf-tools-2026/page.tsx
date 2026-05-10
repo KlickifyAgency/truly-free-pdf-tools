@@ -23,6 +23,7 @@ export default function BestFreePDFTools2026Page() {
         { href: "/blog/smallpdf-alternatives", label: "Best Smallpdf Alternatives" },
         { href: "/blog/adobe-acrobat-alternative-free", label: "Free Adobe Acrobat Alternatives" },
       ]}>
+      <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
       <h2>The Problem With Free PDF Tools</h2>
       <p>The free PDF tool market is built on a paradox: the tools most people find when searching for free PDF help are not actually free for more than minimal use. Smallpdf, iLovePDF, and Adobe Acrobat Online all use freemium models where the free tier is calibrated to frustrate rather than serve. PDF manipulation is computationally trivial and can run entirely in a browser without servers, without costs, and therefore without any business reason to impose limits.</p>
       <h2>Smallpdf — 2 Tasks Per Day, Then a Wall</h2>

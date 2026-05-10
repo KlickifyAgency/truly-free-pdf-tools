@@ -23,6 +23,7 @@ export default function PDFStatistics2026Page() {
         { href: "/blog/why-smallpdf-limits-free-users", label: "Why Smallpdf Limits Free Users" },
         { href: "/compress-pdf", label: "Compress PDF Free" },
       ]}>
+      <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
       <h2>PDF Usage Volume — Global Scale</h2>
       <p>The PDF format is one of the most widely used document standards in the world. Adobe reported that over 400 billion PDF files were opened in Adobe products alone in 2022. When accounting for all PDF viewers, browsers, and enterprise systems, total PDF interactions globally are estimated in the trillions annually.</p>
       <p>Daily PDF creation volume is difficult to measure precisely because most PDFs are generated automatically by enterprise systems — invoices, receipts, statements, reports, and contracts — rather than manually by individuals. Conservative estimates suggest 2.5 to 3 trillion PDF documents are generated globally per day when automated generation is included.</p>

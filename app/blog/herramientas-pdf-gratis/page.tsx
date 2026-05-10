@@ -30,7 +30,8 @@ export default function HerramientasPDFGratis() {
           { href: "/blog/alternativas-smallpdf-gratis", label: "Alternativas a Smallpdf Gratis" },
           { href: "/compress-pdf", label: "Comprimir PDF Gratis" },
         ]}>
-        <h2>El Problema con las Herramientas PDF Gratis</h2>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+      <h2>El Problema con las Herramientas PDF Gratis</h2>
         <p>El mercado de herramientas PDF gratuitas se construyo sobre una contradiccion: las herramientas que mas aparecen cuando buscas ayuda con PDFs no son realmente gratuitas para un uso mas que minimo. Las plataformas principales — Smallpdf, iLovePDF, Adobe Acrobat Online — usan modelos freemium donde el nivel gratuito esta disenado para frustrar, no para servir.</p>
         <p>La restriccion es una caracteristica del modelo de negocio, no un error de la tecnologia. La manipulacion de PDFs — comprimir, unir, dividir, convertir — es computacionalmente trivial y puede ejecutarse completamente en un navegador sin servidores, sin costos y sin ninguna razon economica para imponer limites.</p>
         <h2>Smallpdf — 2 Tareas al Dia, Despues un Muro</h2>

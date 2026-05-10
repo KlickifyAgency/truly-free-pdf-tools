@@ -23,6 +23,7 @@ export default function SmallpdfAlternativesPage() {
         { href: "/blog/best-free-pdf-tools-2026", label: "Best Free PDF Tools 2026" },
         { href: "/blog/adobe-acrobat-alternative-free", label: "Free Adobe Acrobat Alternatives" },
       ]}>
+      <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
       <h2>Why People Look for Smallpdf Alternatives</h2>
       <p>Smallpdf is a well-built product. The interface is clean, the output quality is good, and the tool selection is broad. The problem is the free tier. Two PDF tasks every 24 hours is not a free tool — it is a product demo with a timer. For anyone who works with PDFs regularly, that limit creates a recurring, predictable frustration that drives over 40,000 monthly searches for alternatives.</p>
       <h2>Alternative 1: TrulyFreeTools — No Limits, No Upload</h2>

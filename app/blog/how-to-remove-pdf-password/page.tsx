@@ -23,6 +23,7 @@ export default function HowToRemovePDFPassword() {
         { href: "/blog/how-to-split-pdf-free", label: "How to Split a PDF Free" },
         { href: "/blog/best-free-pdf-tools-2026", label: "Best Free PDF Tools 2026" },
       ]}>
+      <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
       <h2>Two Types of PDF Passwords — Understanding the Difference</h2>
       <p>An <strong>open password</strong> — also called a user password — encrypts the PDF file so that it cannot be opened or viewed without entering the correct password. When you try to open a PDF and immediately see a password prompt before any content loads, you are dealing with an open password.</p>
       <p>A <strong>permissions password</strong> — also called an owner password — does not encrypt the PDF content. The file opens and displays normally, but certain actions are restricted: printing may be disabled, text selection and copying may be blocked, editing may be prevented. When a PDF opens but you cannot print or copy text from it, you are dealing with permissions restrictions set by an owner password.</p>

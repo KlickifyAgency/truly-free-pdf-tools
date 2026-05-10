@@ -53,7 +53,8 @@ export default function IlovepdfAlternativePage() {
           { href: "/blog/best-free-pdf-tools-2026", label: "Best Free PDF Tools 2026" },
         ]}
       >
-        <h2>What iLovePDF Free Actually Includes</h2>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+      <h2>What iLovePDF Free Actually Includes</h2>
         <p>iLovePDF positions itself as a free PDF suite, and in many ways it delivers on that promise. The platform offers over 20 PDF tools including compress, merge, split, convert to and from Word, Excel, PowerPoint, JPG, and more. For casual users, the free tier covers a lot of ground.</p>
         <p>However, the free tier comes with meaningful constraints that are not prominently advertised. File size limits apply to most operations — the exact cap varies by tool but typically sits around 100MB per file. Task frequency limits also apply, restricting how many operations you can run per hour. The most frustrating limitation for many users is the watermark issue: iLovePDF applies watermarks to outputs from certain conversion tools on the free tier.</p>
 

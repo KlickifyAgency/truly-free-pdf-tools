@@ -53,7 +53,8 @@ export default function CompressPDFQualityPage() {
           { href: "/blog/why-smallpdf-limits-free-users", label: "Why Smallpdf Limits Free Users" },
         ]}
       >
-        <h2>What Makes a PDF Large in the First Place</h2>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+      <h2>What Makes a PDF Large in the First Place</h2>
         <p>Before compressing a PDF, it helps to understand what is actually taking up space inside the file. A PDF is not a single flat image — it is a structured document format containing multiple types of data that contribute to file size in different ways.</p>
         <p>Embedded images are the dominant cause of large PDFs. When a PDF contains photographs, scanned pages, charts, or illustrations, those images are stored inside the file in their original resolution. A single full-page scan at 300 DPI can occupy 5 to 15 megabytes on its own. A 20-page document of scanned pages can easily reach 200MB before any other content is considered.</p>
         <p>Embedded fonts are another significant contributor. PDFs often embed the full font files used in the document to ensure consistent rendering across devices. A single font family with multiple weights can add several megabytes to the file. Revision history and metadata also accumulate in PDFs that have been edited multiple times, with each save appending new versions rather than replacing old ones.</p>
