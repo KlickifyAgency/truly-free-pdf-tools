@@ -18,7 +18,7 @@ export default function WhySmallpdfLimitsPage() {
     description: "Smallpdf restricts free users to 2 PDF tasks every 24 hours. Learn why they do it, how their paywall works, and which free alternatives have no daily limits.",
     datePublished: "2026-04-27",
     dateModified: "2026-05-05",
-    author: { "@type": "Organization", name: "TrulyFreeTools" },
+    author: { "@type": "Person", name: "George Smith", url: "https://www.linkedin.com/in/george-smith-832113217/" },
     publisher: { "@type": "Organization", name: "TrulyFreeTools", url: "https://trulyfreetools.com" },
     mainEntityOfPage: "https://trulyfreetools.com/blog/why-smallpdf-limits-free-users",
   };

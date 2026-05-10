@@ -18,7 +18,7 @@ export default function CompressPDFQualityPage() {
     description: "Learn how to reduce PDF file size without losing quality. Compare compression methods, understand what causes quality loss, and process files locally in your browser for free.",
     datePublished: "2026-04-27",
     dateModified: "2026-05-05",
-    author: { "@type": "Organization", name: "TrulyFreeTools" },
+    author: { "@type": "Person", name: "George Smith", url: "https://www.linkedin.com/in/george-smith-832113217/" },
     publisher: { "@type": "Organization", name: "TrulyFreeTools", url: "https://trulyfreetools.com" },
     mainEntityOfPage: "https://trulyfreetools.com/blog/compress-pdf-without-losing-quality",
   };

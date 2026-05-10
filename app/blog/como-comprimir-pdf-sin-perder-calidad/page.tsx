@@ -17,7 +17,7 @@ export default function ComoComprimirPDFSinPerderCalidad() {
     description: "Guia completa para comprimir PDFs sin perder calidad en 2026. Explica que causa la perdida de calidad, que tipos de documentos comprimen sin dano visual y como procesarlos localmente.",
     datePublished: "2026-05-05",
     dateModified: "2026-05-05",
-    author: { "@type": "Organization", name: "TrulyFreeTools" },
+    author: { "@type": "Person", name: "George Smith", url: "https://www.linkedin.com/in/george-smith-832113217/" },
     publisher: {
       "@type": "Organization",
       name: "TrulyFreeTools",

@@ -18,7 +18,7 @@ export default function IlovepdfAlternativePage() {
     description: "Looking for an iLovePDF alternative that is truly free? Compare iLovePDF vs browser-based tools with no file size limits, no watermarks, and no server uploads.",
     datePublished: "2026-04-27",
     dateModified: "2026-05-05",
-    author: { "@type": "Organization", name: "TrulyFreeTools" },
+    author: { "@type": "Person", name: "George Smith", url: "https://www.linkedin.com/in/george-smith-832113217/" },
     publisher: { "@type": "Organization", name: "TrulyFreeTools", url: "https://trulyfreetools.com" },
     mainEntityOfPage: "https://trulyfreetools.com/blog/ilovepdf-alternative-free-unlimited",
   };
