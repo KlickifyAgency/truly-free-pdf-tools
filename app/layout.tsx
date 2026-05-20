@@ -38,6 +38,35 @@ const softwareAppSchema = {
   "featureList": "Compress PDF, Merge PDF, Split PDF, PDF to Word, Remove PDF Password"
 }
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "TrulyFree PDF Tools",
+  "url": "https://trulyfreetools.com",
+  "description": "Free PDF tools that process files locally in your browser. No signup, no watermarks, no file uploads."
+}
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Klickify Agency",
+  "url": "https://klickifyagency.com",
+  "founder": {
+    "@type": "Person",
+    "name": "George Smith",
+    "url": "https://www.linkedin.com/in/george-smith-832113217/",
+    "jobTitle": "Founder"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "george@klickifyagency.com",
+    "contactType": "customer support"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/george-smith-832113217/"
+  ]
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -45,6 +74,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
         <script
           async

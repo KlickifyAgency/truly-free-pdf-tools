@@ -21,20 +21,48 @@ export default function AuthorBox() {
         />
       </div>
       <div>
-        <div style={{ fontSize: "10px", fontWeight: 600, letterSpacing: "0.08em", color: "#718096", textTransform: "uppercase", marginBottom: "4px" }}>
+        <div style={{
+          fontSize: "10px",
+          fontWeight: 600,
+          letterSpacing: "0.08em",
+          color: "#718096",
+          textTransform: "uppercase",
+          marginBottom: "4px",
+        }}>
           WRITTEN BY
         </div>
-        <div style={{ fontSize: "16px", fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: "2px" }}>
+        <div style={{
+          fontSize: "16px",
+          fontWeight: 700,
+          color: "#181c1e",
+          letterSpacing: "-0.02em",
+          marginBottom: "6px",
+        }}>
           George Smith
         </div>
-        <div style={{ fontSize: "13px", color: "#0058c3", fontWeight: 600, letterSpacing: "-0.01em", marginBottom: "6px" }}>
-          Founder, Klickify Agency
+        <div style={{
+          fontSize: "13px",
+          color: "#0058c3",
+          fontWeight: 600,
+          marginBottom: "8px",
+          letterSpacing: "-0.01em",
+        }}>
+          Founder, Klickify Agency —{" "}
+          <a
+            href="https://www.linkedin.com/in/george-smith-832113217/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#0058c3", textDecoration: "underline" }}
+          >
+            LinkedIn
+          </a>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "10px" }}>
-          <a href="mailto:george@klickifyagency.com" style={{ fontSize: "12px", color: "#718096", textDecoration: "none", letterSpacing: "-0.01em" }}>george@klickifyagency.com</a>
-          <a href="https://www.linkedin.com/in/george-smith-832113217/" target="_blank" rel="noopener noreferrer" style={{ fontSize: "12px", color: "#0058c3", textDecoration: "none", fontWeight: 600, letterSpacing: "-0.01em" }}>LinkedIn</a>
-        </div>
-        <div style={{ fontSize: "14px", color: "#4a5568", lineHeight: "1.6", letterSpacing: "-0.01em" }}>
+        <div style={{
+          fontSize: "14px",
+          color: "#4a5568",
+          lineHeight: "1.6",
+          letterSpacing: "-0.01em",
+        }}>
           George builds free web tools that respect user privacy. Creator of TrulyFreeTools.com — PDF utilities that process files locally in your browser, with no uploads, no accounts, and no paywalls.
         </div>
       </div>

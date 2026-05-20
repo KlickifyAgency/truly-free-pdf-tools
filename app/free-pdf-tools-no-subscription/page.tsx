@@ -111,6 +111,16 @@ export default function Page() {
           </div>
         </div>
 
+        {/* prose_block_inserted */}
+        <div style={{ marginBottom: 48 }}>
+          <h2 style={{ fontSize: 20, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: 16 }}>
+            Why PDF tools became subscription products — and why they do not have to be
+          </h2>
+            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>Smallpdf launched as a free tool in 2013. By 2019, it had introduced a paywall limiting free users to two daily operations. iLovePDF followed a similar trajectory. Adobe Acrobat Online requires a subscription for any feature beyond basic viewing. The pattern is consistent: build user habit with free access, then monetize through subscription after achieving scale.</p>
+            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>TrulyFreeTools is built on a different model. All PDF processing runs in your browser using WebAssembly — there is no server infrastructure to operate, no per-request compute cost, and no bandwidth cost for processing files. Without those costs, there is no economic pressure to implement a paywall.</p>
+            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>The site is monetized through non-intrusive advertising. That revenue covers domain and CDN costs. The tools themselves are permanently free. Not free for a trial period. Not free with a daily limit. Free.</p>
+        </div>
+
         <div style={{ marginBottom: 48 }}>
           <h2 style={{ fontSize: 20, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: 24 }}>
             Frequently Asked Questions

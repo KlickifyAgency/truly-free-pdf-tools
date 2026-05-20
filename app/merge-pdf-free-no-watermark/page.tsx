@@ -111,6 +111,16 @@ export default function Page() {
           </div>
         </div>
 
+        {/* prose_block_inserted */}
+        <div style={{ marginBottom: 48 }}>
+          <h2 style={{ fontSize: 20, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: 16 }}>
+            Why merged PDFs from free tools often have watermarks
+          </h2>
+            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>Watermarks on merged PDFs are a conversion mechanism: they remind you that the free version is degraded and push you toward a paid subscription. Smallpdf adds a small logo watermark to PDFs processed by free accounts. iLovePDF has used similar tactics. The watermark is not technically necessary — it is a business decision.</p>
+            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>TrulyFreeTools does not add watermarks for one reason: merging runs locally in your browser and there is no server step where a watermark could be injected. The merged PDF you download is processed by pdf-lib running in WebAssembly on your device. The output is byte-for-byte identical to what a paid tool would produce.</p>
+            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>No account required. No daily limit. No watermark. The merged file is yours.</p>
+        </div>
+
         <div style={{ marginBottom: 48 }}>
           <h2 style={{ fontSize: 20, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: 24 }}>
             Frequently Asked Questions

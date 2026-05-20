@@ -141,18 +141,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer style={{ background: "#f7fafc", padding: "32px 24px", textAlign: "center" }}>
-        <p style={{ color: "#718096", fontSize: 12 }}>
-          TrulyFree PDF Tools — Part of the{" "}
-          <span style={{ color: "#0058c3", fontWeight: 600 }}>Truly Free</span>{" "}
-          ecosystem. Built by{" "}
-          <a href="https://klickifyagency.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#0058c3", fontWeight: 600, textDecoration: "none" }}>
-            Klickify Agency
-          </a>
-          .
-        </p>
-      </footer>
-
     </main>
   );
 }

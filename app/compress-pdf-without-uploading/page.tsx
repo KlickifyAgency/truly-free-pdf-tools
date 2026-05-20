@@ -111,6 +111,16 @@ export default function Page() {
           </div>
         </div>
 
+        {/* prose_block_inserted */}
+        <div style={{ marginBottom: 48 }}>
+          <h2 style={{ fontSize: 20, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: 16 }}>
+            Why compressing without uploading matters
+          </h2>
+            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>When you compress a PDF using a server-based tool, your file travels to a remote machine, gets processed there, and returns to you. That workflow has two problems: it requires a functional internet connection for a task that does not need one, and it means a copy of your document exists — however briefly — on infrastructure you do not control.</p>
+            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>For most documents, that trade-off is acceptable. For contracts, medical records, tax documents, legal filings, or anything containing personally identifiable information, it is not.</p>
+            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>TrulyFreeTools compresses PDFs using WebAssembly — a binary instruction format that runs compiled C and C++ code at near-native speed inside your browser tab. The same pdf-lib library used in production server environments runs locally, processing your file in memory without a single network request for the file content. Your document never leaves your device.</p>
+        </div>
+
         <div style={{ marginBottom: 48 }}>
           <h2 style={{ fontSize: 20, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: 24 }}>
             Frequently Asked Questions

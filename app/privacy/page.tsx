@@ -13,7 +13,7 @@ const sections = [
   },
   {
     title: "Data We Collect",
-    body: "We collect standard anonymous usage analytics through Google Analytics: page views, session duration, and device/browser type. No personally identifiable information is collected. We do not collect names, email addresses, file contents, or behavioral profiles.",
+    body: "We do not use third-party analytics services. No personally identifiable information is collected. We do not collect names, email addresses, file contents, or behavioral profiles. The only data processing on this site occurs locally in your browser.",
   },
   {
     title: "Advertising",
@@ -25,11 +25,11 @@ const sections = [
   },
   {
     title: "Third-Party Services",
-    body: "We use Google Analytics for traffic measurement and Google AdSense for advertising. Both are governed by Google\'s Privacy Policy at policies.google.com. No other third-party data processors receive information about your usage of this site.",
+    body: "We use Google AdSense for advertising, governed by Google's Privacy Policy at policies.google.com. No other third-party data processors receive information about your usage of this site.",
   },
   {
     title: "Data Retention",
-    body: "Because files are processed locally, there is no file data to retain. Analytics data is retained by Google Analytics according to their standard 26-month retention policy. We do not maintain our own user database.",
+    body: "Because files are processed locally, there is no file data to retain. We do not maintain a user database. Advertising cookies managed by Google AdSense follow Google's standard retention policies.",
   },
   {
     title: "Your Rights",
@@ -37,7 +37,7 @@ const sections = [
   },
   {
     title: "Contact",
-    body: "Questions about this policy can be directed to privacy@trulyfreetools.com. We will respond within 5 business days.",
+    body: "Questions about this policy can be directed to george@klickifyagency.com. We will respond within 5 business days.",
   },
 ]
 

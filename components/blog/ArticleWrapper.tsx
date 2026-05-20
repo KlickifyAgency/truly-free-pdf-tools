@@ -97,7 +97,7 @@ export default function ArticleWrapper({
             <span style={{ color: "rgba(255,255,255,0.3)" }}>·</span>
             <span style={{ fontSize: 13, color: "rgba(255,255,255,0.6)" }}>{readTime}</span>
             <span style={{ color: "rgba(255,255,255,0.3)" }}>·</span>
-            <span style={{ fontSize: 13, color: "rgba(255,255,255,0.6)" }}>TrulyFreeTools Editorial</span>
+            <span style={{ fontSize: 13, color: "rgba(255,255,255,0.6)" }}>by George Smith</span>
           </div>
         </div>
       </div>

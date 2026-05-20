@@ -111,6 +111,16 @@ export default function Page() {
           </div>
         </div>
 
+        {/* prose_block_inserted */}
+        <div style={{ marginBottom: 48 }}>
+          <h2 style={{ fontSize: 20, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: 16 }}>
+            Large PDF compression without server-side file size caps
+          </h2>
+            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>Most free PDF compression tools enforce file size limits — typically 20MB to 50MB — because they process files on their own servers and large files consume server memory and bandwidth. Smallpdf's free tier limits uploads to 5MB. iLovePDF allows up to 100MB but restricts to two operations per day.</p>
+            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>TrulyFreeTools imposes no server-side file size limit because your file never reaches our servers. Compression runs in your browser using WebAssembly. The practical limit is your device memory — a modern desktop with 8GB RAM handles PDF files hundreds of megabytes in size without issue.</p>
+            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>For very large files — scanned document archives, high-resolution design portfolios, merged multi-hundred-page reports — use Chrome or Edge on a desktop for best performance. Mobile browsers have more constrained memory and may struggle with files above 100MB.</p>
+        </div>
+
         <div style={{ marginBottom: 48 }}>
           <h2 style={{ fontSize: 20, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: 24 }}>
             Frequently Asked Questions

@@ -111,6 +111,16 @@ export default function Page() {
           </div>
         </div>
 
+        {/* prose_block_inserted */}
+        <div style={{ marginBottom: 48 }}>
+          <h2 style={{ fontSize: 20, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: 16 }}>
+            Why password removal requires no subscription
+          </h2>
+            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>PDF password removal is a single cryptographic operation: apply the known decryption key to an encrypted file and write the decrypted output without the encryption layer. When you know the password, this operation requires minimal processing power and takes under one second for most files.</p>
+            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>Some tools charge for this operation because they process it server-side and use the subscription requirement to monetize infrastructure costs. TrulyFreeTools processes decryption entirely in your browser using WebAssembly — there is no server, no infrastructure cost, and therefore no economic justification for a subscription.</p>
+            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>More importantly, processing decryption locally means the password you type never leaves your device. Server-based password removal tools receive both your file and your password over the network. With local processing, neither is transmitted.</p>
+        </div>
+
         <div style={{ marginBottom: 48 }}>
           <h2 style={{ fontSize: 20, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: 24 }}>
             Frequently Asked Questions

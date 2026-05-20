@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://trulyfreetools.com";
-  const now = new Date("2026-05-05");
+  const now = new Date();
 
   const staticPages = [
     { url: base, priority: 1.0 },

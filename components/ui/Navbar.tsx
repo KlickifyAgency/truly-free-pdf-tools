@@ -10,6 +10,7 @@ const navLinks = [
   { href: "/pdf-to-word", label: "PDF to Word" },
   { href: "/remove-pdf-password", label: "Unlock" },
   { href: "/blog", label: "Blog" },
+  { href: "/about", label: "About" },
 ];
 
 export default function Navbar() {

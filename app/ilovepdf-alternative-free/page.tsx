@@ -111,6 +111,16 @@ export default function Page() {
           </div>
         </div>
 
+        {/* prose_block_inserted */}
+        <div style={{ marginBottom: 48 }}>
+          <h2 style={{ fontSize: 20, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: 16 }}>
+            What iLovePDF's free tier actually gives you
+          </h2>
+            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>iLovePDF's free tier allows two PDF operations per day. Beyond that, you hit a paywall requiring a subscription starting at $96 per year. The two-task limit resets every 24 hours based on your IP address — creating an artificial scarcity for something that costs iLovePDF essentially nothing per operation.</p>
+            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>Additionally, iLovePDF processes files on its servers. Your document is uploaded to their infrastructure, processed, stored temporarily, and returned. For a contract negotiation, a medical record, or a financial statement, that upload represents a genuine privacy consideration — not a hypothetical one.</p>
+            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>TrulyFreeTools provides compress, merge, split, PDF to Word, and remove password operations with no daily limits, no subscription requirement, and no file upload. Your documents are processed entirely in your browser.</p>
+        </div>
+
         <div style={{ marginBottom: 48 }}>
           <h2 style={{ fontSize: 20, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: 24 }}>
             Frequently Asked Questions
