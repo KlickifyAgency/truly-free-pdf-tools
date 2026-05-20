@@ -90,6 +90,20 @@ Submeter estas que quedaron pendientes:
 
 ---
 
+## GSC STATUS (Mayo 20, 2026)
+
+- trulyfreetools.com confirmada como propiedad GSC
+- Solo 10 páginas con impresiones (total ~15 impresiones, 0 clicks)
+- Blog posts aún no indexados — quota hit de sesión anterior
+- El sitio tiene ~3-4 semanas de vida, tráfico orgánico mínimo esperado
+- OAuth credentials del .claude_env.sh funcionan con quota_project_id=rankandrent-clean-2026
+
+## COMMIT DEPLOY
+
+- Commit: 4a7268e
+- 28 files changed, 1255 insertions, 345 deletions
+- Pushed to main → Vercel auto-deploy en curso
+
 ## PRÓXIMA SESIÓN
 - Monitorear respuesta AdSense ~May 25
 - Si aprobado: flip ADSENSE_ENABLED = true en components/ads/AdSlot.tsx
