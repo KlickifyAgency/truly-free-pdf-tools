@@ -20,7 +20,7 @@ export default function FeedbackForm() {
   const handleSubmit = () => {
     if (!rating) return
     const body = encodeURIComponent(`Tool: ${tool}\nRating: ${rating}/5\n\nComment:\n${comment}`)
-    const mailto = `mailto:george@klickifyagency.com?subject=${encodeURIComponent(`Feedback: ${tool} — ${rating}/5`)}&body=${body}`
+    const mailto = `mailto:info@klickifyagency.com?subject=${encodeURIComponent(`Feedback: ${tool} — ${rating}/5`)}&body=${body}`
     window.location.href = mailto
     setSubmitted(true)
   }

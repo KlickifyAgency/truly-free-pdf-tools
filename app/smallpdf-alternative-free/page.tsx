@@ -22,7 +22,7 @@ const faqSchema = {
     "name": "What is the main difference between this and Smallpdf?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Smallpdf limits free users to 2 tasks per day and charges $144/year for unlimited access. TrulyFree PDF Tools is unlimited and free forever."
+      "text": "Smallpdf limits free users to 2 tasks per day and charges $144/year for unlimited access. TrulyFree PDF Tools is unlimited and free forever. No daily limit, no subscription, no watermark."
     }
   },
   {
@@ -30,7 +30,7 @@ const faqSchema = {
     "name": "Does this alternative have the same tools as Smallpdf?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Yes. Compress, Merge, Split, PDF to Word, and Remove Password \u2014 the core toolkit that covers 95% of everyday PDF needs."
+      "text": "Yes. Compress, Merge, Split, PDF to Word, and Remove Password — the core toolkit that covers 95% of everyday PDF needs, all free with no daily cap."
     }
   },
   {
@@ -38,7 +38,7 @@ const faqSchema = {
     "name": "Does this tool upload my files like Smallpdf does?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "No. Unlike Smallpdf which processes files on their servers, TrulyFree PDF Tools runs entirely in your browser. Your files never leave your device."
+      "text": "No. Unlike Smallpdf which processes files on their servers, TrulyFree PDF Tools runs entirely in your browser using WebAssembly. Your files never leave your device."
     }
   },
   {
@@ -46,7 +46,23 @@ const faqSchema = {
     "name": "Is there a catch?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "No catch. We are funded by non-intrusive ads. No subscription, no data selling, no watermarks, no daily caps."
+      "text": "No catch. We are funded by non-intrusive display advertising. No subscription, no data selling, no watermarks, no daily caps."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Why did Smallpdf add a paywall to its free tier?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Smallpdf launched free in 2013 and introduced subscription pricing around 2019 after achieving scale. Server-side processing has real infrastructure costs — bandwidth, compute, storage — which create economic pressure to monetize. TrulyFree PDF Tools avoids this by processing files locally in your browser, eliminating server costs entirely."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Can I use this Smallpdf alternative on mobile?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. All tools work on modern mobile browsers (Chrome, Safari, Firefox). For large files above 50MB, desktop is recommended due to mobile browser memory constraints."
     }
   }
 ]
@@ -111,6 +127,16 @@ export default function Page() {
           </div>
         </div>
 
+        {/* prose_block_inserted */}
+        <div style={{ marginBottom: 48 }}>
+          <h2 style={{ fontSize: 20, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: 16 }}>
+            Why Smallpdf added a paywall — and why we never will
+          </h2>
+          <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>Smallpdf launched as a completely free tool in 2013. By 2019 it had introduced subscription pricing, limiting free users to two PDF operations per day. That trajectory is not unique: iLovePDF, Adobe Acrobat Online, and most PDF tools follow the same pattern — build habit with free access, then monetize after achieving scale. The result is a market where "free" almost always means "free with friction."</p>
+          <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>The reason server-based PDF tools convert to subscriptions is straightforward: server infrastructure has real costs. Every file you upload consumes bandwidth and compute. At scale, those costs require revenue. Smallpdf's $144/year subscription exists because their business model depends on server resources. TrulyFree PDF Tools does not have that constraint — all processing runs in your browser using WebAssembly, a compiled binary format that executes at near-native speed without any server round-trip.</p>
+          <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>The privacy implication is equally significant. When you upload a contract, a tax return, or a medical record to Smallpdf, a copy of that document exists on their servers — however briefly. TrulyFree PDF Tools never receives your file. It is processed in browser memory on your device and discarded when you close the tab. No server. No copy. No retention policy to read carefully.</p>
+        </div>
+
         <div style={{ marginBottom: 48 }}>
           <h2 style={{ fontSize: 20, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: 24 }}>
             Frequently Asked Questions
@@ -131,7 +157,15 @@ export default function Page() {
             </div>
             <div style={{ background: "#ffffff", borderRadius: 8, padding: "20px 24px", boxShadow: "0px 8px 24px rgba(24,28,30,0.06)" }}>
               <p style={{ color: "#181c1e", fontWeight: 700, fontSize: 14, marginBottom: 8 }}>Is there a catch?</p>
-              <p style={{ color: "#4a5568", fontSize: 14, lineHeight: 1.6 }}>No catch. We are funded by non-intrusive ads. No subscription, no data selling, no watermarks, no daily caps.</p>
+              <p style={{ color: "#4a5568", fontSize: 14, lineHeight: 1.6 }}>No catch. We are funded by non-intrusive display advertising. No subscription, no data selling, no watermarks, no daily caps.</p>
+            </div>
+            <div style={{ background: "#ffffff", borderRadius: 8, padding: "20px 24px", boxShadow: "0px 8px 24px rgba(24,28,30,0.06)" }}>
+              <p style={{ color: "#181c1e", fontWeight: 700, fontSize: 14, marginBottom: 8 }}>Why did Smallpdf add a paywall to its free tier?</p>
+              <p style={{ color: "#4a5568", fontSize: 14, lineHeight: 1.6 }}>Server-side processing has real infrastructure costs at scale. Smallpdf built a subscription business to monetize those costs. TrulyFree PDF Tools processes files locally in your browser — no server, no per-request cost, no economic pressure to paywall.</p>
+            </div>
+            <div style={{ background: "#ffffff", borderRadius: 8, padding: "20px 24px", boxShadow: "0px 8px 24px rgba(24,28,30,0.06)" }}>
+              <p style={{ color: "#181c1e", fontWeight: 700, fontSize: 14, marginBottom: 8 }}>Can I use this Smallpdf alternative on mobile?</p>
+              <p style={{ color: "#4a5568", fontSize: 14, lineHeight: 1.6 }}>Yes. All tools work on modern mobile browsers. For files above 50MB, desktop is recommended due to mobile browser memory constraints.</p>
             </div>
           </div>
         </div>

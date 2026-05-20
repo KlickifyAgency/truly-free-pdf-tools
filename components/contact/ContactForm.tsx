@@ -44,7 +44,7 @@ export default function ContactForm() {
     }
     setError("")
     const body = encodeURIComponent(`Name: ${name}\n\nSubject: ${subject}\n\nMessage:\n${message}`)
-    const mailto = `mailto:george@klickifyagency.com?subject=${encodeURIComponent(`[${subject}] ${name}`)}&body=${body}`
+    const mailto = `mailto:info@klickifyagency.com?subject=${encodeURIComponent(`[${subject}] ${name}`)}&body=${body}`
     window.location.href = mailto
   }
 
@@ -125,8 +125,8 @@ export default function ContactForm() {
 
       <p style={{ fontSize: 13, color: "#718096", letterSpacing: "-0.02em", marginTop: 20, textAlign: "center" }}>
         Or email us directly at{" "}
-        <a href="mailto:george@klickifyagency.com" style={{ color: "#0058c3", textDecoration: "none" }}>
-          george@klickifyagency.com
+        <a href="mailto:info@klickifyagency.com" style={{ color: "#0058c3", textDecoration: "none" }}>
+          info@klickifyagency.com
         </a>
       </p>
     </>

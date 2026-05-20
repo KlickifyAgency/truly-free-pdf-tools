@@ -26,7 +26,7 @@ export default function AboutPage() {
               <div style={{ fontSize: "22px", fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: "4px" }}>George Smith</div>
               <div style={{ fontSize: "14px", color: "#0058c3", fontWeight: 600, letterSpacing: "-0.01em", marginBottom: "8px" }}>Founder, Klickify Agency</div>
               <div style={{ display: "flex", gap: "16px" }}>
-                <a href="mailto:george@klickifyagency.com" style={{ fontSize: "13px", color: "#718096", textDecoration: "none", letterSpacing: "-0.01em" }}>george@klickifyagency.com</a>
+                <a href="mailto:info@klickifyagency.com" style={{ fontSize: "13px", color: "#718096", textDecoration: "none", letterSpacing: "-0.01em" }}>info@klickifyagency.com</a>
                 <a href="https://www.linkedin.com/in/george-smith-832113217/" target="_blank" rel="noopener noreferrer" style={{ fontSize: "13px", color: "#0058c3", fontWeight: 600, textDecoration: "none", letterSpacing: "-0.01em" }}>LinkedIn</a>
               </div>
             </div>
@@ -61,7 +61,7 @@ export default function AboutPage() {
         <div style={{ background: "#fff", borderRadius: "8px", padding: "40px", boxShadow: "0px 8px 24px rgba(24,28,30,0.06)" }}>
           <div style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.08em", color: "#718096", textTransform: "uppercase", marginBottom: "20px" }}>CONTACT</div>
           <p style={{ fontSize: "15px", color: "#4a5568", lineHeight: "1.7", letterSpacing: "-0.01em", marginTop: 0 }}>For questions, feedback, or partnership inquiries:</p>
-          <a href="mailto:george@klickifyagency.com" style={{ color: "#0058c3", fontWeight: 600, textDecoration: "none", fontSize: "16px" }}>george@klickifyagency.com</a>
+          <a href="mailto:info@klickifyagency.com" style={{ color: "#0058c3", fontWeight: 600, textDecoration: "none", fontSize: "16px" }}>info@klickifyagency.com</a>
         </div>
 
       </div>

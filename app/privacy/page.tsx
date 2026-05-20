@@ -37,7 +37,7 @@ const sections = [
   },
   {
     title: "Contact",
-    body: "Questions about this policy can be directed to george@klickifyagency.com. We will respond within 5 business days.",
+    body: "Questions about this policy can be directed to info@klickifyagency.com. We will respond within 5 business days.",
   },
 ]
 

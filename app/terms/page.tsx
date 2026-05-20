@@ -41,7 +41,7 @@ const sections = [
   },
   {
     title: "Contact",
-    body: "Questions about these terms can be directed to george@klickifyagency.com.",
+    body: "Questions about these terms can be directed to info@klickifyagency.com.",
   },
 ]
 

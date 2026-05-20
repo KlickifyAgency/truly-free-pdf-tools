@@ -59,7 +59,7 @@ const organizationSchema = {
   },
   "contactPoint": {
     "@type": "ContactPoint",
-    "email": "george@klickifyagency.com",
+    "email": "info@klickifyagency.com",
     "contactType": "customer support"
   },
   "sameAs": [
