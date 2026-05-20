@@ -47,7 +47,7 @@ const faqSchema = {
     {
       "@type": "Question",
       "name": "Does the tool upload my PDF to a server?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. Conversion runs entirely in your browser using JavaScript and WebAssembly. Your PDF is read into local memory and the Word document is generated locally. No file is transmitted to any server at any point." }
+      "acceptedAnswer": { "@type": "Answer", "text": "No — and this is the whole point. The conversion runs directly in your browser, using JavaScript and WebAssembly to extract the content and build the .docx file locally. Your PDF never goes anywhere. The Word document is generated on your machine and downloaded from there." }
     },
     {
       "@type": "Question",
@@ -104,8 +104,8 @@ export default function PDFToWordPage() {
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
               {[
                 ["Verify your PDF is text-based", "Open the PDF in any viewer and try to select text with your cursor. If text highlights, the PDF is text-based and will convert successfully. If nothing selects, it is a scanned document and requires OCR software."],
-                ["Upload your PDF", "Click the upload area or drag the PDF onto it. The file is read into local browser memory. No data is transmitted to any server."],
-                ["Click Convert to Word", "The tool extracts text content, paragraph structure, and basic formatting from the PDF and builds a .docx file. Processing happens entirely in your browser using WebAssembly."],
+                ["Upload your PDF", "Click the upload area or drag the PDF onto it. The file is read into your browser's local memory — nothing leaves your device at this step or any step."],
+                ["Click Convert to Word", "The tool extracts text content, paragraph structure, and basic formatting from the PDF and builds a .docx file. Everything runs locally in your browser. No internet connection required after the page loads."],
                 ["Download the .docx file", "Download the Word document and open it in Microsoft Word, Google Docs, LibreOffice, or any .docx-compatible editor. Review and adjust formatting as needed."],
               ].map(([title, body], i) => (
                 <div key={i} style={{ display: "flex", gap: 20, background: "#ffffff", borderRadius: 8, padding: "20px 24px", boxShadow: "0px 4px 12px rgba(24,28,30,0.05)" }}>
@@ -141,7 +141,7 @@ export default function PDFToWordPage() {
                 ["Can I convert a scanned PDF to Word?", "No. Scanned PDFs are images of pages with no text data. This tool works with text-based PDFs. If you cannot select text in your PDF viewer, the document is scanned and requires OCR software."],
                 ["What is the difference between text-based and scanned PDFs?", "Text-based PDFs store actual characters you can select and copy. Scanned PDFs are photographs of printed pages stored as images. If text highlights when you click it in a PDF viewer, the document is text-based."],
                 ["Is the tool free forever?", "Yes. No daily limits, no file restrictions, no watermarks, no signup. Supported by non-intrusive advertising."],
-                ["Does the tool upload my PDF?", "No. Conversion runs entirely in your browser. Your PDF is loaded into local memory and the Word document is generated locally. No file is transmitted to any server."],
+                ["Does the tool upload my PDF?", "No server involved at all. Your PDF loads into browser memory, the conversion happens there, and the .docx downloads to your device. You could turn off WiFi after the page loads and it'd still work."],
                 ["What format does the output use?", ".docx — compatible with Microsoft Word, Google Docs, LibreOffice, and Apple Pages. No special software required."],
               ].map(([q, a], i) => (
                 <div key={i} style={{ background: "#ffffff", borderRadius: 8, padding: "20px 24px", boxShadow: "0px 4px 12px rgba(24,28,30,0.05)" }}>

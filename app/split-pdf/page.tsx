@@ -118,10 +118,10 @@ export default function SplitPDFPage() {
               Split PDFs without uploading to any server
             </h2>
             <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 12 }}>
-              Most PDF splitting tools send your document to a cloud server for processing. For legal documents, medical records, and financial statements, that is not an acceptable tradeoff. Your files should never leave your device.
+              Most PDF splitters work like this: your file goes up to a cloud server, gets cut apart there, and the pieces come back down to you. You've probably never stopped to think about that — most people don't. But if you're splitting a legal agreement, a medical record, or anything with private information, that upload matters.
             </p>
             <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", margin: 0 }}>
-              TrulyFreeTools splits PDFs using pdf-lib running as a WebAssembly module in your browser. The file is read into local memory, processed there, and downloaded directly. At no point does any byte of your document leave your device.
+              TrulyFreeTools does the splitting directly in your browser using WebAssembly. The file loads into local memory, gets cut there, and downloads to your device. It never hits a server. Not even for a second.
             </p>
           </div>
 

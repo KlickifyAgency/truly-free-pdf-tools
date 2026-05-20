@@ -116,9 +116,9 @@ export default function Page() {
           <h2 style={{ fontSize: 20, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: 16 }}>
             Why PDF to Word tools ask for your email
           </h2>
-            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>Email collection during PDF to Word conversion serves a specific business function: building a lead list for upsell sequences. After you convert your first file, you receive emails promoting premium subscriptions, premium features, or partner services. The email is not needed for the conversion — it is the price of using a tool that is otherwise 'free'.</p>
+            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>When a tool asks for your email before letting you convert a file, that email isn't for your benefit. It goes into a marketing sequence. After you convert your first file, you receive emails promoting premium subscriptions, premium features, or partner services. They don't need your email to run the conversion. They want it to sell to you later.</p>
             <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>TrulyFreeTools does not collect email addresses because conversion runs entirely in your browser. There is no server to send an email to even if we wanted one. The converted .docx file is generated locally from the PDF content using JavaScript running in WebAssembly, then downloaded directly to your device.</p>
-            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>No email. No account. No follow-up sequence. Convert your PDF and move on.</p>
+            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>No email required. No account. No follow-up from us. Convert your file and go.</p>
         </div>
 
         <div style={{ marginBottom: 48 }}>

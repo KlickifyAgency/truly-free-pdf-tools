@@ -116,9 +116,9 @@ export default function Page() {
           <h2 style={{ fontSize: 20, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: 16 }}>
             Why PDF splitters require accounts — and why this one does not
           </h2>
-            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>Account requirements for PDF splitting serve two purposes for the services that impose them: they create identifiable user records for marketing, and they allow enforcement of usage limits tied to user identity rather than IP address. Smallpdf's free tier limits are enforced by account — creating an account to split one PDF is the entry point to their user acquisition funnel.</p>
-            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>TrulyFreeTools does not require an account because splitting runs locally in your browser. There is nothing to track, no usage to meter, and no reason to identify you. The split PDF is generated in browser memory and downloaded directly. No account, no session, no profile.</p>
-            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>You can split PDFs as often as you need, in as many sessions as you want, across as many devices as you use — without creating or logging into anything.</p>
+            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>Tools that require accounts want two things: a marketing profile on you, and a way to enforce usage limits that's harder to bypass than blocking by IP. Smallpdf ties its limits to your account. Making you register isn't about security — it's about getting you into their marketing funnel.</p>
+            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>TrulyFreeTools does not require an account because splitting runs locally in your browser. There's nothing to track, no usage to meter, no reason to know who you are. The split PDF is generated in browser memory and downloaded directly. No account, no session, no profile.</p>
+            <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 16 }}>Split as many PDFs as you want, across as many devices as you use, as many times as you need — without ever creating an account or logging into anything.</p>
         </div>
 
         <div style={{ marginBottom: 48 }}>

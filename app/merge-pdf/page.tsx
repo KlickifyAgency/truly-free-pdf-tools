@@ -121,7 +121,7 @@ export default function MergePDFPage() {
               Smallpdf and iLovePDF both restrict free users to 2 merge operations per day and add watermarks to output unless you pay. TrulyFreeTools imposes no daily caps and adds no watermarks — the merged PDF you download is identical to what you would receive from a paid tool.
             </p>
             <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", margin: 0 }}>
-              All processing uses pdf-lib running in WebAssembly inside your browser. Your files travel no further than your own device. Merging a set of confidential contracts or financial reports is as private as opening them in a desktop application.
+              All processing runs inside your browser tab using WebAssembly — your files never travel anywhere. Think of it like a desktop application that lives in a browser window. You could turn off your internet connection after the page loads and it would still work. That's how local the processing is.
             </p>
           </div>
 

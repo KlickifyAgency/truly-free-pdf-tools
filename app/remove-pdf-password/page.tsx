@@ -52,7 +52,7 @@ const faqSchema = {
     {
       "@type": "Question",
       "name": "Is it safe to upload a password-protected document?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Your document never leaves your device. The PDF is loaded into browser memory locally, the password is used to decrypt the file locally using WebAssembly, and the unlocked file is downloaded locally. No password or file content is transmitted to any server." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Your document never leaves your device — and your password never leaves your device either. Both the file and the credential stay in browser memory. The decryption happens locally using WebAssembly, and the unlocked file downloads straight to you. Nothing gets transmitted anywhere." }
     },
   ]
 }
@@ -97,9 +97,9 @@ export default function RemovePDFPasswordPage() {
             </h2>
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
               {[
-                ["Upload your password-protected PDF", "Click the upload area or drag the PDF onto it. The encrypted file is read into local browser memory. Nothing is transmitted to any server."],
+                ["Upload your password-protected PDF", "Click the upload area or drag the PDF onto it. The encrypted file is read into your browser's local memory. Nothing goes anywhere — not the file, not the password."],
                 ["Enter the password", "Type the password you use to open the PDF. The tool uses this password locally to decrypt the file — the password itself is never sent anywhere."],
-                ["Click Remove Password", "The tool decrypts the PDF using WebAssembly, removes the encryption layer, and prepares the unlocked file. All page content remains identical."],
+                ["Click Remove Password", "The tool decrypts the PDF using WebAssembly, strips the encryption layer, and the unlocked file is ready. The content itself is untouched — same pages, same formatting, just no password required to open it."],
                 ["Download the unlocked PDF", "The output PDF opens without a password in any viewer. Store it securely — it no longer has access restrictions."],
               ].map(([title, body], i) => (
                 <div key={i} style={{ display: "flex", gap: 20, background: "#ffffff", borderRadius: 8, padding: "20px 24px", boxShadow: "0px 4px 12px rgba(24,28,30,0.05)" }}>
@@ -118,10 +118,10 @@ export default function RemovePDFPasswordPage() {
               Your password never leaves your device
             </h2>
             <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 12 }}>
-              Removing a PDF password is a particularly sensitive operation. You are typing a credential into a web interface, and that credential should go no further than your screen. Tools that process password removal on their servers receive both your file and your password.
+              Think about what you're actually doing when you type a password into a web tool: you're sending a credential to someone else's server. Most password-removal tools work exactly that way — your file goes up, your password goes with it, and you're trusting their infrastructure and their team with both. That's a lot of trust for a basic file operation.
             </p>
             <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", margin: 0 }}>
-              TrulyFreeTools performs decryption entirely in your browser using WebAssembly. The password you enter is used locally to decrypt the file locally. No password, no file content, and no metadata is transmitted to any server. Once you close the tab, nothing is retained.
+              TrulyFreeTools decrypts the PDF directly in your browser. The password you type stays on your screen — it's used locally by the WebAssembly module to unlock the file, and it never goes anywhere else. No password transmitted. No file transmitted. When you close the tab, it's all gone.
             </p>
           </div>
 
@@ -136,7 +136,7 @@ export default function RemovePDFPasswordPage() {
                 ["Is it legal to remove a PDF password?", "Removing a password from a document you own or are authorized to edit is legal. Only use this tool on documents you own or have explicit permission to modify."],
                 ["Why does the tool say my PDF has no password?", "Some PDFs have editing restrictions with no visible password. If the tool reports no password found, the PDF may already be viewable without a password even if restricted in some apps."],
                 ["Does removing the password change the content?", "No. Only the encryption layer is removed. All text, images, layout, bookmarks, and links remain identical to the original."],
-                ["Is it safe to process a confidential document?", "Yes. Your file and password are processed entirely in browser memory. Nothing is transmitted to any server. When you close the tab, all data is discarded."],
+                ["Is it safe to process a confidential document?", "Yes — more so than with most tools, actually. Your file and your password both stay in browser memory. Neither is transmitted to any server. Close the tab and both are gone. It's the safest way to handle password removal short of using a local desktop application."],
               ].map(([q, a], i) => (
                 <div key={i} style={{ background: "#ffffff", borderRadius: 8, padding: "20px 24px", boxShadow: "0px 4px 12px rgba(24,28,30,0.05)" }}>
                   <p style={{ fontSize: 15, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: 8 }}>{q}</p>
