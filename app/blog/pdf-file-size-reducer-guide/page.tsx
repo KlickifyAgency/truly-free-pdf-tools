@@ -1,63 +1,90 @@
 import type { Metadata } from "next";
 import ArticleWrapper from "../../../components/blog/ArticleWrapper";
 import AuthorBox from "@/components/blog/AuthorBox";
-export const metadata: Metadata = { title: "How to Reduce PDF File Size Free — Complete 2026 Guide", description: "The complete guide to reducing PDF file size in 2026. Covers every method from browser-based compression to source-level fixes, with expected results by document type.", alternates: { canonical: "https://trulyfreetools.com/blog/pdf-file-size-reducer-guide" } };
-export default function PDFFileSizeReducerGuide() {
-  const s = { "@context": "https://schema.org", "@type": "Article", headline: "How to Reduce PDF File Size Free — Complete 2026 Guide", datePublished: "2026-05-05", dateModified: "2026-05-05", author: { "@type": "Person", name: "George Smith", url: "https://www.linkedin.com/in/george-smith-832113217/" }, publisher: { "@type": "Organization", name: "TrulyFreeTools", url: "https://trulyfreetools.com" }, mainEntityOfPage: "https://trulyfreetools.com/blog/pdf-file-size-reducer-guide" };
-  const f = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [
-    { "@type": "Question", name: "How do I reduce PDF file size for free?", acceptedAnswer: { "@type": "Answer", text: "The fastest free method is TrulyFreeTools Compress PDF, which runs entirely in your browser with no file upload. Drop in your PDF, click Compress, and download the smaller result. Text-heavy PDFs reduce 20-40 percent. Image-heavy PDFs reduce 50-85 percent." } },
-    { "@type": "Question", name: "Why is my PDF so large?", acceptedAnswer: { "@type": "Answer", text: "Large PDFs are almost always caused by high-resolution embedded images, full font files embedded rather than subsets, accumulated revision history from multiple save cycles, or uncompressed scan data." } },
-    { "@type": "Question", name: "What is the maximum email attachment size and how do I compress a PDF to fit?", acceptedAnswer: { "@type": "Answer", text: "Gmail, Outlook, and most email providers limit attachments to 25MB. Many corporate systems limit to 10MB. Target under 10MB for safe universal email delivery using TrulyFreeTools Compress PDF." } },
-    { "@type": "Question", name: "Does reducing PDF file size reduce quality?", acceptedAnswer: { "@type": "Answer", text: "Structural compression does not reduce quality. Image compression reduces embedded image resolution which can affect sharpness for photos. Text content is stored as vector data and is never affected by compression." } },
-    { "@type": "Question", name: "Why is my PDF still large after compression?", acceptedAnswer: { "@type": "Answer", text: "A PDF that does not compress significantly is either already optimized, contains mostly vector graphics and text with minimal embedded images, or contains images already compressed at low quality." } },
-  ]};
-  return (<>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(f) }} />
-    <ArticleWrapper category="HOW-TO GUIDE" categoryColor="#16a34a" categoryBg="#f0fdf4"
-      title="How to Reduce PDF File Size Free — Complete 2026 Guide"
-      description="Reducing PDF file size is the single most searched PDF operation online, generating over 550,000 searches per month. This guide covers every available method — from instant browser-based compression to source-level fixes — with realistic expectations for each document type."
-      date="May 5, 2026" readTime="13 min read"
-      relatedLinks={[
-        { href: "/compress-pdf", label: "Compress PDF Free" },
-        { href: "/blog/compress-pdf-without-losing-quality", label: "Compress Without Losing Quality" },
-        { href: "/blog/pdf-statistics-2026", label: "PDF Statistics 2026" },
-      ]}>
-      <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
-      <h2>Why PDFs Get Large — The Four Root Causes</h2>
-      <p><strong>High-resolution embedded images</strong> are responsible for the majority of large PDFs. A single full-page color photograph at 300 DPI stores approximately 25 to 30 megabytes of uncompressed data. A 10-page document of scanned pages can easily reach 200MB.</p>
-      <p><strong>Full embedded font files</strong> are a less obvious but significant source of bloat. A PDF can embed either the complete font file or a subset containing only the characters actually used. Full font embedding adds 200KB to 1MB per font family. A document using 5 typefaces with full embedding carries 1 to 5MB of font data before any content.</p>
-      <p><strong>Accumulated revision history</strong> affects PDFs edited and saved multiple times in editors that use incremental saving. Rather than rewriting the entire file, incremental saving appends changes to the end. After 10 editing sessions, the PDF may contain 10 versions of changed objects — all stored even though only the most recent is displayed.</p>
-      <p><strong>Unoptimized internal structure</strong> contributes overhead in PDFs generated by certain software. Redundant object references, duplicate resource definitions, and inefficient stream encoding all add file size without contributing to visible content.</p>
-      <h2>Method 1: Browser-Based Compression — Fastest, No Upload</h2>
-      <p>Open <a href="/compress-pdf">TrulyFreeTools Compress PDF</a> in any browser. Drag your PDF into the upload area — no network upload occurs. Click Compress PDF. The tool runs two passes simultaneously: a structural pass that rebuilds PDF internals and removes redundant data, and an image resampling pass that converts embedded images to optimized JPEG. Both passes generate output files. The tool compares results and delivers whichever is smaller. If neither achieves meaningful reduction, the tool reports this rather than delivering a larger file.</p>
-      <p>Expected results: text-only documents reduce 15 to 35 percent. Mixed documents with moderate images reduce 40 to 70 percent. Scanned document archives reduce 60 to 85 percent. Already-compressed PDFs reduce 0 to 10 percent.</p>
-      <h2>Method 2: Reduce Size at the Source</h2>
-      <p>When exporting to PDF from Microsoft Word, use the Minimum size (publishing online) option rather than Standard or Best for printing. This setting reduces image resolution to screen-appropriate levels and optimizes font embedding. The resulting PDF is typically 60 to 80 percent smaller than a print-optimized export of the same document.</p>
-      <p>When scanning documents, scanner settings directly determine PDF size. Scanning at 150 DPI rather than 300 DPI reduces file size by approximately 75 percent with no perceptible quality difference for text documents viewed on screen. Color scanning produces files 3 to 4 times larger than grayscale for the same document — for text-only documents, grayscale is almost always the right choice.</p>
-      <h2>Method 3: macOS — Built-In Quartz Filter</h2>
-      <p>Open your PDF in Preview. Go to File and select Export (not Export as PDF). In the Format dropdown select PDF. In the Quartz Filter dropdown select Reduce File Size. Choose a save location and click Save. The macOS Reduce File Size filter applies aggressive image compression — downsampling all images to 150 DPI with JPEG compression. The filter is not adjustable, but for most documents it produces a dramatically smaller file.</p>
-      <h2>Method 4: Ghostscript — Command Line, Maximum Control</h2>
-      <p>Ghostscript is a free open-source PDF processing engine that provides maximum compression control. The basic command: <code>gs -sDEVICE=pdfwrite -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf</code></p>
-      <p>The -dPDFSETTINGS parameter controls aggressiveness: /screen produces smallest file at 72 DPI. /ebook produces moderate compression at 150 DPI, appropriate for digital distribution. /printer produces minimal compression at 300 DPI. Ghostscript is available free for Windows, macOS, and Linux.</p>
-      <h2>File Size Targets for Common Use Cases</h2>
-      <p>Email attachments: target under 10MB for safe universal delivery across all email providers. Web upload forms: compress to 80 percent of the stated limit — a form with a 5MB cap should receive a file under 4MB. Cloud storage sharing: compress to under 20MB for fast browser preview. Print production: do not compress — send the original file.</p>
-      <h2>When Compression Does Not Work</h2>
-      <p>A PDF that has already been compressed will not compress further meaningfully. Running a file through a second compression pass produces 0 to 5 percent additional reduction at best. If a compressed file is still too large, the solution is choosing a lower quality setting, splitting the document, or changing the distribution method — not more compression passes.</p>
-      <p>A PDF composed of vector graphics — engineering drawings, architectural plans — will not compress significantly because vector data is already stored efficiently. There are no pixels to resample. Structural optimization may trim 10 to 20 percent, but dramatic compression is not achievable for vector-heavy files.</p>
-      <h2>Frequently Asked Questions</h2>
-      <h3>How do I reduce PDF file size for free?</h3>
-      <p>The fastest free method with no file upload is TrulyFreeTools Compress PDF. Open the tool in your browser, drop in your PDF, click Compress, and download the result. The tool runs two compression passes and delivers the smaller result. Expect 20 to 40 percent reduction for text-heavy PDFs and 50 to 85 percent for image-heavy or scanned PDFs.</p>
-      <h3>Why is my PDF so large?</h3>
-      <p>Large PDFs are almost always caused by high-resolution embedded images, full font files embedded rather than character subsets, accumulated revision history from multiple saves, or uncompressed scan data. A PDF with scanned pages at 300 DPI color will easily reach 100MB or more. A text document that is unexpectedly large likely has unnecessary full font embedding or revision history bloat.</p>
-      <h3>What is the maximum email attachment size and how do I compress a PDF to fit?</h3>
-      <p>Most major email providers cap attachments at 25MB. Many corporate systems cap at 10MB. Use TrulyFreeTools Compress PDF and target under 10MB for universal email delivery. If the compressed file still exceeds the limit, upload to Google Drive or Dropbox and share the link — the recipient gets the same file without the size constraint.</p>
-      <h3>Does reducing PDF file size reduce quality?</h3>
-      <p>Structural compression does not reduce quality — it removes internal redundancy without touching visible content. Image compression reduces embedded image resolution, which can affect sharpness for photographs and detailed graphics. Text quality is never affected because text in PDFs is stored as vector data, not pixels.</p>
-      <h3>Why is my PDF still large after compression?</h3>
-      <p>If compression produces little reduction, the PDF is likely already well-optimized, contains mostly vector graphics with minimal raster images, or contains images already compressed at low quality. Already-compressed PDFs cannot be meaningfully reduced further. If the file is large despite minimal image content, full font file embedding rather than subsetting may be the cause — this requires fixing at the source document level.</p>
-    
-      <AuthorBox />
-    </ArticleWrapper>
-  </>);
+
+export const metadata: Metadata = {
+  title: "PDF File Too Large for Email? Here Is the Fix",
+  description: "Gmail rejected your PDF attachment? Fix it in under 10 seconds. Free, no watermark, no account, no page limits. Step-by-step guide to compress any PDF under the 25MB email limit.",
+  alternates: { canonical: "https://trulyfreetools.com/blog/pdf-file-size-reducer-guide" },
+};
+
+export default function PDFFileSizeReducerGuidePage() {
+  const articleSchema = {
+    "@context": "https://schema.org", "@type": "Article",
+    headline: "PDF File Too Large for Email? Here Is the Fix",
+    description: "Gmail rejected your PDF attachment? Fix it in under 10 seconds. Free, no watermark, no account, no page limits. Step-by-step guide to compress any PDF under the 25MB email limit.",
+    datePublished: "2026-06-09", dateModified: "2026-06-09",
+    author: { "@type": "Person", name: "George Smith", url: "https://www.linkedin.com/in/george-smith-832113217/" },
+    publisher: { "@type": "Organization", name: "TrulyFreeTools", url: "https://trulyfreetools.com" },
+    mainEntityOfPage: "https://trulyfreetools.com/blog/pdf-file-size-reducer-guide",
+  };
+  const faqSchema = {
+    "@context": "https://schema.org", "@type": "FAQPage",
+    mainEntity: [
+      { "@type": "Question", name: "What is Gmail's actual attachment limit?", acceptedAnswer: { "@type": "Answer", text: "25MB for sending. Gmail can receive up to 50MB, but you cannot send that much. Outlook.com has a 20MB limit. Yahoo has 25MB. If your PDF is over 25MB, compress it before sending. If it is over 50MB, even receiving might fail on some servers." } },
+      { "@type": "Question", name: "Will compressing a PDF make it unreadable on a phone?", acceptedAnswer: { "@type": "Answer", text: "No. Medium compression produces files that look fine on phone screens. Only High compression may make text slightly blurry when zoomed in at 300%. For email attachments viewed on phones, Medium is safe." } },
+      { "@type": "Question", name: "Can I compress a PDF that is already under 25MB just to save space?", acceptedAnswer: { "@type": "Answer", text: "Yes. There is no minimum size requirement. Compressing a 10MB PDF to 3MB saves storage space and sends faster. But be aware that re-compressing an already compressed PDF may reduce image quality further with minimal size savings." } },
+      { "@type": "Question", name: "Why does Smallpdf add a watermark to compressed PDFs?", acceptedAnswer: { "@type": "Answer", text: "Because they want you to pay. The watermark is a deliberate frustration tactic. They know you want a clean file for your boss. So they make the free file ugly. That is their business model. Truly Free PDF Tools never adds a watermark." } },
+      { "@type": "Question", name: "Is there a way to email a PDF without compressing it?", acceptedAnswer: { "@type": "Answer", text: "Yes. Upload the PDF to Google Drive, Dropbox, or OneDrive and share a link. But some recipients do not like clicking links from external services. For those recipients, compression is the only answer — it delivers the actual file, not a link." } },
+      { "@type": "Question", name: "What if the compressed PDF is still over 25MB?", acceptedAnswer: { "@type": "Answer", text: "Try High compression. If that still does not work, your PDF is extremely large (over 100MB original). In that case, split the PDF into two smaller files using the PDF Splitter, then email each separately. Gmail's 25MB limit applies to total attachment size, not per file." } },
+    ],
+  };
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <ArticleWrapper
+        category="HOW-TO GUIDE" categoryColor="#16a34a" categoryBg="#f0fdf4"
+        title="PDF File Too Large for Email? Here Is the Fix"
+        description="You are trying to send a PDF to your boss. Gmail says: 'Attachment size exceeds 25MB.' You check the file. It is 34MB. You try to upload to Google Drive and share a link. Your boss says, 'Just email it to me, I do not click weird links.' This happens to everyone. PDFs get bloated. High-resolution images, embedded fonts, and scanned pages all add size. The solution is compression."
+        date="June 9, 2026" readTime="8 min read"
+        relatedLinks={[
+          { href: "/blog/compress-pdf-without-losing-quality", label: "Compress PDF Without Losing Quality" },
+          { href: "/blog/como-comprimir-pdf-sin-perder-calidad", label: "How to Reduce PDF File Size" },
+          { href: "/blog/pdf-statistics-2026", label: "PDF Statistics 2026" },
+        ]}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+
+        <h2>The Email Attachment Problem: Why PDFs Get Rejected</h2>
+        <p>Gmail, Outlook, and Yahoo all have attachment limits. Gmail caps at 25MB. Outlook (consumer) caps at 20MB. Yahoo caps at 25MB. If your PDF exceeds these limits, the email bounces back. This is not a bug. It is a spam prevention measure. Large attachments consume server resources and can be used for denial-of-service attacks on mail servers.</p>
+        <p>But 25MB is tiny by modern standards. A single high-resolution photo from a smartphone is 5 to 10MB. A 10-page PDF with property photos can easily hit 50MB. A scanned contract from a fax machine can be 80MB. So compression is not optional — it is the only way to email large PDFs.</p>
+        <p>Most people turn to Smallpdf. They upload their 34MB PDF. Smallpdf compresses it to 12MB — perfect. But then they see a watermark across every page. To remove it, they need to pay $12 a month. They try iLovePDF. Same watermark. They try Sejda. No watermark, but Sejda rejects the file because it has 80 pages and their free tier only allows 50. They try Adobe's online tool. Adobe asks for a credit card to start a "free trial." This is absurd. Compressing a PDF for email is a basic need. It should be free, easy, and private. Truly Free PDF Tools solves this. No watermark. No page limits. No file size limits. Just upload, compress, download, email.</p>
+        <p>I built this tool because I got tired of watching people pay $12 a month to Smallpdf just to email a document. You do not need to pay. You do not need to create an account. You do not need to upload your file to a sketchy server. The compression runs locally in your browser — your file never leaves your computer.</p>
+
+        <h2>Step-by-Step: Compress a PDF for Email in 10 Seconds</h2>
+        <p>Here is exactly what to do when Gmail rejects your PDF. This takes less than 30 seconds total.</p>
+        <p><strong>1. Go to trulyfreetools.com and click PDF Compressor.</strong> No account. No signup. The tool loads immediately. You will see a simple drag-and-drop area with three compression options.</p>
+        <p><strong>2. Drag your too-large PDF into the upload box.</strong> Example: "brochure.pdf (34.2 MB)". The file stays on your device. You will see the current file size confirmed in the interface.</p>
+        <p><strong>3. Choose Medium compression.</strong> Medium reduces file size by 50 to 70 percent with minimal quality loss. For email attachments, this is the sweet spot. Low compression might not shrink enough to get under 25MB. High compression might make images fuzzy when printed. Start with Medium.</p>
+        <p><strong>4. Click "Compress PDF".</strong> Wait 3 to 5 seconds. The tool shows the result: "34.2 MB → 9.8 MB (71% reduction)". Now it is well under Gmail's 25MB limit. For larger PDFs with many photos, it may take 8 to 10 seconds.</p>
+        <p><strong>5. Preview the compressed PDF.</strong> Open it in a new tab. Scroll through. Make sure no images are blocky and no text is garbled. If it looks bad, go back and try Low compression instead. If the file is still too big, go back and try High.</p>
+        <p><strong>6. Download the compressed PDF.</strong> Click download. The file saves as "brochure_compressed.pdf". No watermark. No "created with" footer. No pages missing.</p>
+        <p><strong>7. Attach to email and send.</strong> Open Gmail (or Outlook, or Yahoo). Click Attach. Select the compressed file. Send. Your recipient will receive a clean, readable PDF under 10MB.</p>
+        <p><strong>8. (Optional) Compress multiple PDFs for a batch email.</strong> If you need to send several PDFs, compress each individually first. Then attach all of them. Gmail's 25MB limit applies to the total attachment size across all files in one email — so compress aggressively if you are sending multiple files together.</p>
+
+        <h2>Why Truly Free PDF Tools Is Actually Free</h2>
+        <p>I have explained the AdSense model before, but let me address the email-specific use case. When you are in a hurry to send a document, you do not want to create an account or enter a credit card. You want a tool that works right now and then disappears. That is exactly what I built.</p>
+        <p>The tool runs locally, so your file never leaves your computer. That means you can compress sensitive documents — contracts, tax returns, medical records — without worrying about where they end up. Smallpdf stores every file for 24 hours. I do not store anything because there is no server. The compression code runs in your browser using WebAssembly. When you close the tab, it is gone.</p>
+        <p>The cost to me is negligible. A single compression uses a few cents of bandwidth and CPU time — on your computer, not mine. I can afford to give away millions of compressions because my overhead is near-zero. Smallpdf cannot afford to give away unlimited compressions because they have servers, employees, and investors. That is the structural difference. Try the compressor now. Take any PDF over 25MB. Shrink it. Email it. No watermark. No subscription. If it still bounces, email me at info@klickifyagency.com and I will help you figure it out.</p>
+
+        <h2>Frequently Asked Questions</h2>
+        <h3>What is Gmail's actual attachment limit?</h3>
+        <p>25MB for sending. Gmail can receive up to 50MB from other servers, but you cannot send more than 25MB. Outlook.com has a 20MB limit. Yahoo has 25MB. Most corporate email servers cap at 10MB for extra safety. Target under 10MB if you are sending to a business email address and do not know their server limit.</p>
+        <h3>Will compressing a PDF make it unreadable on a phone?</h3>
+        <p>No. Medium compression produces files that look fine on phone screens at normal reading size. Only High compression may make images slightly blurry when zoomed in to 200% or more. For email attachments viewed on phones, Medium is the safe choice — readable, significantly smaller, no visible quality loss during normal use.</p>
+        <h3>Can I compress a PDF that is already under 25MB just to save space?</h3>
+        <p>Yes. There is no minimum size. Compressing a 10MB PDF to 3MB saves storage space and sends faster on slow connections. But be aware that re-compressing an already compressed PDF may reduce image quality further while achieving minimal size savings. Always start with the original file if possible.</p>
+        <h3>Why does Smallpdf add a watermark to compressed PDFs?</h3>
+        <p>Because they want you to pay. The watermark is a deliberate frustration tactic — they know you want a clean file for your boss, so they make the free file ugly. That is their business model: make the free output almost useful but not quite. My compressor never adds a watermark, footer, or any modification to your file other than reducing its size.</p>
+        <h3>Is there a way to email a PDF without compressing it?</h3>
+        <p>Yes. Upload the PDF to Google Drive, Dropbox, or OneDrive and share a link. But some recipients do not like clicking external links for security reasons. For those situations, sending the actual file compressed is the only reliable approach. Compression also ensures the recipient can print the file directly without needing cloud access.</p>
+        <h3>What if the compressed PDF is still over 25MB?</h3>
+        <p>Try High compression. If that still does not work, your PDF is extremely large — over 100MB original. In that case, use the PDF Splitter to split it into two or three smaller files, then email each part separately. Or upload the full file to Google Drive and share a link. Gmail's 25MB limit applies to total attachment size, so splitting is the cleanest solution for very large files.</p>
+
+        <AuthorBox />
+      </ArticleWrapper>
+    </>
+  );
 }

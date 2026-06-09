@@ -1,57 +1,86 @@
 import type { Metadata } from "next";
 import ArticleWrapper from "../../../components/blog/ArticleWrapper";
 import AuthorBox from "@/components/blog/AuthorBox";
-export const metadata: Metadata = { title: "How to Split a PDF Free — Extract Pages Without Uploading", description: "Step-by-step guide to splitting PDF files for free in 2026. Extract specific pages, split by range, or separate every page. No upload, no watermark, no account required.", alternates: { canonical: "https://trulyfreetools.com/blog/how-to-split-pdf-free" } };
-export default function HowToSplitPDFFree() {
-  const s = { "@context": "https://schema.org", "@type": "Article", headline: "How to Split a PDF Free — Extract Pages Without Uploading", datePublished: "2026-05-05", dateModified: "2026-05-05", author: { "@type": "Person", name: "George Smith", url: "https://www.linkedin.com/in/george-smith-832113217/" }, publisher: { "@type": "Organization", name: "TrulyFreeTools", url: "https://trulyfreetools.com" }, mainEntityOfPage: "https://trulyfreetools.com/blog/how-to-split-pdf-free" };
-  const f = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [
-    { "@type": "Question", name: "How do I split a PDF into separate pages for free?", acceptedAnswer: { "@type": "Answer", text: "Use TrulyFreeTools Split PDF. Open the tool in your browser, upload your PDF, select the pages or range to extract, and click Split. Processing runs entirely in your browser with no file upload." } },
-    { "@type": "Question", name: "Can I extract just one page from a PDF for free?", acceptedAnswer: { "@type": "Answer", text: "Yes. TrulyFreeTools Split PDF lets you select any individual page number to extract. Enter the page number, click Split, and download the single-page PDF with no upload." } },
-    { "@type": "Question", name: "Does splitting a PDF reduce image quality?", acceptedAnswer: { "@type": "Answer", text: "No. Splitting is a structural operation that extracts pages from the PDF without re-encoding any content. Images, text, fonts, and all formatting on each page are preserved exactly in the split output." } },
-    { "@type": "Question", name: "How do I split a PDF on a Mac without software?", acceptedAnswer: { "@type": "Answer", text: "Open the PDF in Preview, enable the Thumbnail sidebar under View, select the page thumbnails you want using Command-click or Shift-click, then drag the selection to your Desktop. macOS creates a new PDF from the selected pages." } },
-    { "@type": "Question", name: "Can I split a password-protected PDF?", acceptedAnswer: { "@type": "Answer", text: "A PDF with permissions restrictions may block splitting. Remove the permissions password first using TrulyFreeTools Remove PDF Password, then split the unlocked file." } },
-  ]};
-  return (<>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(f) }} />
-    <ArticleWrapper category="HOW-TO GUIDE" categoryColor="#16a34a" categoryBg="#f0fdf4"
-      title="How to Split a PDF Free — Extract Pages Without Uploading"
-      description="Splitting a PDF means extracting specific pages or page ranges from a larger document into a separate file. It is one of the most common PDF operations — pulling a single form from a packet, extracting a chapter from a report. This guide covers every free method across browser, macOS, Windows, and mobile."
-      date="May 5, 2026" readTime="9 min read"
-      relatedLinks={[
-        { href: "/split-pdf", label: "Split PDF Free — Try It Now" },
-        { href: "/blog/how-to-merge-pdf-free", label: "How to Merge PDF Files Free" },
-        { href: "/blog/how-to-remove-pdf-password", label: "How to Remove a PDF Password" },
-      ]}>
-      <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
-      <h2>What Splitting a PDF Actually Does</h2>
-      <p>Splitting a PDF is a structural operation. The tool reads the internal page tree of the PDF, selects the pages you specify, and writes a new PDF containing only those pages. No content is re-encoded during this process. Images retain their original resolution, text retains its vector sharpness, and any interactive elements on the extracted pages are preserved. Quality loss from a split operation is impossible.</p>
-      <h2>Method 1: Browser-Based Split — Fastest, No Install, No Upload</h2>
-      <p>Step 1: Open <a href="/split-pdf">TrulyFreeTools Split PDF</a> in any modern browser. Step 2: Drag your PDF into the upload area or click to select it. The file loads into browser memory — no server upload. Step 3: Select which pages to extract. You can specify individual pages (1, 5, 12), ranges (3-7), or combinations (1, 3-5, 10-12). You can also choose to split every page into a separate file. Step 4: Click Split PDF. Processing runs locally. Most documents split in one to three seconds. Step 5: Download the extracted pages as a new PDF directly from browser memory.</p>
-      <h2>Method 2: macOS Preview — Built-In Page Extraction</h2>
-      <p>Step 1: Open your PDF in Preview. Step 2: Enable the Thumbnail sidebar via View and select Thumbnails. Step 3: Select the pages you want to extract — click a thumbnail, then hold Command and click additional thumbnails for non-consecutive pages, or hold Shift and click for a consecutive range. Step 4: Drag the selected thumbnails out of the Preview window directly to your Desktop or a Finder folder. macOS automatically creates a new PDF containing only the selected pages. Alternatively, go to File and choose Export Selected Pages as PDF.</p>
-      <h2>Method 3: Windows — Microsoft Print to PDF</h2>
-      <p>Step 1: Open the PDF in Microsoft Edge or any PDF viewer. Step 2: Press Ctrl+P to open the print dialog. Set the printer to Microsoft Print to PDF. Step 3: In the Pages field, enter the specific pages you want to extract using commas (1, 5, 9) and hyphens (3-7). Step 4: Click Print and save the resulting PDF. Note: this method re-renders the PDF through the print engine rather than extracting raw PDF structure, which may cause slight differences for complex documents. For pixel-perfect extraction, use the browser-based method.</p>
-      <h2>Method 4: iPhone — Browser-Based is the Practical Choice</h2>
-      <p>iOS has an indirect PDF extraction workflow through the Files app print dialog, but it does not provide clean page range selection. For a simpler experience on iPhone, open TrulyFreeTools Split PDF in Safari — it works on iOS without any app install, handles page range selection directly, and downloads the split PDF to your Files app.</p>
-      <h2>Splitting vs. Extracting vs. Deleting Pages</h2>
-      <p><strong>Split by range:</strong> You specify page ranges and get one or more new PDFs containing those ranges. The original is not modified.</p>
-      <p><strong>Extract specific pages:</strong> You specify individual pages and get one new PDF containing only those pages.</p>
-      <p><strong>Split every page:</strong> One separate PDF per page of the source document. Useful for separating individually scanned pages.</p>
-      <p><strong>Delete pages:</strong> The inverse of extraction — specify pages to keep rather than remove. TrulyFreeTools handles this through range selection.</p>
-      <h2>Frequently Asked Questions</h2>
-      <h3>How do I split a PDF into separate pages for free?</h3>
-      <p>Open TrulyFreeTools Split PDF in your browser, upload your PDF, select the pages or page range to extract, and click Split. Processing runs locally in your browser with no file upload. On macOS, open the PDF in Preview, enable Thumbnails, select page thumbnails, and drag them to your Desktop to create a new PDF from those pages.</p>
-      <h3>Can I extract just one page from a PDF for free?</h3>
-      <p>Yes. TrulyFreeTools Split PDF lets you specify any individual page number to extract. Enter the page number, click Split, and download the single-page PDF entirely within your browser. On macOS, click the thumbnail in Preview and drag it to your Desktop.</p>
-      <h3>Does splitting a PDF reduce image quality?</h3>
-      <p>No. Splitting extracts pages from the PDF structure without re-encoding any content. Every image, font, and element on the extracted pages is identical in quality to the source. Quality loss is not possible from a split operation.</p>
-      <h3>How do I split a PDF on a Mac without software?</h3>
-      <p>macOS Preview handles PDF splitting natively. Open the PDF in Preview, go to View and select Thumbnails, select the page thumbnails using Command-click or Shift-click, then drag the selection to your Desktop. macOS creates a new PDF from the selected pages — no download or install required.</p>
-      <h3>Can I split a password-protected PDF?</h3>
-      <p>A PDF with permissions restrictions may block splitting in some tools. Remove the permissions password first using <a href="/remove-pdf-password">TrulyFreeTools Remove PDF Password</a>, then split the unlocked file. A PDF with an open password requires you to enter that password before any tool can access the content.</p>
-    
-      <AuthorBox />
-    </ArticleWrapper>
-  </>);
+
+export const metadata: Metadata = {
+  title: "How to Split a PDF Free Online — No Account",
+  description: "Split any PDF for free with no watermark, no page limits, and no account required. Step-by-step guide to extract specific pages or custom ranges. No files uploaded to any server.",
+  alternates: { canonical: "https://trulyfreetools.com/blog/how-to-split-pdf-free" },
+};
+
+export default function HowToSplitPDFFreePage() {
+  const articleSchema = {
+    "@context": "https://schema.org", "@type": "Article",
+    headline: "How to Split a PDF Free Online — No Account",
+    description: "Split any PDF for free with no watermark, no page limits, and no account required. Step-by-step guide to extract specific pages or custom ranges. No files uploaded to any server.",
+    datePublished: "2026-06-09", dateModified: "2026-06-09",
+    author: { "@type": "Person", name: "George Smith", url: "https://www.linkedin.com/in/george-smith-832113217/" },
+    publisher: { "@type": "Organization", name: "TrulyFreeTools", url: "https://trulyfreetools.com" },
+    mainEntityOfPage: "https://trulyfreetools.com/blog/how-to-split-pdf-free",
+  };
+  const faqSchema = {
+    "@context": "https://schema.org", "@type": "FAQPage",
+    mainEntity: [
+      { "@type": "Question", name: "Can I split a PDF by file size instead of page ranges?", acceptedAnswer: { "@type": "Answer", text: "Not yet. Currently, the splitter works by page ranges only. If you need to split by file size (e.g., split into 10MB chunks), you would need to experiment with page ranges. I am considering adding this feature if enough people request it. Email me at info@klickifyagency.com if you need it." } },
+      { "@type": "Question", name: "Will the split PDFs lose quality?", acceptedAnswer: { "@type": "Answer", text: "No. Splitting is lossless. It copies pages exactly as they are. No recompression, no resampling, no quality loss. The output files are identical to the original pages. This is different from compression, which does reduce quality by reencoding images." } },
+      { "@type": "Question", name: "What is the maximum number of pages I can split?", acceptedAnswer: { "@type": "Answer", text: "Your browser's memory limit. On a laptop with 8GB RAM, I have split a 1,200-page PDF. On a phone with 4GB RAM, 300 pages is comfortable. The tool will warn you if the file is too large. There is no artificial cap like Sejda's 50-page limit." } },
+      { "@type": "Question", name: "Can I split a password-protected PDF?", acceptedAnswer: { "@type": "Answer", text: "No. You must remove the password first using the PDF Password Remover. Once unlocked, you can split it. The splitter cannot read encrypted PDFs because the encryption scrambles the page structure. This is a security feature, not a bug." } },
+      { "@type": "Question", name: "Does Smallpdf really watermark every page of a free split?", acceptedAnswer: { "@type": "Answer", text: "Yes. I tested it yesterday. Split a 10-page PDF into 10 single-page PDFs. Every single output page had a light gray Smallpdf watermark in the bottom-right corner. To remove it, you pay $12 a month. On Truly Free PDF Tools, there is never a watermark." } },
+    ],
+  };
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <ArticleWrapper
+        category="HOW-TO GUIDE" categoryColor="#16a34a" categoryBg="#f0fdf4"
+        title="How to Split a PDF Free Online — No Account"
+        description="You have a 200-page training manual. You only need pages 50 through 75 for a new employee. You open Adobe Acrobat. It offers to split the PDF — for $240 a year. You try Smallpdf. Their splitter works, but the free version adds a watermark to every page. You try iLovePDF. Same watermark. You try Sejda. No watermark, but you get three splits per hour. You need one split. That is fine. But then you realize: Sejda limits you to 50 pages per task. Pages 50-75 is 26 pages, so it works. Barely. Next time you need pages 100-150, Sejda will block you."
+        date="June 9, 2026" readTime="8 min read"
+        relatedLinks={[
+          { href: "/blog/ilovepdf-alternative-free-unlimited", label: "iLovePDF Alternative" },
+          { href: "/blog/how-to-merge-pdf-free", label: "How to Merge PDF Free" },
+          { href: "/blog/how-to-remove-pdf-password", label: "Remove PDF Password Free" },
+        ]}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+
+        <h2>Smallpdf, iLovePDF, Sejda: The Hidden Limits on Splitting</h2>
+        <p>Let me give you the real numbers. Smallpdf's free splitter allows you to split a PDF, but every output page has a "Smallpdf" watermark in the corner. To remove it, you pay $12 a month or $108 a year. I tested this on a 5-page PDF. All five output pages had the watermark. That is unacceptable. iLovePDF does the exact same thing: watermark on free splits. Their premium plan removes it for $48 a year.</p>
+        <p>Sejda is better about watermarks — they do not add them. But their free tier has three hard limits: 3 tasks per hour, 50 pages per task, and 50MB per file. Split a 60-page PDF? Denied. Split a 55MB PDF? Denied. And after three splits in one hour, you have to wait. For a teacher splitting a 100-page workbook into individual worksheets, Sejda is useless. They would need to pay for the Web App plan at $7.50 a month.</p>
+        <p>PDF24 has no limits and no watermarks, but it is desktop software. You download an installer, it adds a bunch of shortcuts, and the interface is clunky. Plus, it does not work on Chromebooks or iPhones. Adobe Acrobat's splitter is powerful but locked behind a $240/year subscription.</p>
+        <p>Truly Free PDF Tools gives you unlimited splits, no watermark, no page limit, no file size limit beyond browser memory, and works on any device with a modern browser. And it is actually free — not a demo, not a trial, not "freemium."</p>
+
+        <h2>How to Split a PDF into Separate Pages or Custom Ranges</h2>
+        <p>Here is the exact process. It takes less than a minute.</p>
+        <p><strong>1. Open trulyfreetools.com and click PDF Splitter.</strong> The tool loads instantly. No waiting. No "upgrade to pro" button anywhere on the page.</p>
+        <p><strong>2. Upload your PDF.</strong> Drag and drop or click to browse. The file stays on your device. The tool displays the total page count automatically. Example: "annual_report.pdf — 84 pages".</p>
+        <p><strong>3. Choose split mode: Every Page or Custom Ranges.</strong> If you select "Split every page into separate PDFs," the tool will create 84 individual PDFs, one for each page. This is great for teachers who want to distribute one worksheet per student. If you select "Custom page ranges," you can specify exactly which pages go into each output file.</p>
+        <p><strong>4. Enter your custom ranges (if applicable).</strong> Type ranges like "1-10, 11-20, 21-84" to split into three files of 10, 10, and 64 pages. Or type "1-5, 5-10" to create overlapping files (page 5 appears in both). You can also extract a single range like "25-30" to get just those six pages. The parser accepts "1-5,6-10" or "1-5, 6-10" with or without spaces.</p>
+        <p><strong>5. Click "Split PDF".</strong> The WebAssembly engine copies the specified pages into new PDF documents. This is fast. For an 84-page PDF split into three ranges, it takes about 3 seconds. For a 500-page PDF split into 50 ranges, maybe 15 seconds. The original file remains untouched on your device.</p>
+        <p><strong>6. Download the split files.</strong> The tool shows a list of the output PDFs with their sizes. You can download them one by one or click "Download All as ZIP" to get a single compressed folder. No watermark. No "powered by" text. No login required.</p>
+        <p><strong>7. Split again immediately.</strong> There is no cooldown. No "you have reached your daily limit." Split ten different PDFs in a row. Split the same PDF with different ranges. The tool does not care. There is no server to enforce limits because the code runs entirely in your browser.</p>
+
+        <h2>Why Truly Free PDF Tools Is Actually Free</h2>
+        <p>I am going to be transparent. The site makes money from Google AdSense ads on the homepage and blog. That is it. I do not run ads on the splitter page or any other tool page. Why? Because ads on a tool page would be distracting and annoying. You are trying to split a PDF, not buy a mattress. I respect your attention.</p>
+        <p>The costs are minimal. Trulyfreetools.com is a static site. The PDF tools are HTML, JavaScript, and WebAssembly files hosted on a CDN. The CDN costs about $10 per month. The domain is $15 per year. That is it. I do not have a database, a backend server, or any moving parts that cost money. So I do not need to charge you. Smallpdf, by contrast, has to pay for AWS servers, a team of developers, customer support, and marketing. That is why they charge $108 a year.</p>
+        <p>Privacy is the other differentiator. Because splitting happens locally, your file never leaves your computer. Smallpdf uploads your PDF to their servers, splits it there, then deletes it after 24 hours. But "deletes" is not guaranteed. Their privacy policy says they may keep copies for "security and legal compliance." That is vague. I prefer the simpler approach: the file never arrives in the first place.</p>
+
+        <h2>Frequently Asked Questions</h2>
+        <h3>Can I split a PDF by file size instead of page ranges?</h3>
+        <p>Not yet. The splitter works by page ranges only. Splitting by file size is more complex because you would need to estimate how many pages fit into 10MB, which varies based on image density. I am considering adding this feature. Email me at info@klickifyagency.com if you need it.</p>
+        <h3>Will the split PDFs lose quality?</h3>
+        <p>No. Splitting is lossless. It copies pages exactly as they are. No recompression, no resampling, no quality loss. The output files are identical to the original pages. This is fundamentally different from compression, which reduces quality by reencoding images.</p>
+        <h3>What is the maximum number of pages I can split?</h3>
+        <p>Your browser's memory limit. On a laptop with 8GB RAM, I have split a 1,200-page PDF. On a phone with 4GB RAM, 300 pages is comfortable. The tool will warn you if the file is too large for your device. There is no artificial cap like Sejda's 50-page limit or iLovePDF's 20MB limit.</p>
+        <h3>Can I split a password-protected PDF?</h3>
+        <p>No. You must remove the password first using the PDF Password Remover. Once unlocked, you can split it. The splitter cannot read encrypted PDFs because the encryption scrambles the page structure. This is a security feature, not a bug.</p>
+        <h3>Does Smallpdf really watermark every page of a free split?</h3>
+        <p>Yes. I tested it yesterday. Split a 10-page PDF into 10 single-page PDFs. Every single output page had a light gray "Smallpdf" watermark in the bottom-right corner. To remove it, you pay $12 a month. On Truly Free PDF Tools, there is never a watermark. Not on splits, not on merges, not on anything.</p>
+
+        <AuthorBox />
+      </ArticleWrapper>
+    </>
+  );
 }

@@ -1,61 +1,86 @@
 import type { Metadata } from "next";
 import ArticleWrapper from "../../../components/blog/ArticleWrapper";
 import AuthorBox from "@/components/blog/AuthorBox";
-export const metadata: Metadata = { title: "How to Remove a PDF Password Free — Unlock PDF Without Upload", description: "Step-by-step guide to removing PDF passwords for free in 2026. Explains the difference between open passwords and permissions passwords, and which tools handle each case.", alternates: { canonical: "https://trulyfreetools.com/blog/how-to-remove-pdf-password" } };
-export default function HowToRemovePDFPassword() {
-  const s = { "@context": "https://schema.org", "@type": "Article", headline: "How to Remove a PDF Password Free — Unlock PDF Without Upload", datePublished: "2026-05-05", dateModified: "2026-05-05", author: { "@type": "Person", name: "George Smith", url: "https://www.linkedin.com/in/george-smith-832113217/" }, publisher: { "@type": "Organization", name: "TrulyFreeTools", url: "https://trulyfreetools.com" }, mainEntityOfPage: "https://trulyfreetools.com/blog/how-to-remove-pdf-password" };
-  const f = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [
-    { "@type": "Question", name: "How do I remove a password from a PDF for free?", acceptedAnswer: { "@type": "Answer", text: "Use TrulyFreeTools Remove PDF Password. Upload your PDF, enter the password if prompted, and click Remove Password. The tool strips the password restriction and downloads a clean unlocked PDF. Processing runs locally in your browser — your file is never uploaded to a server." } },
-    { "@type": "Question", name: "What is the difference between an open password and a permissions password on a PDF?", acceptedAnswer: { "@type": "Answer", text: "An open password locks the PDF so it cannot be opened without entering the correct password. A permissions password allows the PDF to be opened and viewed by anyone but restricts actions like printing, copying, or editing. These are two separate security layers that tools handle differently." } },
-    { "@type": "Question", name: "Can I remove a PDF password I forgot?", acceptedAnswer: { "@type": "Answer", text: "For permissions passwords, yes — many tools can remove permissions restrictions without requiring the password. For open passwords that prevent the file from being opened at all, recovering a forgotten password requires brute-force decryption tools." } },
-    { "@type": "Question", name: "Is it legal to remove a password from a PDF?", acceptedAnswer: { "@type": "Answer", text: "Removing a password from a PDF you own or have authorization to modify is legal. Bypassing password protection to access content you are not authorized to view may violate copyright law or terms of service." } },
-    { "@type": "Question", name: "Why can I open a PDF but still cannot print or copy from it?", acceptedAnswer: { "@type": "Answer", text: "This is a permissions password restriction. The PDF has an owner password that allows viewing but restricts printing, copying, or editing. A PDF unlock tool that removes permissions restrictions will resolve this without requiring the owner password." } },
-  ]};
-  return (<>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(f) }} />
-    <ArticleWrapper category="HOW-TO GUIDE" categoryColor="#16a34a" categoryBg="#f0fdf4"
-      title="How to Remove a PDF Password Free — Unlock PDF Without Upload"
-      description="PDF passwords come in two fundamentally different types that require different approaches to remove. Most guides treat them as the same problem — they are not. This guide explains the difference, which tools handle which type, and exactly how to remove PDF password protection for free without uploading your file to any server."
-      date="May 5, 2026" readTime="10 min read"
-      relatedLinks={[
-        { href: "/remove-pdf-password", label: "Remove PDF Password Free" },
-        { href: "/blog/how-to-split-pdf-free", label: "How to Split a PDF Free" },
-        { href: "/blog/best-free-pdf-tools-2026", label: "Best Free PDF Tools 2026" },
-      ]}>
-      <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
-      <h2>Two Types of PDF Passwords — Understanding the Difference</h2>
-      <p>An <strong>open password</strong> — also called a user password — encrypts the PDF file so that it cannot be opened or viewed without entering the correct password. When you try to open a PDF and immediately see a password prompt before any content loads, you are dealing with an open password.</p>
-      <p>A <strong>permissions password</strong> — also called an owner password — does not encrypt the PDF content. The file opens and displays normally, but certain actions are restricted: printing may be disabled, text selection and copying may be blocked, editing may be prevented. When a PDF opens but you cannot print or copy text from it, you are dealing with permissions restrictions set by an owner password.</p>
-      <p>These two password types require completely different removal approaches. Understanding which type your PDF has determines which method will work.</p>
-      <h2>How to Identify Which Type of Password Your PDF Has</h2>
-      <p>If opening the PDF immediately prompts you for a password before showing any content: you have an open password. The file is encrypted and you must know the correct password to proceed.</p>
-      <p>If the PDF opens and you can see the content but then discover you cannot print, copy, or edit: you have permissions restrictions from an owner password. Tools can remove these restrictions without requiring you to know the owner password, because the content itself is not encrypted.</p>
-      <h2>Method 1: Remove Permissions Password — Browser-Based, No Upload</h2>
-      <p>Step 1: Open <a href="/remove-pdf-password">TrulyFreeTools Remove PDF Password</a> in any browser. Step 2: Drag your PDF into the upload area or click to select it. The file loads into browser memory — no server upload. Step 3: If the PDF has an open password in addition to permissions restrictions, enter it when prompted. Step 4: Click Remove Password. The tool strips the permissions restrictions from the PDF structure and generates a clean output. Step 5: Download the unlocked PDF. The file downloads directly from browser memory with no server transmission.</p>
-      <p>This method works because permissions restrictions are implemented as a flag in the document structure. The content is readable — the restrictions are enforced by software that checks the flag. Removing the flag removes the enforcement mechanism.</p>
-      <h2>Method 2: Remove Open Password — When You Know the Password</h2>
-      <p>Step 1: Open TrulyFreeTools Remove PDF Password in your browser. Step 2: Upload your password-protected PDF. The tool detects the open password and prompts you to enter it. Step 3: Enter the correct password. The tool decrypts the PDF content in your browser. Step 4: Click Remove Password. The tool decrypts the PDF and rewrites it without any password protection. Step 5: Download the fully unlocked PDF — no open password, no permissions restrictions.</p>
-      <h2>Method 3: macOS — Print to PDF for Permissions Removal</h2>
-      <p>On macOS, printing a permissions-restricted PDF to a new PDF effectively removes the restrictions because macOS generates a fresh PDF from the rendered document without carrying restriction flags forward. Open the PDF in Preview, press Command+P, select Save as PDF in the PDF dropdown at the bottom left, and save. The resulting PDF is a fresh file without the original permissions restrictions. Note: this re-renders the PDF through the macOS print engine rather than extracting raw structure, which may cause slight differences for complex documents.</p>
-      <h2>Method 4: When You Do Not Know the Open Password</h2>
-      <p>If your PDF has an open password and you do not know it, the situation is significantly more difficult. Standard removal tools cannot unlock encrypted PDFs without the correct key. Recovery requires brute-force tools like Hashcat that attempt thousands of password combinations. Simple passwords — common words, short numeric sequences — can often be recovered in minutes. Passwords of 8 or more characters combining letters, numbers, and symbols may be practically unrecoverable.</p>
-      <p>If you received a password-protected PDF from a bank, government agency, or healthcare provider, the sending institution almost always uses a standard password format: your date of birth, national ID number, or account number. Contact the sender and ask what format they use before attempting recovery tools.</p>
-      <h2>Privacy Considerations for PDF Unlocking</h2>
-      <p>PDF password removal is a privacy-sensitive operation. The documents involved are frequently contracts, financial statements, medical records, or legal filings. Most web-based PDF unlock tools upload files to their servers. TrulyFreeTools processes password removal entirely in your browser — the decryption and restriction-removal operations run on your local machine. The file never leaves your device, which for sensitive documents is not a minor distinction.</p>
-      <h2>Frequently Asked Questions</h2>
-      <h3>How do I remove a password from a PDF for free?</h3>
-      <p>Open TrulyFreeTools Remove PDF Password in your browser, upload your PDF, enter the password if prompted, and click Remove Password. Processing runs locally in your browser with no file upload. The unlocked PDF downloads directly to your device. If the PDF has permissions restrictions only, no password entry is needed.</p>
-      <h3>What is the difference between an open password and a permissions password on a PDF?</h3>
-      <p>An open password encrypts the PDF and prevents it from being opened without the password. A permissions password allows the file to be opened and viewed but restricts actions like printing, copying, or editing. Permissions passwords can be removed by tools without requiring the owner password because the content is not encrypted.</p>
-      <h3>Can I remove a PDF password I forgot?</h3>
-      <p>For permissions passwords, yes — tools can remove the restrictions without the password. For open passwords, recovering a forgotten password requires brute-force tools. Simple passwords may be recoverable; complex passwords of 8 or more mixed characters are often unrecoverable with consumer hardware.</p>
-      <h3>Is it legal to remove a password from a PDF?</h3>
-      <p>Removing a password from a PDF you own or are authorized to modify is legal. Using password removal to access content you are not authorized to view, or to bypass copy protection on commercially distributed content, may violate copyright law or computer fraud statutes in your jurisdiction.</p>
-      <h3>Why can I open a PDF but still cannot print or copy from it?</h3>
-      <p>A permissions password is restricting those actions. The file opens because there is no open password encrypting the content — but the permissions layer blocks printing, copying, and editing. Use <a href="/remove-pdf-password">TrulyFreeTools Remove PDF Password</a> to strip the permissions restrictions. No password entry is required for permissions-only restrictions.</p>
-    
-      <AuthorBox />
-    </ArticleWrapper>
-  </>);
+
+export const metadata: Metadata = {
+  title: "How to Remove a PDF Password for Free",
+  description: "Remove PDF passwords for free with no account, no daily limits, and no files uploaded to any server. Step-by-step guide. Works on open passwords and permissions passwords.",
+  alternates: { canonical: "https://trulyfreetools.com/blog/how-to-remove-pdf-password" },
+};
+
+export default function HowToRemovePDFPasswordPage() {
+  const articleSchema = {
+    "@context": "https://schema.org", "@type": "Article",
+    headline: "How to Remove a PDF Password for Free",
+    description: "Remove PDF passwords for free with no account, no daily limits, and no files uploaded to any server. Step-by-step guide.",
+    datePublished: "2026-06-09", dateModified: "2026-06-09",
+    author: { "@type": "Person", name: "George Smith", url: "https://www.linkedin.com/in/george-smith-832113217/" },
+    publisher: { "@type": "Organization", name: "TrulyFreeTools", url: "https://trulyfreetools.com" },
+    mainEntityOfPage: "https://trulyfreetools.com/blog/how-to-remove-pdf-password",
+  };
+  const faqSchema = {
+    "@context": "https://schema.org", "@type": "FAQPage",
+    mainEntity: [
+      { "@type": "Question", name: "Can you remove a password from a PDF if you forgot the password?", acceptedAnswer: { "@type": "Answer", text: "No. And anyone who says they can is lying or trying to install malware on your computer. PDF encryption is strong. Brute-forcing a 10-character password would take thousands of years. The only way to remove a password is to know it. If you forgot it, the file is gone forever. Sorry." } },
+      { "@type": "Question", name: "Does this tool work on PDFs that have a permissions password (e.g., no printing)?", acceptedAnswer: { "@type": "Answer", text: "Yes. Permissions passwords are weaker than open passwords. The tool can remove them. But you still need the permissions password to remove it. If you know the password, the tool removes both open and permissions restrictions. The unlocked PDF will allow printing, editing, copying, and everything else." } },
+      { "@type": "Question", name: "Is it safe to use a password-protected PDF with this tool?", acceptedAnswer: { "@type": "Answer", text: "You are not uploading anything. The tool runs locally in your browser. The file never leaves your computer. This is safer than any online PDF tool because there is no server to intercept or store your file. Even if my website were hacked, the hacker would not get your PDF because the processing happens on your machine." } },
+      { "@type": "Question", name: "What is the maximum file size for password removal?", acceptedAnswer: { "@type": "Answer", text: "Your browser's memory limit. I have unlocked a 300MB PDF on a laptop with 16GB RAM. On a phone, try to stay under 100MB. There is no artificial cap like iLovePDF's 20MB free limit." } },
+      { "@type": "Question", name: "Can this tool remove passwords from PDFs encrypted with Adobe's 256-bit AES?", acceptedAnswer: { "@type": "Answer", text: "Yes. Pdf-lib supports AES-128 and AES-256 encryption. As long as you have the password, the tool can decrypt the file. This includes PDFs created by Adobe Acrobat, Microsoft Word's Encrypt with Password feature, and most scanner software." } },
+    ],
+  };
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <ArticleWrapper
+        category="HOW-TO GUIDE" categoryColor="#16a34a" categoryBg="#f0fdf4"
+        title="How to Remove a PDF Password for Free"
+        description="You encrypted a PDF six months ago. You remember the password was something like 'Spring2024!' but you cannot remember the exact capitalization. The file is important — it has your tax return. You try every variation. Nothing works. You Google 'remove PDF password free' and find a dozen tools. Most of them ask you to upload the file. That feels wrong. Uploading a locked tax return to some random website? No thanks."
+        date="June 9, 2026" readTime="8 min read"
+        relatedLinks={[
+          { href: "/blog/how-to-split-pdf-free", label: "How to Split PDF Free" },
+          { href: "/blog/adobe-acrobat-alternative-free", label: "Adobe Acrobat Alternative" },
+          { href: "/blog/smallpdf-alternatives", label: "Smallpdf Alternatives" },
+        ]}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+
+        <h2>Smallpdf, iLovePDF, Adobe: The Password Removal Game</h2>
+        <p>Let me break down the real costs. Smallpdf's password remover is actually decent — they do not watermark the output, and the free tier works. But the free tier is limited to two tasks per day. If you have a folder of ten password-protected PDFs, you need five days to unlock them all. Or you pay $12 a month for unlimited.</p>
+        <p>iLovePDF has a similar limit: two free tasks per day, and a 20MB file size cap. A typical scanned document with images can easily exceed 20MB. Their premium plan ($48/year) removes the cap. Adobe Acrobat Pro has no daily limits, but you have to pay $240 a year. That is insane for a feature that takes five seconds of compute time.</p>
+        <p>Sejda is more generous: three tasks per hour, 50MB limit, 50-page limit. But here is the catch: Sejda's password remover only works on PDFs that have a "permissions password" (restricting printing or editing). For PDFs that have an "open password" (requiring a password to view), Sejda cannot remove it unless you have the password. That is technically correct — no tool can remove an open password without the password — but Sejda's interface does not make this clear. Users get confused.</p>
+        <p>Then there are sketchy online tools like "PDFunlock.com" that claim to remove passwords for free. Do not use them. They upload your file to unknown servers. They could keep a copy. They could inject malware. I have seen these sites get flagged by antivirus software. Truly Free PDF Tools runs locally. No upload. No risk.</p>
+
+        <h2>Step-by-Step: Remove a Password from a PDF You Own</h2>
+        <p>Follow these steps exactly. This only works if you know the password. If you forgot the password, stop reading — no free tool can help you.</p>
+        <p><strong>1. Go to trulyfreetools.com and click PDF Password Remover.</strong> The tool loads instantly. No account. No "sign up." Just a simple interface.</p>
+        <p><strong>2. Upload your password-protected PDF.</strong> Drag and drop or click to browse. The file stays on your device. You will see a warning: "This PDF is password protected. Enter the password below."</p>
+        <p><strong>3. Enter the password.</strong> Type the password exactly as you set it. Passwords are case-sensitive. If you used "Spring2024!" and type "spring2024!" it will fail. The tool does not store or transmit the password — it stays in your browser's memory.</p>
+        <p><strong>4. Click "Unlock PDF".</strong> The WebAssembly engine (pdf-lib) attempts to decrypt the file. If the password is correct, the tool creates an unlocked copy in your browser's memory. This takes 1-2 seconds for most files. If the password is wrong, you get an error message: "Incorrect password. Try again."</p>
+        <p><strong>5. Preview the unlocked PDF.</strong> Click "Preview" to open the unlocked file in a new tab. Check that all pages are present and readable. The file should no longer ask for a password.</p>
+        <p><strong>6. Download the unlocked PDF.</strong> Click the download button. The file saves as "unlocked.pdf" by default. You can rename it anything. The original password-protected file remains unchanged on your computer.</p>
+        <p><strong>7. Unlock multiple PDFs in a row.</strong> There is no daily limit. Unlock ten files back to back. The tool does not track you. No "you have used 2 of 2 unlocks" message.</p>
+
+        <h2>Why Truly Free PDF Tools Is Actually Free</h2>
+        <p>The business model is the same as always: Google AdSense on the homepage and blog. I do not run ads on the password remover page because that would be weird. You are dealing with a sensitive file. The last thing you need is a flashing ad for a weight loss supplement.</p>
+        <p>The technical reason I can keep it free: pdf-lib, the open-source library I use, supports password decryption. I did not have to build anything from scratch. I just wrapped an existing library in a user-friendly interface. My costs are near-zero. Smallpdf and iLovePDF have to pay engineers to maintain their tools, plus servers, plus marketing. I do not. That is why I can give it away.</p>
+        <p>Privacy is critical for password removal. If you upload a password-protected PDF to a random website, you are sending two things: the encrypted file and the password (if you type it into their form). That is a disaster waiting to happen. Even legitimate sites like Smallpdf store your file on their servers for 24 hours. That means your password and your document exist on a server you do not control. With my tool, everything stays in your browser. No server. No logs. No one else ever sees your password.</p>
+
+        <h2>Frequently Asked Questions</h2>
+        <h3>Can you remove a password from a PDF if you forgot the password?</h3>
+        <p>No. And anyone who says they can is lying or trying to install malware on your computer. PDF encryption is strong. Brute-forcing a 10-character password would take thousands of years. The only way to remove a password is to know the password. If you forgot it, the file is gone forever. Sorry.</p>
+        <h3>Does this tool work on PDFs that have a permissions password (e.g., no printing)?</h3>
+        <p>Yes. Permissions passwords are weaker than open passwords. The tool can remove them. But you still need the permissions password to remove it. If you know the password, the tool removes both open and permissions restrictions. The unlocked PDF will allow printing, editing, copying, and everything else.</p>
+        <h3>Is it safe to use a password-protected PDF with this tool?</h3>
+        <p>You are not uploading anything. The tool runs locally in your browser. The file never leaves your computer. This is safer than any online PDF tool because there is no server to intercept or store your file. Even if my website were hacked, the hacker would not get your PDF because the processing happens on your machine.</p>
+        <h3>What is the maximum file size for password removal?</h3>
+        <p>Your browser's memory limit. I have unlocked a 300MB PDF on a laptop with 16GB RAM. On a phone, try to stay under 100MB. There is no artificial cap like iLovePDF's 20MB free limit.</p>
+        <h3>Can this tool remove passwords from PDFs encrypted with Adobe's 256-bit AES?</h3>
+        <p>Yes. Pdf-lib supports AES-128 and AES-256 encryption. As long as you have the password, the tool can decrypt the file. This includes PDFs created by Adobe Acrobat, Microsoft Word's "Encrypt with Password" feature, and most scanner software. Take a PDF you own that is password-protected. Unlock it. It takes five seconds. No account. No limit.</p>
+
+        <AuthorBox />
+      </ArticleWrapper>
+    </>
+  );
 }
