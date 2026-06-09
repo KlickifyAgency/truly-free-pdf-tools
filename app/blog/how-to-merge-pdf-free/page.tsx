@@ -37,7 +37,7 @@ export default function HowToMergePdfPage() {
       <ArticleWrapper
         category="HOW-TO GUIDE" categoryColor="#16a34a" categoryBg="#f0fdf4"
         title="How to Merge PDF Files Free — No Email, No Account"
-        description="You have three separate PDFs: a cover page, a contract, and a signature page. You need to send them as one file. You try Smallpdf. It merges them perfectly, but then asks for your email to download. You give a fake email. Two days later, you get an email: 'Your free trial is ending.' You never signed up for a trial."
+        description="You have three separate PDFs: a cover page, a contract, and a signature page. You need to send them as one file. You try Smallpdf. It merges them perfectly, but then asks for your email to download. You give a fake email. You click the confirmation link. Now you are on their mailing list. Two days later, you get an email: Your free trial is ending. You never signed up for a trial."
         date="June 9, 2026" readTime="8 min read"
         relatedLinks={[
           { href: "/blog/adobe-acrobat-alternative-free", label: "Adobe Acrobat Alternative" },
@@ -46,6 +46,9 @@ export default function HowToMergePdfPage() {
         ]}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+
+        <p>I hate this pattern. Free tools that require an email are not free — they are harvesting leads. Smallpdf gets your email, then spams you until you either pay or unsubscribe. iLovePDF does the same thing. Adobe's online merge tool requires an Adobe account, which means giving them your name, email, and probably a phone number for two-factor authentication. All of this just to stick two PDFs together.</p>
+        <p>Truly Free PDF Tools does not ask for your email. There is no account. No sign up to download. No confirmation link. You upload your files, click merge, download the result. That is it. The whole transaction is between you and your browser. I never know who you are or what you merged. Here is how it works and why every other tool makes merging so painful.</p>
 
         <h2>Smallpdf, iLovePDF, and Adobe: The Email Harvesting Problem</h2>
         <p>Let me show you exactly what happens when you try to merge PDFs on these sites. On Smallpdf, after you upload your files, a pop-up appears: "Create a free account to download your merged PDF." You can bypass it by using a fake email, but then you have to click a verification link. That link tracks your IP address. They know you merged a file. They add you to their retargeting ads. I have seen Smallpdf ads follow me for weeks after merging a single document.</p>

@@ -37,7 +37,7 @@ export default function IlovepdfAlternativePage() {
       <ArticleWrapper
         category="COMPARISON" categoryColor="#0058c3" categoryBg="#eff6ff"
         title="iLovePDF Alternative — Free & Unlimited PDF Tools in 2026"
-        description="You have a 200-page construction blueprint in PDF. 89MB. You need to split it into separate floor plans. iLovePDF says 'free users limited to 20MB.' You look at their premium plan: $48 a year. That is not a fortune, but why pay for something that should be free? Here is what to use instead."
+        description="You have a 200-page construction blueprint in PDF. 89MB. You need to split it into separate floor plans. iLovePDF says free users limited to 20MB. You look at their premium plan: $48 a year. That is not a fortune, but why pay for something that should be free? You try their free tier anyway. It splits the file but adds a watermark across every page that says iLovePDF in light gray. And then you realize: you used your two free tasks. Now you have to wait 24 hours or pay."
         date="June 9, 2026" readTime="9 min read"
         relatedLinks={[
           { href: "/blog/smallpdf-alternatives", label: "Smallpdf Alternatives" },

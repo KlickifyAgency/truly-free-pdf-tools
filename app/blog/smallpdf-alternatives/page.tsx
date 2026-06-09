@@ -37,7 +37,7 @@ export default function SmallpdfAlternativesPage() {
       <ArticleWrapper
         category="COMPARISON" categoryColor="#0058c3" categoryBg="#eff6ff"
         title="Smallpdf Alternatives That Are Actually Free in 2026"
-        description="You are trying to send a contract to your client. The PDF is 38MB. Gmail says no. You Google 'compress PDF free' and click the first result — Smallpdf. It compresses the file halfway, then drops a giant watermark across the bottom. To remove it, they want $12 a month. Here is what to use instead."
+        description="You are trying to send a contract to your client. The PDF is 38MB. Gmail says no. You Google 'compress PDF free' and click the first result — Smallpdf. It takes your file, compresses it halfway, then drops a giant watermark across the bottom that says 'Smallpdf' in ugly gray text. To remove it, they want $12 a month. You close the tab and try another. iLovePDF lets you download the compressed file, but it is blurry. And you already used your two free tasks for the day."
         date="June 9, 2026" readTime="9 min read"
         relatedLinks={[
           { href: "/blog/compress-pdf-without-losing-quality", label: "Compress PDF Without Losing Quality" },
@@ -46,6 +46,9 @@ export default function SmallpdfAlternativesPage() {
         ]}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+
+        <p>Here is what most PDF tools will not tell you: their free tier is a demo. Smallpdf gives you two tasks per day, then locks you out. If you pay, it is $108 to $144 a year. iLovePDF charges $48 a year for unlimited access. Adobe Acrobat Pro costs $239.88 annually just to edit or compress PDFs. Even Sejda — which looks generous at first — limits you to three tasks per hour, 50 pages max, and 50MB per file. That is not free. That is a tease.</p>
+        <p>I built Truly Free PDF Tools because I got tired of this nonsense. No account. No watermark. No two-task limit. You upload a 200MB PDF with 500 pages? Compress it. Merge ten files? Go ahead. Remove a password from a PDF you own? Done. The tools run entirely in your browser using WebAssembly (pdf-lib), so your files never leave your computer. Try it once — you will not hit a paywall. I promise.</p>
 
         <h2>Smallpdf vs. The Real Free Alternatives: What You Actually Pay</h2>
         <p>Let me name names. Smallpdf is the most popular PDF tool online. Their free tier gives you two tasks per day. Two. After that, you get a pop-up asking for $12 a month or $108 a year. And here is the dirty trick: even within those two free tasks, they watermark your compressed PDFs unless you sign up. I tested this last week. Compressed a 15MB real estate flyer. The output had "Smallpdf" plastered across page one. To remove it, twelve dollars a month. A real estate agent sending listings to twenty clients would hit that limit before 9am.</p>
