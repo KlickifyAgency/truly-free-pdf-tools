@@ -86,7 +86,6 @@ export default function Navbar() {
             border: "none",
             cursor: "pointer",
             padding: 8,
-            display: "none",
             flexDirection: "column",
             gap: 5,
           }}
