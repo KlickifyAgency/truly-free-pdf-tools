@@ -1,0 +1,176 @@
+name: Publish Friday Article
+
+on:
+  schedule:
+    - cron: '0 14 * * 5'  # Every Friday 2pm UTC (9am CDT)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Publish pre-scheduled article or generate new one
+        id: article
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          # --- Priority 1: publish from _scheduled/ folder ---
+          NEXT=$(ls _scheduled/*.tsx 2>/dev/null | sort | head -1)
+          if [ -n "$NEXT" ]; then
+            FILENAME=$(basename "$NEXT" .tsx)
+            SLUG=$(echo "$FILENAME" | sed 's/^[0-9-]*_//')
+            mkdir -p "app/blog/$SLUG"
+            mv "$NEXT" "app/blog/$SLUG/page.tsx"
+            echo "slug=$SLUG" >> $GITHUB_OUTPUT
+            echo "Published pre-scheduled: $SLUG"
+            exit 0
+          fi
+
+          # --- Priority 2: generate with Claude API ---
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "No scheduled articles and ANTHROPIC_API_KEY not set. Skipping."
+            exit 0
+          fi
+
+          WEEK=$(date +%V | python3 -c "import sys; w=int(sys.stdin.read().strip()); print(w)")
+          TODAY=$(date +%Y-%m-%d)
+
+          TOPICS=(
+            "How to sign a PDF for free without Adobe Acrobat"
+            "How to extract pages from a PDF without uploading it"
+            "How to merge PDFs without watermarks or file size limits"
+            "How to reduce PDF file size for email attachments"
+            "How to convert a scanned PDF to searchable text (OCR) for free"
+            "How to remove password protection from a PDF you own"
+            "How to flatten PDF form fields before sending"
+            "How to add a digital signature that is legally valid"
+            "How to split a PDF into separate files for free"
+            "PDF to Word conversion: which tools preserve formatting"
+            "How to annotate a PDF without Adobe Acrobat"
+            "How to crop pages in a PDF for free"
+            "How to rotate PDF pages permanently"
+            "How to add page numbers to a PDF"
+            "How to combine PDF files on iPhone and Android"
+            "PDF file size limits by platform: email, WhatsApp, Slack, and more"
+            "How to make a PDF fillable without expensive software"
+            "How to redact text in a PDF permanently"
+            "How to convert PDF to JPG for free"
+            "How to compress a PDF on Mac without Adobe"
+            "How to compress a PDF on Windows 10 and 11"
+            "How to compare two PDF documents for differences"
+            "How to add a watermark to a PDF"
+            "How to remove a watermark from a PDF you created"
+            "How to protect a PDF with a password"
+            "PDF vs Word: when to use each format for business documents"
+            "How to compress PDF for court filing and legal documents"
+            "How to compress a PDF resume without losing quality"
+            "How to send large PDFs without a file-sharing service"
+            "How to convert PowerPoint to PDF for free"
+            "How to convert Excel to PDF with formatting intact"
+            "How to edit a PDF without converting it to Word"
+            "How to fix a corrupted PDF file"
+            "How to print a PDF as a booklet"
+            "PDF accessibility: how to make PDFs readable by screen readers"
+            "How to batch compress multiple PDFs at once"
+            "How to convert PDF to PNG for presentations"
+            "How Smallpdf limits free users and what to use instead"
+            "iLovePDF alternatives that have no daily limits"
+            "Adobe Acrobat vs free PDF tools: an honest comparison"
+            "How to compress a medical PDF for email"
+            "How to reduce PDF file size on a Chromebook"
+            "How to combine PDF and images in a single document"
+            "How to convert PDF to HTML"
+            "How to save an email as a PDF"
+            "PDF compression for architects and CAD drawings"
+            "How to sign a PDF on iPhone without an app"
+            "How to sign a PDF on Android without an app"
+            "How to share PDF files securely"
+            "How to convert a photo to PDF on any device"
+            "How PDF compression algorithms work: a practical explanation"
+            "How to print to PDF on any operating system"
+          )
+
+          IDX=$(( ($WEEK - 1) % ${#TOPICS[@]} ))
+          TOPIC="${TOPICS[$IDX]}"
+
+          echo "Generating article for topic: $TOPIC"
+
+          SLUG=$(echo "$TOPIC" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9 ]//g' | tr ' ' '-' | sed 's/--*/-/g' | cut -c1-60)
+
+          python3 - <<PYEOF
+import json, urllib.request, os, re
+
+api_key = os.environ["ANTHROPIC_API_KEY"]
+topic = """$TOPIC"""
+slug = """$SLUG"""
+today = """$TODAY"""
+
+prompt = f"""Write a complete Next.js blog article (TSX file) for trulyfreetools.com about: "{topic}"
+
+Requirements:
+- Complete, ready-to-deploy TSX file
+- Imports: import type {{ Metadata }} from 'next'; import ArticleWrapper from '../../../components/blog/ArticleWrapper'; import AuthorBox from '@/components/blog/AuthorBox'
+- Export metadata with title, description, canonical URL: https://trulyfreetools.com/blog/{slug}
+- Article and FAQ JSON-LD schemas as const variables inside component function
+- datePublished: "{today}", author: George Smith (Founder, Klickify Agency)
+- Component: export default function Page() returning full JSX
+- Use ArticleWrapper component wrapping the content — same as existing PDF articles
+- ArticleWrapper props: category (string), categoryColor, categoryBg, title, description, date ("{today.replace('-', ' ').replace('-', ' ')}"), readTime, relatedLinks array
+- Author box with george-smith.png inside ArticleWrapper
+- 5-7 practical content sections with step-by-step instructions
+- Real comparisons with named tools (Smallpdf, iLovePDF, Adobe) where relevant
+- CTA section linking to the relevant tool on the site
+- FAQ section with 4 questions
+- Do NOT mention "Google AdSense" — use "ad-supported" if needed
+- Write as George Smith, practical and direct, first person
+- Word count: 1,200-1,800 words of actual content
+- Output ONLY the complete TSX code, no explanation, no markdown code blocks"""
+
+data = json.dumps({
+    "model": "claude-sonnet-4-6",
+    "max_tokens": 8000,
+    "messages": [{"role": "user", "content": prompt}]
+}).encode()
+
+req = urllib.request.Request(
+    "https://api.anthropic.com/v1/messages",
+    data=data,
+    headers={
+        "x-api-key": api_key,
+        "anthropic-version": "2023-06-01",
+        "content-type": "application/json"
+    }
+)
+
+with urllib.request.urlopen(req) as resp:
+    result = json.loads(resp.read())
+
+content = result["content"][0]["text"]
+content = re.sub(r'^```(?:tsx|typescript|jsx)?\n', '', content, flags=re.MULTILINE)
+content = re.sub(r'\n```\s*$', '', content, flags=re.MULTILINE)
+
+os.makedirs(f"app/blog/{slug}", exist_ok=True)
+with open(f"app/blog/{slug}/page.tsx", "w") as f:
+    f.write(content)
+
+print(f"Article written to app/blog/{slug}/page.tsx")
+PYEOF
+
+          echo "slug=$SLUG" >> $GITHUB_OUTPUT
+
+      - name: Commit and push
+        run: |
+          git config user.name "Klickify Agency Bot"
+          git config user.email "info@klickifyagency.com"
+          git add .
+          if git diff --staged --quiet; then
+            echo "Nothing to commit"
+          else
+            git commit -m "publish: weekly article - ${{ steps.article.outputs.slug }}"
+            git push
+          fi
