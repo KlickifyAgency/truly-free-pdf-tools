@@ -13,7 +13,7 @@ export default function SmallpdfAlternativesPage() {
     "@context": "https://schema.org", "@type": "Article",
     headline: "Smallpdf Alternatives That Are Actually Free in 2026",
     description: "Smallpdf gives you two tasks per day then locks you out. Here are the real free alternatives with no daily limits, no watermarks, and no account required.",
-    datePublished: "2026-06-09", dateModified: "2026-06-09",
+    datePublished: "2026-06-09", dateModified: "2026-07-03",
     author: { "@type": "Person", name: "George Smith", url: "https://www.linkedin.com/in/george-smith-832113217/" },
     publisher: { "@type": "Organization", name: "TrulyFreeTools", url: "https://trulyfreetools.com" },
     mainEntityOfPage: "https://trulyfreetools.com/blog/smallpdf-alternatives",
@@ -49,6 +49,10 @@ export default function SmallpdfAlternativesPage() {
 
         <p>Here is what most PDF tools will not tell you: their free tier is a demo. Smallpdf gives you two tasks per day, then locks you out. If you pay, it is $108 to $144 a year. iLovePDF charges $48 a year for unlimited access. Adobe Acrobat Pro costs $239.88 annually just to edit or compress PDFs. Even Sejda — which looks generous at first — limits you to three tasks per hour, 50 pages max, and 50MB per file. That is not free. That is a tease.</p>
         <p>I built Truly Free PDF Tools because I got tired of this nonsense. No account. No watermark. No two-task limit. You upload a 200MB PDF with 500 pages? Compress it. Merge ten files? Go ahead. Remove a password from a PDF you own? Done. The tools run entirely in your browser using WebAssembly (pdf-lib), so your files never leave your computer. Try it once — you will not hit a paywall. I promise.</p>
+
+        <h2>Verified July 2026: What Smallpdf's Own Pricing Page Shows Right Now</h2>
+        <p>I went back to smallpdf.com/pricing while updating this article to make sure the numbers below are still accurate, not just repeated from an old screenshot. Two things changed since this article was first written. First, Smallpdf now frames its paid tier as a &quot;7-day free trial&quot; you start with a card on file, not a plain monthly toggle — cancel within 7 days or it converts to a paid subscription automatically. Second, every single tool in their free tier (Compress, Merge, Split, Convert, Edit, Sign) is tagged with the same &quot;Daily download limit&quot; badge on their own comparison table, and their mobile app is even more restricted: community reports and app store reviews consistently point to 1 free task per day on mobile, versus 2 on desktop web. If you are on your phone trying to compress a boarding pass or a signed lease at 11pm, that one extra restriction is the one that actually bites.</p>
+        <p>None of this is a knock on Smallpdf as software — it is well-built and their support is responsive, per their own customer reviews. The point is narrower: if a &quot;free&quot; tool asks for a card before your first real task, it is a trial, not a free tier. That distinction is worth 30 seconds of checking before you upload something time-sensitive.</p>
 
         <h2>Smallpdf vs. The Real Free Alternatives: What You Actually Pay</h2>
         <p>Let me name names. Smallpdf is the most popular PDF tool online. Their free tier gives you two tasks per day. Two. After that, you get a pop-up asking for $12 a month or $108 a year. And here is the dirty trick: even within those two free tasks, they watermark your compressed PDFs unless you sign up. I tested this last week. Compressed a 15MB real estate flyer. The output had "Smallpdf" plastered across page one. To remove it? Twelve dollars a month. A real estate agent sending listings to twenty clients would hit that limit in one morning.</p>
