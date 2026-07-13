@@ -68,7 +68,7 @@ export default function PdfFileSizeReducerGuidePage() {
         <p><strong>8. (Optional) Compress multiple PDFs for a batch email.</strong> If you need to send several PDFs, compress each one individually first. Then attach all of them. Gmail's 25MB limit applies to the total attachment size, not per file. So compress aggressively if you are sending multiple files.</p>
 
         <h2>Why Truly Free PDF Tools Is Actually Free</h2>
-        <p>I have explained the AdSense model repeatedly. But let me address the email-specific use case. When you are in a hurry to send a document, you do not want to create an account or enter a credit card. You want a tool that works right now and then disappears. That is exactly what I built.</p>
+        <p>I have explained the ad-supported model repeatedly. But let me address the email-specific use case. When you are in a hurry to send a document, you do not want to create an account or enter a credit card. You want a tool that works right now and then disappears. That is exactly what I built.</p>
         <p>The tool runs locally, so your file never leaves your computer. That means you can compress sensitive documents — contracts, tax returns, medical records — without worrying about where they end up. Smallpdf stores every file for 24 hours. I do not store anything because there is no server.</p>
         <p>The cost to me is negligible. A single compression uses a few cents of bandwidth and CPU time (on your computer, not mine). I can afford to give away millions of compressions because my overhead is near-zero. Smallpdf cannot afford to give away unlimited compressions because they have servers, employees, and investors. That is the difference.</p>
 

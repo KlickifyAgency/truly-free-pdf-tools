@@ -67,7 +67,7 @@ export default function BestFreePdfTools2026Page() {
         <p><strong>6. Combine these tools for advanced workflows.</strong> Example: You have a password-protected PDF that is too large for email. First, remove the password. Then compress the unlocked file. Then split out only the pages you need. All free, all local, no limits.</p>
 
         <h2>Why Truly Free PDF Tools Is Actually Free</h2>
-        <p>I have said this before, but it bears repeating: the site runs on Google AdSense. You see ads on the homepage and on these blog articles. I get a few cents when you click them. That pays for hosting. I do not take a salary from this project. I have a separate business (Klickify Agency) that pays my bills.</p>
+        <p>I have said this before, but it bears repeating: the site is ad-supported. You see ads on the homepage and on these blog articles. That covers hosting. I do not take a salary from this project. I have a separate business (Klickify Agency) that pays my bills.</p>
         <p>The reason I can keep it free while Smallpdf charges $108 a year is overhead. Smallpdf has dozens of employees, a sales team, and venture capital investors demanding returns. I have none of that. I am a solo developer building tools in my spare time because I enjoy it and because I think the PDF tool market is broken.</p>
         <p>Privacy is the other advantage. Because all tools run locally using WebAssembly, your files never leave your computer. Smallpdf uploads every file to their AWS servers. iLovePDF stores your files for 24 hours. Adobe's online tools keep your files for 30 days. I do not store anything because there is nowhere to store it. The code runs in your browser and then disappears when you close the tab.</p>
 

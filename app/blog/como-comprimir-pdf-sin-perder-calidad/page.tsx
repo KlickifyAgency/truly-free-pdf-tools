@@ -68,7 +68,7 @@ export default function HowToReducePdfFileSizePage() {
         <p><strong>8. Compress another file immediately.</strong> No cooldown. No "2 of 2 tasks used." Compress ten files in a row. The tool does not care.</p>
 
         <h2>Why Truly Free PDF Tools Is Actually Free</h2>
-        <p>The business model is simple: Google AdSense on the homepage and blog. I do not run ads on the compressor page. Why? Because you are trying to get work done. Ads would be disrespectful. The ad revenue is modest — about $150 per year — but that covers the $120 annual hosting cost. I do not need to charge.</p>
+        <p>The business model is simple: display advertising on the homepage and blog. I do not run ads on the compressor page. Why? Because you are trying to get work done. Ads would be disrespectful. The ad revenue covers the annual hosting cost. I do not need to charge.</p>
         <p>The technical reason I can keep it free: open source. I use pdf-lib for PDF manipulation and a WebAssembly version of libjpeg for image compression. Both are free libraries. I just glued them together. My actual code is a few hundred lines of JavaScript. No big team. No expensive servers. Just a static website hosted on a CDN.</p>
         <p>Privacy is the killer feature. Because compression happens locally, your file never leaves your computer. Adobe's online compressor uploads your file to their cloud. So does Smallpdf, iLovePDF, and Sejda. That means your document sits on a server you do not control. If you are compressing a tax return, a medical record, or a business plan, that is a risk. With my tool, there is no risk because there is no server.</p>
 

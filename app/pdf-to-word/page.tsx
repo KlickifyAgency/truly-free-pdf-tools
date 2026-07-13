@@ -157,7 +157,6 @@ export default function PDFToWordPage() {
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
               {[
                 ["/blog/pdf-to-word-free-no-email", "How to Convert PDF to Word Free"],
-                ["/pdf-to-word-free-no-email", "PDF to Word — No Email"],
                 ["/blog/best-free-pdf-tools-2026", "Best Free PDF Tools 2026"],
                 ["/compress-pdf", "Compress PDF Free"],
               ].map(([href, label]) => (

@@ -47,7 +47,7 @@ export default function HerramientasPdfGratisPage() {
       >
         <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
 
-        <p>Construí Truly Free PDF Tools porque estaba cansado de este problema. No hay marcas de agua. No hay límites diarios. No necesitas crear una cuenta. Tus archivos nunca salen de tu ordenador. Y es 100% gratis, financiado con anuncios de Google AdSense.</p>
+        <p>Construí Truly Free PDF Tools porque estaba cansado de este problema. No hay marcas de agua. No hay límites diarios. No necesitas crear una cuenta. Tus archivos nunca salen de tu ordenador. Y es 100% gratis, financiado con publicidad.</p>
         <p>Este artículo es una guía completa de las mejores herramientas PDF gratuitas en 2026. Comparo mi herramienta con Smallpdf, iLovePDF, Adobe y Sejda. Te digo cuáles son realmente gratis y cuáles solo son demos. Al final, tendrás claro qué herramienta usar para cada tarea.</p>
 
         <h2>Comparación de Herramientas PDF Gratis (Precios Reales)</h2>
@@ -65,7 +65,7 @@ export default function HerramientasPdfGratisPage() {
         <p><strong>6. Combinar herramientas para flujos complejos.</strong> Ejemplo: tienes un PDF con contraseña y demasiado grande para email. Primero, quita la contraseña. Luego, comprime el archivo. Luego, si solo necesitas algunas páginas, divídelo. Todo gratis, todo local, sin límites.</p>
 
         <h2>Por Qué Truly Free PDF Tools es Realmente Gratis</h2>
-        <p>Voy a ser honesto. El sitio muestra anuncios de Google AdSense en la página principal y en los artículos del blog. Cuando visitas, ves un anuncio de un VPN o de un software de edición de fotos. Si haces clic, gano unos centavos. Eso paga el hosting (unos $120 al año). No gano dinero con las herramientas. No tengo empleados. No tengo inversores. Soy un desarrollador independiente.</p>
+        <p>Voy a ser honesto. El sitio muestra publicidad en la página principal y en los artículos del blog. Cuando visitas, ves un anuncio de un VPN o de un software de edición de fotos. Eso paga el hosting. No gano dinero con las herramientas. No tengo empleados. No tengo inversores. Soy un desarrollador independiente.</p>
         <p>La privacidad es importante. Como las herramientas funcionan localmente (usando WebAssembly), tus archivos nunca salen de tu ordenador. No los subes a ningún servidor. Ni siquiera yo puedo verlos. Smallpdf y iLovePDF guardan tus archivos en sus servidores durante 24 horas. Adobe los guarda 30 días. Yo no guardo nada porque no hay servidor.</p>
         <p>No necesitas cuenta. No te pido email. No te enviaré spam. No hay suscripción que cancelar. Abres el sitio, usas la herramienta, cierras la pestaña. Así de simple.</p>
 

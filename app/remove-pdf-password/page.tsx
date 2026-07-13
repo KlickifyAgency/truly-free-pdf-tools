@@ -151,7 +151,6 @@ export default function RemovePDFPasswordPage() {
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
               {[
                 ["/blog/how-to-remove-pdf-password", "How to Remove a PDF Password"],
-                ["/remove-pdf-password-free-no-subscription", "Remove Password — No Subscription"],
                 ["/blog/best-free-pdf-tools-2026", "Best Free PDF Tools 2026"],
                 ["/compress-pdf", "Compress PDF Free"],
               ].map(([href, label]) => (

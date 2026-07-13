@@ -153,7 +153,6 @@ export default function MergePDFPage() {
                 ["/blog/how-to-merge-pdf-free", "How to Merge PDF Files Free"],
                 ["/blog/best-free-pdf-tools-2026", "Best Free PDF Tools 2026"],
                 ["/blog/smallpdf-alternatives", "Smallpdf Alternatives"],
-                ["/merge-pdf-free-no-watermark", "Merge PDF — No Watermark"],
               ].map(([href, label]) => (
                 <Link key={href} href={href} style={{ fontSize: 13, fontWeight: 600, color: "#0058c3", textDecoration: "none", padding: "6px 14px", borderRadius: 6, background: "#ffffff", letterSpacing: "-0.01em" }}>
                   {label} →

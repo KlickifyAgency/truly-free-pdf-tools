@@ -21,7 +21,7 @@ const organizationSchema = {
     knowsAbout: ["PDF compression", "document processing", "WebAssembly", "digital tools"],
     worksFor: { "@type": "Organization", name: "Klickify Agency" },
   },
-  description: "Free PDF tools that process files entirely in your browser — no uploads, no accounts, no daily limits, no watermarks. Funded by Google AdSense.",
+  description: "Free PDF tools that process files entirely in your browser — no uploads, no accounts, no daily limits, no watermarks. Ad-supported.",
   foundingDate: "2025",
   contactPoint: { "@type": "ContactPoint", email: "info@klickifyagency.com", contactType: "customer support" },
   sameAs: ["https://www.linkedin.com/in/george-smith-832113217/"],
@@ -109,7 +109,7 @@ export default function AboutPage() {
         <div style={{ maxWidth: "720px", margin: "0 auto" }}>
           <div style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.08em", color: "#718096", textTransform: "uppercase", marginBottom: "20px" }}>BUSINESS MODEL</div>
           <h2 style={{ fontSize: "clamp(22px, 3vw, 32px)", fontWeight: 700, letterSpacing: "-0.02em", color: "#181c1e", margin: "0 0 20px" }}>How free tools stay free</h2>
-          <p style={{ fontSize: "15px", color: "#4a5568", lineHeight: 1.75, marginBottom: "16px" }}>TrulyFreeTools is funded by Google AdSense advertising. Ads appear on content pages and between completed operations on tool pages. The processing flow itself is ad-free — no pop-up blocks your download, no interstitial appears while your file compresses.</p>
+          <p style={{ fontSize: "15px", color: "#4a5568", lineHeight: 1.75, marginBottom: "16px" }}>TrulyFreeTools is ad-supported. Ads appear on content pages and between completed operations on tool pages. The processing flow itself is ad-free — no pop-up blocks your download, no interstitial appears while your file compresses.</p>
           <p style={{ fontSize: "15px", color: "#4a5568", lineHeight: 1.75, marginBottom: "0" }}>The model works because useful tools generate traffic, and traffic generates ad revenue. There is no incentive to add limits or paywalls — limits reduce usage and reduce revenue. Free and unlimited is the better business outcome here, which is also the better outcome for users.</p>
         </div>
       </section>

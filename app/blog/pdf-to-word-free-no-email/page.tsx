@@ -68,7 +68,7 @@ export default function PdfToWordFreeNoEmailPage() {
         <h2>Why Truly Free PDF Tools Is Actually Free</h2>
         <p>I am going to be honest: the PDF to Word converter is the hardest tool to build. PDFs are not designed to be edited. They are designed for printing. Converting them to an editable format (Word) requires guessing where paragraphs end, how tables should be structured, and which text is a heading. Paid tools like Adobe Acrobat do this reasonably well because they have proprietary algorithms. Free tools struggle.</p>
         <p>I built this converter using an open-source library called pdf2md (PDF to Markdown) and then converting Markdown to Word. It works for simple documents. For complex documents, it fails. But I decided to release it anyway because something is better than nothing. And because it runs locally, you are not uploading your document to some sketchy server just to get a mediocre conversion.</p>
-        <p>The business model is the same: Google AdSense on the homepage and blog. No ads on the converter tool itself. I do not make money from conversions. I make money from people reading articles and clicking ads. That is why I can offer the converter for free even though it is not perfect.</p>
+        <p>The business model is the same: display advertising on the homepage and blog. No ads on the converter tool itself. I do not make money from conversions. That is why I can offer the converter for free even though it is not perfect.</p>
 
         <h2>Frequently Asked Questions</h2>
         <h3>Why does the conversion look bad on my PDF?</h3>

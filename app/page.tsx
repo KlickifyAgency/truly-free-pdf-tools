@@ -30,7 +30,7 @@ const faqSchema = {
       name: "Are these PDF tools really free with no limits?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. All PDF operations on TrulyFreeTools are permanently free with no daily task limits, no file size caps, and no watermarks. The site is funded by non-intrusive Google AdSense advertising. There is no subscription, no trial period, and no mechanism by which access can be revoked — because payment is never requested.",
+        text: "Yes. All PDF operations on TrulyFreeTools are permanently free with no daily task limits, no file size caps, and no watermarks. The site is ad-supported. There is no subscription, no trial period, and no mechanism by which access can be revoked — because payment is never requested.",
       },
     },
     {

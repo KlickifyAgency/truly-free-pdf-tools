@@ -72,7 +72,7 @@ export default function PdfStatistics2026Page() {
         <h2>Why Truly Free PDF Tools Exists (The Data-Driven Reason)</h2>
         <p>Looking at this data, I saw a clear gap. Compression is the third most common PDF action, but most free compression tools have watermarks or daily limits. Merging and splitting are also common, but free tools limit page counts. Password removal is a common need, but free tools limit tasks per day.</p>
         <p>I built Truly Free PDF Tools to fill that gap. No limits because the data shows that users need more than two tasks per day. No watermarks because watermarks are hostile. No account because users do not want to give their email for a one-off task.</p>
-        <p>The business model (AdSense) works because the volume is high. Even if only 0.1% of visitors click an ad, that is enough to cover hosting costs when you have thousands of visitors per day. I do not need to charge. The data supports a free model.</p>
+        <p>The ad-supported model works because the volume is high. Even a small fraction of visitors engaging with ads is enough to cover hosting costs when you have thousands of visitors per day. I do not need to charge. The data supports a free model.</p>
 
         <h2>Frequently Asked Questions</h2>
         <h3>How many PDFs are created each day?</h3>

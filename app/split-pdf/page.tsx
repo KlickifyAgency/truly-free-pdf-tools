@@ -151,7 +151,6 @@ export default function SplitPDFPage() {
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
               {[
                 ["/blog/how-to-split-pdf-free", "How to Split a PDF Free"],
-                ["/split-pdf-free-no-account", "Split PDF — No Account Required"],
                 ["/blog/best-free-pdf-tools-2026", "Best Free PDF Tools 2026"],
                 ["/merge-pdf", "Merge PDF Free"],
               ].map(([href, label]) => (

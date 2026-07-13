@@ -21,19 +21,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/feedback`, priority: 0.4 },
   ];
 
-  const pseoPages = [
-    "compress-large-pdf-free-no-limit",
-    "compress-pdf-without-uploading",
-    "free-pdf-tools-no-subscription",
-    "ilovepdf-alternative-free",
-    "merge-pdf-free-no-watermark",
-    "pdf-to-word-free-no-email",
-    "pdf-tools-no-cloud-upload",
-    "remove-pdf-password-free-no-subscription",
-    "smallpdf-alternative-free",
-    "split-pdf-free-no-account",
-  ];
-
   const blogPosts = [
     "pdf-statistics-2026",
     "best-free-pdf-tools-2026",
@@ -58,12 +45,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority,
-    })),
-    ...pseoPages.map((slug) => ({
-      url: `${base}/${slug}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
     })),
     ...blogPosts.map((slug) => ({
       url: `${base}/blog/${slug}`,
