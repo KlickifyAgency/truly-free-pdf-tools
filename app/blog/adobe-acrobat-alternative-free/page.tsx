@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import ArticleWrapper from "../../../components/blog/ArticleWrapper";
 import AuthorBox from "@/components/blog/AuthorBox";
 
@@ -45,7 +46,7 @@ export default function AdobeAcrobatAlternativePage() {
           { href: "/blog/best-free-pdf-tools-2026", label: "Best Free PDF Tools 2026" },
         ]}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><Image src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
 
         <p>I have watched small business owners go through this loop for years. Adobe Acrobat is powerful software. If you need to create forms, add digital signatures, or redact sensitive information, Acrobat is worth the money. But ninety percent of what people call "editing" is really just basic manipulation: deleting a page, rotating a page, extracting a few pages, or merging two PDFs. You should not need a $240 subscription for that.</p>
         <p>Truly Free PDF Tools does not have a full editor. I will be honest about that. You cannot change text or move images. But for the tasks most people actually need — splitting, merging, compressing, removing passwords — it is completely free. No subscription. No account. And it runs locally, so your files stay private. Here is how to replace Adobe Acrobat with something that costs zero dollars.</p>

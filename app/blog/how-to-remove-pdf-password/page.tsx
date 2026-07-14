@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import ArticleWrapper from "../../../components/blog/ArticleWrapper";
 import AuthorBox from "@/components/blog/AuthorBox";
 
@@ -45,7 +46,7 @@ export default function HowToRemovePdfPasswordPage() {
           { href: "/blog/smallpdf-alternatives", label: "Smallpdf Alternatives" },
         ]}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><Image src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
 
         <p>Here is the truth: removing a password from a PDF you own is trivial if you know the password. If you forgot the password, you are out of luck. No free tool can crack a strong password. That would take years. But if you know the password and just want to remove it so you can share the file without hassle, that is easy. And most tools charge you for that easy operation.</p>
         <p>Smallpdf's password remover is free, but they watermark the output? Actually no — Smallpdf does not watermark unlocked files, and the free tier works. But the free tier is limited to two tasks per day. So if you have three PDFs to unlock, you are stuck. iLovePDF offers password removal on their free tier, but again, two tasks per day and a 20MB file size cap. Adobe Acrobat Pro lets you remove passwords, but that costs $240 a year. Sejda gives you three tasks per hour, but they limit the file size to 50MB and pages to 50.</p>

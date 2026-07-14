@@ -113,7 +113,7 @@ export default function RemovePDFPasswordPage() {
             </div>
           </div>
 
-          <div style={{ background: "linear-gradient(135deg, rgba(0,88,195,0.05), rgba(0,112,243,0.05))", borderRadius: 8, padding: "28px 32px", marginBottom: 48 }}>
+          <div style={{ background: "#f0f4ff", borderLeft: "4px solid #2563eb", borderRadius: 8, padding: "28px 32px", marginBottom: 48 }}>
             <h2 style={{ fontSize: 18, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: 12 }}>
               Your password never leaves your device
             </h2>

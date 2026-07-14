@@ -55,7 +55,7 @@ export default function PrivacyPage() {
           Last updated: April 21, 2026
         </p>
 
-        <div style={{ background: "linear-gradient(135deg, rgba(0,88,195,0.06), rgba(0,112,243,0.06))", borderRadius: 8, padding: "24px 28px", marginBottom: 48 }}>
+        <div style={{ background: "#f0f4ff", borderLeft: "4px solid #2563eb", borderRadius: 8, padding: "24px 28px", marginBottom: 48 }}>
           <p style={{ fontSize: 15, fontWeight: 700, letterSpacing: "-0.02em", color: "#0058c3", margin: 0 }}>
             Short version: Your files are processed on your device. We never see them, never receive them, never store them.
           </p>

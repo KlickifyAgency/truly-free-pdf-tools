@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import ArticleWrapper from "../../../components/blog/ArticleWrapper";
 import AuthorBox from "@/components/blog/AuthorBox";
 
@@ -45,7 +46,7 @@ export default function HowToReducePdfFileSizePage() {
           { href: "/blog/smallpdf-alternatives", label: "Smallpdf Alternatives" },
         ]}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><Image src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
 
         <p>This is the most common PDF problem in the world: file too big for email. And the most common solution is to pay Adobe or one of its competitors. But you do not need to pay. Reducing PDF file size is simple math: remove unnecessary data, compress images, and re-encode text streams. Any computer can do this. The only reason tools charge is because they can.</p>
         <p>Truly Free PDF Tools reduces PDF file size in your browser. No upload. No account. No watermark. And no quality loss if you use the right settings. I built this because I watched my real estate agent friend spend $120 on Smallpdf just to compress listings. That is $120 she could have kept. Here is how to do it for free.</p>

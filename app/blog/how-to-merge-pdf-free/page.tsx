@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import ArticleWrapper from "../../../components/blog/ArticleWrapper";
 import AuthorBox from "@/components/blog/AuthorBox";
 
@@ -45,7 +46,7 @@ export default function HowToMergePdfFreePage() {
           { href: "/blog/smallpdf-alternatives", label: "Smallpdf Alternatives" },
         ]}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><Image src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
 
         <p>I hate this pattern. "Free" tools that require an email are not free — they are harvesting leads. Smallpdf gets your email, then spams you until you either pay or unsubscribe. iLovePDF does the same thing. Adobe's online merge tool requires an Adobe account, which means giving them your name, email, and probably a phone number for two-factor authentication. All of this just to stick two PDFs together.</p>
         <p>Truly Free PDF Tools does not ask for your email. There is no account. No "sign up to download." No confirmation link. You upload your files, click merge, download the result. That is it. The whole transaction is between you and your browser. I never know who you are or what you merged. Here is how it works and why every other tool makes merging so painful.</p>

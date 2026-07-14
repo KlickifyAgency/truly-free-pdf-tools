@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import ArticleWrapper from "../../../components/blog/ArticleWrapper";
 import AuthorBox from "@/components/blog/AuthorBox";
 
@@ -45,7 +46,7 @@ export default function IlovepdfAlternativePage() {
           { href: "/blog/best-free-pdf-tools-2026", label: "Best Free PDF Tools 2026" },
         ]}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><Image src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
 
         <p>I have been there. iLovePDF is not evil — they have a nice interface and reliable servers. But calling themselves "free" is misleading. The free tier is a trial. You get watermarks, file size limits, and daily caps. Their premium plan removes those limits but still stores your files on their servers for 24 hours. If you are splitting a tax document or a medical record, that should bother you.</p>
         <p>Truly Free PDF Tools does not store anything. Your file never leaves your browser. No watermark. No 20MB limit. No daily task cap. And it is actually free — not "free trial" or "freemium." I built it because I got tired of explaining to my freelancer friends why they should pay $48 a year just to split a PDF. You should not have to pay. Here is why.</p>

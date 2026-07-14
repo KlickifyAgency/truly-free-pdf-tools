@@ -36,13 +36,16 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px 32px", borderTop: "1px solid #e5e9eb", paddingTop: 24, display: "flex", justifyContent: "center", alignItems: "center" }}>
+      <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px 32px", borderTop: "1px solid #e5e9eb", paddingTop: 24, display: "flex", flexDirection: "column", gap: 10, justifyContent: "center", alignItems: "center" }}>
         <p style={{ fontSize: 13, color: "#718096", letterSpacing: "-0.02em", margin: 0 }}>
           2026 Truly Free Tools · Built by{" "}
           <a href="https://klickifyagency.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#0058c3", fontWeight: 600, textDecoration: "none" }}>
             Klickify Agency
           </a>
         </p>
+        <a href="https://google.com/preferences/source?q=trulyfreetools.com" target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: "#718096", letterSpacing: "-0.01em", textDecoration: "underline" }}>
+          Mark as a preferred source on Google
+        </a>
       </div>
     </footer>
   )

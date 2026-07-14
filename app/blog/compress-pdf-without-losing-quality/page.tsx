@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import ArticleWrapper from "../../../components/blog/ArticleWrapper";
 import AuthorBox from "@/components/blog/AuthorBox";
 
@@ -45,7 +46,7 @@ export default function CompressPdfWithoutLosingQualityPage() {
           { href: "/blog/ilovepdf-alternative-free-unlimited", label: "iLovePDF Alternative" },
         ]}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><Image src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
 
         <p>Here is the dirty secret of the PDF industry: compressing a file costs them almost nothing. Smallpdf, iLovePDF, Adobe — they all run compression on servers that are already spinning. The only reason they charge you is because they can. Adobe Acrobat Pro costs $239.88 a year. For compression alone, that is insane. Sejda gives you three free compressions per hour, then locks you out until the next hour. PDF24 is free but you have to install clunky desktop software. Nobody has built a simple, unlimited, browser-based compressor that actually works. Until now.</p>
         <p>Truly Free PDF Tools compresses your PDF in your browser using WebAssembly. No upload. No watermark. No "you have used 2 of 2 tasks today." And most importantly: no quality loss if you choose the right settings. I built this because I got tired of telling my own clients to "just use Smallpdf and pay the $12." That felt wrong. So I made a better option. Here is how it works and why you will never go back to paid tools.</p>

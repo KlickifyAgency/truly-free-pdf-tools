@@ -1,0 +1,35 @@
+# Truly Free Tools — Free PDF Tools
+> Free PDF tools: compress, merge, split, convert to Word, remove password. Runs entirely in your browser via WebAssembly — files never leave your device.
+
+## Pages
+https://trulyfreetools.com/ — Homepage: free PDF tools, no upload, no watermark, no daily limits
+https://trulyfreetools.com/compress-pdf — Compress PDF file size without losing quality, entirely in-browser
+https://trulyfreetools.com/merge-pdf — Combine multiple PDFs into one file instantly, no upload
+https://trulyfreetools.com/split-pdf — Split a PDF into separate files or extract specific pages
+https://trulyfreetools.com/pdf-to-word — Convert text-based PDFs to editable Word documents, free
+https://trulyfreetools.com/remove-pdf-password — Remove a password from a PDF you own, no subscription
+https://trulyfreetools.com/about — About TrulyFreeTools, built by George Smith of Klickify Agency
+https://trulyfreetools.com/how-it-works — Technical architecture: WebAssembly, pdf-lib, PDF.js, local processing
+https://trulyfreetools.com/help — Answers to common questions about compressing, merging, splitting, converting PDFs
+https://trulyfreetools.com/contact — Contact the Truly Free PDF Tools team
+https://trulyfreetools.com/feedback — Rate the PDF tools and share feedback
+https://trulyfreetools.com/privacy — Privacy policy: files processed locally, no uploads, no data collection
+https://trulyfreetools.com/terms — Terms of service: free forever, no hidden charges
+https://trulyfreetools.com/blog — Guides on PDF compression, merging, splitting, conversion, and tool comparisons
+
+## Blog
+https://trulyfreetools.com/blog/pdf-statistics-2026 — PDF usage, growth, and industry data for 2026
+https://trulyfreetools.com/blog/best-free-pdf-tools-2026 — Honest ranking of the best free PDF tools in 2026
+https://trulyfreetools.com/blog/smallpdf-alternatives — Free Smallpdf alternatives with no daily task limits
+https://trulyfreetools.com/blog/adobe-acrobat-alternative-free — Free Adobe Acrobat alternatives for compressing, merging, splitting PDFs
+https://trulyfreetools.com/blog/pdf-file-size-reducer-guide — Fix a PDF that is too large to email, compress under 25MB free
+https://trulyfreetools.com/blog/how-to-merge-pdf-free — Step-by-step guide to merging PDFs free, no email or account
+https://trulyfreetools.com/blog/how-to-split-pdf-free — Step-by-step guide to splitting a PDF free, no account
+https://trulyfreetools.com/blog/how-to-remove-pdf-password — Step-by-step guide to removing a PDF password free
+https://trulyfreetools.com/blog/pdf-to-word-free-no-email — Convert PDF to Word free without giving an email address
+https://trulyfreetools.com/blog/herramientas-pdf-gratis — Comparativa honesta de herramientas PDF gratis en 2026 (ES)
+https://trulyfreetools.com/blog/como-comprimir-pdf-sin-perder-calidad — Como reducir el tamano de un PDF sin perder calidad (ES)
+https://trulyfreetools.com/blog/alternativas-smallpdf-gratis — Alternativas gratuitas a Smallpdf sin limite diario (ES)
+https://trulyfreetools.com/blog/compress-pdf-without-losing-quality — Compress any PDF free with no quality loss and no watermark
+https://trulyfreetools.com/blog/ilovepdf-alternative-free-unlimited — Free unlimited alternative to iLovePDF with no watermarks
+https://trulyfreetools.com/blog/why-smallpdf-limits-free-users — Why Smallpdf limits free users and which alternative to use instead

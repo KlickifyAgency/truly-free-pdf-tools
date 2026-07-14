@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import ArticleWrapper from "../../../components/blog/ArticleWrapper";
 import AuthorBox from "@/components/blog/AuthorBox";
 
@@ -45,7 +46,7 @@ export default function WhySmallpdfLimitsFreeUsersPage() {
           { href: "/blog/ilovepdf-alternative-free-unlimited", label: "iLovePDF Alternative" },
         ]}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><Image src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
 
         <p>Smallpdf limits free users because they want you to pay. That is obvious. But the specific numbers — two tasks per day, watermarks on compressed files, email required for some tools — are chosen to maximize conversions. They have data showing that after two free tasks, a certain percentage of users will pay. The watermark makes the free output ugly, so you pay to remove it. The email requirement lets them retarget you with ads.</p>
         <p>I do not blame Smallpdf for charging. They have 50+ employees, an office in Switzerland, and investors. They need revenue. What I blame them for is calling themselves "free." Two tasks per day is not free. It is a trial. And most users do not realize the limits until they hit them. That is deceptive.</p>

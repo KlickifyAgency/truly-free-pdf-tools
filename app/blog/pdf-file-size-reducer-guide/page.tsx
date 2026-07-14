@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import ArticleWrapper from "../../../components/blog/ArticleWrapper";
 import AuthorBox from "@/components/blog/AuthorBox";
 
@@ -45,7 +46,7 @@ export default function PdfFileSizeReducerGuidePage() {
           { href: "/blog/smallpdf-alternatives", label: "Smallpdf Alternatives" },
         ]}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><Image src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
 
         <p>This happens to everyone. PDFs get bloated. High-resolution images, embedded fonts, and scanned pages all add size. The solution is compression. But most compression tools either add watermarks, limit you to two tasks, or ask for a credit card. That is ridiculous. Compressing a PDF takes less computing power than loading Instagram.</p>
         <p>Here is the fix: use a free, unlimited, browser-based compressor that does not watermark your file. I built one because I got tired of watching people pay $12 a month to Smallpdf just to email a document. You do not need to pay. You do not need to create an account. You do not need to upload your file to a sketchy server.</p>

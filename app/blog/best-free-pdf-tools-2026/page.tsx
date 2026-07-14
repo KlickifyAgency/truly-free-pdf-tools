@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import ArticleWrapper from "../../../components/blog/ArticleWrapper";
 import AuthorBox from "@/components/blog/AuthorBox";
 
@@ -45,7 +46,7 @@ export default function BestFreePdfTools2026Page() {
           { href: "/blog/ilovepdf-alternative-free-unlimited", label: "iLovePDF Alternative" },
         ]}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><Image src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
 
         <p>I have tested every free PDF tool on the market. Most of them are not truly free. Smallpdf gives you two tasks per day. iLovePDF watermarks your files. Sejda limits you to three tasks per hour and 50 pages. PDF24 is free but requires a desktop install. And then there are the sketchy sites that ask for your email and then spam you forever.</p>
         <p>Here is the honest ranking of the best free PDF tools in 2026. I have included my own tool (Truly Free PDF Tools) in this list. You can decide if I am biased. But I have used all of these tools personally, and I am telling you which ones actually work without hidden costs.</p>

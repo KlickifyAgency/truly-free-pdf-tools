@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import ArticleWrapper from "../../../components/blog/ArticleWrapper";
 import AuthorBox from "@/components/blog/AuthorBox";
 
@@ -45,7 +46,7 @@ export default function SmallpdfAlternativesPage() {
           { href: "/blog/best-free-pdf-tools-2026", label: "Best Free PDF Tools 2026" },
         ]}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><Image src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
 
         <p>Here is what most PDF tools will not tell you: their free tier is a demo. Smallpdf gives you two tasks per day, then locks you out. If you pay, it is $108 to $144 a year. iLovePDF charges $48 a year for unlimited access. Adobe Acrobat Pro costs $239.88 annually just to edit or compress PDFs. Even Sejda — which looks generous at first — limits you to three tasks per hour, 50 pages max, and 50MB per file. That is not free. That is a tease.</p>
         <p>I built Truly Free PDF Tools because I got tired of this nonsense. No account. No watermark. No two-task limit. You upload a 200MB PDF with 500 pages? Compress it. Merge ten files? Go ahead. Remove a password from a PDF you own? Done. The tools run entirely in your browser using WebAssembly (pdf-lib), so your files never leave your computer. Try it once — you will not hit a paywall. I promise.</p>

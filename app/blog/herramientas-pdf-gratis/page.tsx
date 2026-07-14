@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import ArticleWrapper from "../../../components/blog/ArticleWrapper";
 import AuthorBox from "@/components/blog/AuthorBox";
 
@@ -45,7 +46,7 @@ export default function HerramientasPdfGratisPage() {
           { href: "/blog/best-free-pdf-tools-2026", label: "Best Free PDF Tools 2026 (EN)" },
         ]}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><Image src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
 
         <p>Construí Truly Free PDF Tools porque estaba cansado de este problema. No hay marcas de agua. No hay límites diarios. No necesitas crear una cuenta. Tus archivos nunca salen de tu ordenador. Y es 100% gratis, financiado con publicidad.</p>
         <p>Este artículo es una guía completa de las mejores herramientas PDF gratuitas en 2026. Comparo mi herramienta con Smallpdf, iLovePDF, Adobe y Sejda. Te digo cuáles son realmente gratis y cuáles solo son demos. Al final, tendrás claro qué herramienta usar para cada tarea.</p>

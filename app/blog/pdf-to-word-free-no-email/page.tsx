@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import ArticleWrapper from "../../../components/blog/ArticleWrapper";
 import AuthorBox from "@/components/blog/AuthorBox";
 
@@ -45,7 +46,7 @@ export default function PdfToWordFreeNoEmailPage() {
           { href: "/blog/best-free-pdf-tools-2026", label: "Best Free PDF Tools 2026" },
         ]}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><Image src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
 
         <p>I hate this pattern. Converting PDF to Word is not magic. The PDF format is open. There are open-source libraries that can extract text and basic formatting. The only reason tools ask for your email is to build a mailing list. They are not protecting you from anything. They are harvesting leads.</p>
         <p>Truly Free PDF Tools does not ask for your email. There is no account. No "sign up to download." But I need to be honest with you: our PDF to Word converter is not perfect. It works best on text-heavy PDFs with simple formatting. Complex layouts with multiple columns, tables, or images may not convert cleanly. For those, you need a paid tool like Adobe Acrobat or a desktop app like LibreOffice. But for most documents — contracts, essays, reports — our free converter works fine.</p>

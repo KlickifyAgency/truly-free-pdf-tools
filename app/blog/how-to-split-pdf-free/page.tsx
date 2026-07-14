@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import ArticleWrapper from "../../../components/blog/ArticleWrapper";
 import AuthorBox from "@/components/blog/AuthorBox";
 
@@ -45,7 +46,7 @@ export default function HowToSplitPdfFreePage() {
           { href: "/blog/smallpdf-alternatives", label: "Smallpdf Alternatives" },
         ]}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><Image src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
 
         <p>Splitting a PDF is one of the simplest operations possible. You are just copying a subset of pages. It takes less computing power than loading a YouTube video. Yet almost every "free" tool puts a watermark on the output or limits how many pages you can split. Why? Because they want you to subscribe. Watermarks are a tax on impatience. They know you will pay $12 to avoid redoing the work.</p>
         <p>Truly Free PDF Tools does not watermark. There is no page limit. No hourly cap. No account. And because the split happens locally, your file never leaves your browser. I built this because I got tired of explaining to teachers why they should pay $48 a year just to split a worksheet into individual pages. You should not pay. Here is how to do it for free.</p>

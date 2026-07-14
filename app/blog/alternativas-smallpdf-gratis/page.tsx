@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import ArticleWrapper from "../../../components/blog/ArticleWrapper";
 import AuthorBox from "@/components/blog/AuthorBox";
 
@@ -45,7 +46,7 @@ export default function AlternativasSmallpdfGratisPage() {
           { href: "/blog/why-smallpdf-limits-free-users", label: "Why Smallpdf Limits Free Users (EN)" },
         ]}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><img src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid rgba(74,85,104,0.1)" }}><Image src="/george-smith.png" alt="George Smith" width={36} height={36} style={{ borderRadius: "50%", objectFit: "cover" }} /><div><span style={{ fontSize: "14px", fontWeight: 600, color: "#181c1e", letterSpacing: "-0.01em" }}>George Smith</span><span style={{ fontSize: "13px", color: "#718096", letterSpacing: "-0.01em" }}> — Founder, Klickify Agency</span></div></div>
 
         <p>No estás solo. Millones de usuarios buscan alternativas reales a Smallpdf. Alternativas que no te limiten, no te pidan email, y no te pongan marcas de agua. En este artículo, te muestro las mejores opciones gratuitas en 2026. Incluyo mi propia herramienta (Truly Free PDF Tools), pero también te hablo de otras como PDF24 y Sejda (con sus limitaciones). Así puedes elegir la que mejor se adapte a ti.</p>
         <p>No voy a fingir que soy imparcial. Construí esta herramienta. Pero también he usado Smallpdf, iLovePDF, Sejda y PDF24. Sé sus fortalezas y debilidades. Mi herramienta es la mejor para tareas básicas de PDF porque no tiene límites, no tiene marcas de agua, y respeta tu privacidad.</p>
