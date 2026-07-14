@@ -103,63 +103,63 @@ jobs:
           SLUG=$(echo "$TOPIC" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9 ]//g' | tr ' ' '-' | sed 's/--*/-/g' | cut -c1-60)
 
           python3 - <<PYEOF
-import json, urllib.request, os, re
+          import json, urllib.request, os, re
 
-api_key = os.environ["ANTHROPIC_API_KEY"]
-topic = """$TOPIC"""
-slug = """$SLUG"""
-today = """$TODAY"""
+          api_key = os.environ["ANTHROPIC_API_KEY"]
+          topic = """$TOPIC"""
+          slug = """$SLUG"""
+          today = """$TODAY"""
 
-prompt = f"""Write a complete Next.js blog article (TSX file) for trulyfreetools.com about: "{topic}"
+          prompt = f"""Write a complete Next.js blog article (TSX file) for trulyfreetools.com about: "{topic}"
 
-Requirements:
-- Complete, ready-to-deploy TSX file
-- Imports: import type {{ Metadata }} from 'next'; import ArticleWrapper from '../../../components/blog/ArticleWrapper'; import AuthorBox from '@/components/blog/AuthorBox'
-- Export metadata with title, description, canonical URL: https://trulyfreetools.com/blog/{slug}
-- Article and FAQ JSON-LD schemas as const variables inside component function
-- datePublished: "{today}", author: George Smith (Founder, Klickify Agency)
-- Component: export default function Page() returning full JSX
-- Use ArticleWrapper component wrapping the content — same as existing PDF articles
-- ArticleWrapper props: category (string), categoryColor, categoryBg, title, description, date ("{today.replace('-', ' ').replace('-', ' ')}"), readTime, relatedLinks array
-- Author box with george-smith.png inside ArticleWrapper
-- 5-7 practical content sections with step-by-step instructions
-- Real comparisons with named tools (Smallpdf, iLovePDF, Adobe) where relevant
-- CTA section linking to the relevant tool on the site
-- FAQ section with 4 questions
-- Do NOT mention "Google AdSense" — use "ad-supported" if needed
-- Write as George Smith, practical and direct, first person
-- Word count: 1,200-1,800 words of actual content
-- Output ONLY the complete TSX code, no explanation, no markdown code blocks"""
+          Requirements:
+          - Complete, ready-to-deploy TSX file
+          - Imports: import type {{ Metadata }} from 'next'; import ArticleWrapper from '../../../components/blog/ArticleWrapper'; import AuthorBox from '@/components/blog/AuthorBox'
+          - Export metadata with title, description, canonical URL: https://trulyfreetools.com/blog/{slug}
+          - Article and FAQ JSON-LD schemas as const variables inside component function
+          - datePublished: "{today}", author: George Smith (Founder, Klickify Agency)
+          - Component: export default function Page() returning full JSX
+          - Use ArticleWrapper component wrapping the content — same as existing PDF articles
+          - ArticleWrapper props: category (string), categoryColor, categoryBg, title, description, date ("{today.replace('-', ' ').replace('-', ' ')}"), readTime, relatedLinks array
+          - Author box with george-smith.png inside ArticleWrapper
+          - 5-7 practical content sections with step-by-step instructions
+          - Real comparisons with named tools (Smallpdf, iLovePDF, Adobe) where relevant
+          - CTA section linking to the relevant tool on the site
+          - FAQ section with 4 questions
+          - Do NOT mention "Google AdSense" — use "ad-supported" if needed
+          - Write as George Smith, practical and direct, first person
+          - Word count: 1,200-1,800 words of actual content
+          - Output ONLY the complete TSX code, no explanation, no markdown code blocks"""
 
-data = json.dumps({
-    "model": "claude-sonnet-4-6",
-    "max_tokens": 8000,
-    "messages": [{"role": "user", "content": prompt}]
-}).encode()
+          data = json.dumps({
+              "model": "claude-sonnet-4-6",
+              "max_tokens": 8000,
+              "messages": [{"role": "user", "content": prompt}]
+          }).encode()
 
-req = urllib.request.Request(
-    "https://api.anthropic.com/v1/messages",
-    data=data,
-    headers={
-        "x-api-key": api_key,
-        "anthropic-version": "2023-06-01",
-        "content-type": "application/json"
-    }
-)
+          req = urllib.request.Request(
+              "https://api.anthropic.com/v1/messages",
+              data=data,
+              headers={
+                  "x-api-key": api_key,
+                  "anthropic-version": "2023-06-01",
+                  "content-type": "application/json"
+              }
+          )
 
-with urllib.request.urlopen(req) as resp:
-    result = json.loads(resp.read())
+          with urllib.request.urlopen(req) as resp:
+              result = json.loads(resp.read())
 
-content = result["content"][0]["text"]
-content = re.sub(r'^```(?:tsx|typescript|jsx)?\n', '', content, flags=re.MULTILINE)
-content = re.sub(r'\n```\s*$', '', content, flags=re.MULTILINE)
+          content = result["content"][0]["text"]
+          content = re.sub(r'^```(?:tsx|typescript|jsx)?\n', '', content, flags=re.MULTILINE)
+          content = re.sub(r'\n```\s*$', '', content, flags=re.MULTILINE)
 
-os.makedirs(f"app/blog/{slug}", exist_ok=True)
-with open(f"app/blog/{slug}/page.tsx", "w") as f:
-    f.write(content)
+          os.makedirs(f"app/blog/{slug}", exist_ok=True)
+          with open(f"app/blog/{slug}/page.tsx", "w") as f:
+              f.write(content)
 
-print(f"Article written to app/blog/{slug}/page.tsx")
-PYEOF
+          print(f"Article written to app/blog/{slug}/page.tsx")
+          PYEOF
 
           echo "slug=$SLUG" >> $GITHUB_OUTPUT
 
