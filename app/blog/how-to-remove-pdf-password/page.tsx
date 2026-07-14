@@ -84,7 +84,7 @@ export default function HowToRemovePdfPasswordPage() {
         <h3>Why does Smallpdf limit free users to two password removals per day?</h3>
         <p>Because they want you to pay. Two tasks per day is enough for a demo but not enough for regular use. If you have a batch of locked PDFs, you either wait days or pay $12 a month. I do not believe in that model. Unlock as many as you want.</p>
         <h3>Can this tool remove passwords from PDFs that were encrypted with Adobe's 256-bit AES?</h3>
-        <p>Yes. Pdf-lib supports AES-128 and AES-256 encryption. As long as you have the password, the tool can decrypt the file. This includes PDFs created by Adobe Acrobat, Microsoft Word's "Encrypt with Password" feature, and most scanner software.</p>
+        <p>Yes. Pdf-lib supports <a href="https://csrc.nist.gov/pubs/fips/197/final" target="_blank" rel="noopener noreferrer">AES-128 and AES-256 encryption</a>, the federal encryption standard published by NIST. As long as you have the password, the tool can decrypt the file. This includes PDFs created by Adobe Acrobat, Microsoft Word's "Encrypt with Password" feature, and most scanner software.</p>
         <p>Try the password remover now. Take a PDF you own that is password-protected. Unlock it. It takes five seconds. No account. No limit. If you forgot the password, I am sorry — I cannot help you. But if you remember it, this is the fastest way to get rid of that annoying password prompt forever.</p>
 
         <AuthorBox />
