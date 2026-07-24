@@ -82,8 +82,8 @@ export default function Page() {
       date="2026 07 24"
       readTime="15 minutes"
       relatedLinks={[
-        { text: 'Convert PDF to Word', url: '/blog/how-to-convert-pdf-to-word' },
-        { text: 'Merge PDF files', url: '/blog/how-to-merge-pdf-files' },
+        { label: 'Convert PDF to Word', href: '/blog/pdf-to-word-free-no-email' },
+        { label: 'Merge PDF files', href: '/blog/how-to-merge-pdf-free' },
       ]}
     >
       <h1>Introduction</h1>
@@ -104,7 +104,7 @@ export default function Page() {
       </p>
       <h2>Using Adobe to Convert PowerPoint to PDF</h2>
       <p>
-        If you have Adobe Acrobat installed on your computer, you can also use it to convert PowerPoint to PDF. To do this, open your PowerPoint file in Adobe Acrobat, select the "File" menu, and choose "Save As" > "PDF". The resulting PDF file will be saved to your computer.
+        If you have Adobe Acrobat installed on your computer, you can also use it to convert PowerPoint to PDF. To do this, open your PowerPoint file in Adobe Acrobat, select the "File" menu, and choose "Save As" then "PDF". The resulting PDF file will be saved to your computer.
       </p>
       <h2>Using Truly Free Tools to Convert PowerPoint to PDF</h2>
       <p>
@@ -121,11 +121,7 @@ export default function Page() {
       <p>
         <a href="/powerpoint-to-pdf">Convert PowerPoint to PDF for free</a>
       </p>
-      <AuthorBox
-        name="George Smith"
-        title="Founder, Klickify Agency"
-        image="/george-smith.png"
-      />
+      <AuthorBox />
       <h2>Frequently Asked Questions</h2>
       <dl>
         <dt>What is the best way to convert PowerPoint to PDF?</dt>
