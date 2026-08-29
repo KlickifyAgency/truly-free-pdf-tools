@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import ArticleWrapper from "../../../components/blog/ArticleWrapper";
 import AuthorBox from "@/components/blog/AuthorBox";
+import HtmlLangSync from "@/components/blog/HtmlLangSync";
 
 export const metadata: Metadata = {
   title: "Herramientas PDF Gratis en 2026 (Sin Registro, Sin Limites)",
@@ -39,6 +40,7 @@ export default function HerramientasPdfGratisPage() {
 
   return (
     <>
+      <HtmlLangSync lang="es" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
