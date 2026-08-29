@@ -20,10 +20,10 @@ export default function Page() {
       'PDF Accessibility: How to Make PDFs Readable by Screen Readers',
     description:
       'A practical guide that walks you through making PDFs fully accessible for screen‑reader users using free and affordable tools.',
-    image: 'https://trulyfreetools.com/og-image/pdf-accessibility.jpg',
     author: {
       '@type': 'Person',
       name: 'George Smith',
+      url: 'https://www.linkedin.com/in/george-smith-832113217/',
       jobTitle: 'Founder',
       affiliation: {
         '@type': 'Organization',
@@ -39,6 +39,7 @@ export default function Page() {
       },
     },
     datePublished: '2026-08-29',
+    dateModified: '2026-08-29',
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id':
@@ -85,18 +86,26 @@ export default function Page() {
     ],
   };
 
+  const speakableJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://trulyfreetools.com/blog/pdf-accessibility-how-to-make-pdfs-readable-by-screen-reader#webpage',
+    url: 'https://trulyfreetools.com/blog/pdf-accessibility-how-to-make-pdfs-readable-by-screen-reader',
+    speakable: { '@type': 'SpeakableSpecification', cssSelector: ['#faq'] },
+  };
+
   const relatedLinks = [
     {
-      title: 'Free OCR for PDFs',
-      href: '/tools/ocr',
+      label: 'Compress PDF Free',
+      href: '/compress-pdf',
     },
     {
-      title: 'How to Compress PDFs without Losing Quality',
-      href: '/blog/pdf-compression',
+      label: 'Convert PDF to Word Free',
+      href: '/pdf-to-word',
     },
     {
-      title: 'Top 5 PDF Editors for 2026',
-      href: '/blog/pdf-editors-2026',
+      label: 'Best Free PDF Tools 2026',
+      href: '/blog/best-free-pdf-tools-2026',
     },
   ];
 
@@ -110,10 +119,14 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableJsonLd) }}
+      />
       <ArticleWrapper
         category="Accessibility"
         categoryColor="#1A73E8"
-        categoryBg="bg-blue-50"
+        categoryBg="#eff6ff"
         title="PDF Accessibility: How to Make PDFs Readable by Screen Readers"
         description="Step‑by‑step instructions, free tools, and best‑practice tips to ensure every PDF you publish works for screen‑reader users."
         date="2026 08 29"
@@ -259,11 +272,8 @@ export default function Page() {
           <dt>Problem: Reading order is scrambled</dt>
           <dd>
             Reorder layers in the Smallpdf UI or, for more control, open the PDF
-            in the free <a
-              href="https://pdf-xchange-editor.en.softonic.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >PDF‑XChange Editor</a> and drag items in the “Content” pane.
+            in a desktop editor with tag/structure controls (such as PDF-XChange
+            Editor or Adobe Acrobat) and drag items in the "Content" pane.
           </dd>
         </dl>
 
@@ -275,33 +285,26 @@ export default function Page() {
         <blockquote>
           This PDF complies with WCAG 2.1 AA standards. If you encounter any
           accessibility barriers, please contact us at{' '}
-          <a href="mailto:accessibility@trulyfreetools.com">
-            accessibility@trulyfreetools.com
+          <a href="mailto:info@klickifyagency.com">
+            info@klickifyagency.com
           </a>.
         </blockquote>
 
-        <h2>Call to Action</h2>
+        <h2>What TrulyFreeTools Can Help With Today</h2>
         <p>
-          Ready to make your PDFs instantly accessible? Try our
-          <a
-            href="/tools/pdf-accessibility"
-            className="text-blue-600 underline hover:text-blue-800"
-          >
-            free PDF Accessibility Checker
-          </a>{' '}
-          – it automatically adds tags, alt text, and a language attribute in
-          seconds. No credit card required.
+          TrulyFreeTools does not currently offer a dedicated accessibility
+          checker or auto-tagging tool — the steps above rely on Word, Google
+          Docs, Smallpdf, and Adobe Acrobat for tagging and auditing. Once your
+          accessible PDF is ready, our free tools can help with what comes next:{' '}
+          <a href="/compress-pdf" style={{ color: '#0058c3', fontWeight: 600 }}>compress it</a> before publishing,
+          or convert it to editable Word with our{' '}
+          <a href="/pdf-to-word" style={{ color: '#0058c3', fontWeight: 600 }}>PDF to Word tool</a> if you need to rebuild the structure from scratch.
         </p>
 
-        <AuthorBox
-          name="George Smith"
-          title="Founder, Klickify Agency"
-          image="/authors/george-smith.png"
-          bio="I help businesses turn complex tech into simple, free tools. When I’m not writing code, I’m advocating for digital accessibility."
-        />
+        <AuthorBox />
 
-        <h2>Frequently Asked Questions</h2>
-        <dl className="space-y-4">
+        <h2 id="faq">Frequently Asked Questions</h2>
+        <dl>
           <dt className="font-medium">
             Do I need Adobe Acrobat Pro to create an accessible PDF?
           </dt>
