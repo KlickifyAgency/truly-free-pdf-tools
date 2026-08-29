@@ -49,6 +49,10 @@ export default function RemovePasswordTool() {
       const doc = await PDFDocument.load(buf, {
         ignoreEncryption: true,
       });
+      if (doc.isEncrypted) {
+        setError("This PDF is encrypted. This tool cannot decrypt password-protected PDFs in the browser — please remove the password using the app that created the PDF (or Acrobat) first, then upload the unprotected file.");
+        return;
+      }
       const unlocked = await PDFDocument.create();
       const pages = await unlocked.copyPages(doc, doc.getPageIndices());
       pages.forEach(p => unlocked.addPage(p));
@@ -105,7 +109,7 @@ export default function RemovePasswordTool() {
             </svg>
           </div>
           <p style={{ color: "#181c1e", fontWeight: 600, fontSize: 15, marginBottom: 4 }}>Drop your PDF here or click to upload</p>
-          <p style={{ color: "#718096", fontSize: 13 }}>Password-protected PDFs only</p>
+          <p style={{ color: "#718096", fontSize: 13 }}>Works on PDFs without real encryption (owner-locked, not password-locked)</p>
         </div>
       )}
 
