@@ -30,11 +30,18 @@ export default function PdfFileSizeReducerGuidePage() {
       { "@type": "Question", name: "What if the compressed PDF is still over 25MB?", acceptedAnswer: { "@type": "Answer", text: "Try High compression. If that still does not work, your PDF is extremely large (over 100MB original). In that case, split the PDF into two smaller files using our PDF Splitter, then email each separately. Or upload to cloud storage and send the link." } },
     ],
   };
+  const speakableSchema = {
+    "@context": "https://schema.org", "@type": "WebPage",
+    "@id": "https://trulyfreetools.com/blog/pdf-file-size-reducer-guide#webpage",
+    url: "https://trulyfreetools.com/blog/pdf-file-size-reducer-guide",
+    speakable: { "@type": "SpeakableSpecification", cssSelector: ["#faq"] },
+  };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
       <ArticleWrapper
         category="HOW-TO GUIDE" categoryColor="#16a34a" categoryBg="#f0fdf4"
         title="PDF File Too Large for Email? Here Is the Fix"
@@ -73,7 +80,7 @@ export default function PdfFileSizeReducerGuidePage() {
         <p>The tool runs locally, so your file never leaves your computer. That means you can compress sensitive documents — contracts, tax returns, medical records — without worrying about where they end up. Smallpdf stores every file for 24 hours. I do not store anything because there is no server.</p>
         <p>The cost to me is negligible. A single compression uses a few cents of bandwidth and CPU time (on your computer, not mine). I can afford to give away millions of compressions because my overhead is near-zero. Smallpdf cannot afford to give away unlimited compressions because they have servers, employees, and investors. That is the difference.</p>
 
-        <h2>Frequently Asked Questions</h2>
+        <h2 id="faq">Frequently Asked Questions</h2>
         <h3>What is Gmail's actual attachment limit?</h3>
         <p>25MB for sending. 50MB for receiving (Gmail can receive up to 50MB, but you cannot send that much). Outlook.com has a 20MB limit. Yahoo has 25MB. If your PDF is over 25MB, compress it. If it is over 50MB, even receiving might fail.</p>
         <h3>Will compressing a PDF make it unreadable on a phone?</h3>

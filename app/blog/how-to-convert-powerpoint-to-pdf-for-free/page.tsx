@@ -90,7 +90,7 @@ export default function Page() {
       categoryBg="#F7F7F7"
       title="How to Convert PowerPoint to PDF for Free"
       description="Learn how to convert PowerPoint to PDF for free using online tools and avoid expensive software."
-      date="2026 07 24"
+      date="July 24, 2026"
       readTime="15 minutes"
       relatedLinks={[
         { label: 'Convert PDF to Word', href: '/blog/pdf-to-word-free-no-email' },

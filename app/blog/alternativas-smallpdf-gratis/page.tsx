@@ -30,11 +30,18 @@ export default function AlternativasSmallpdfGratisPage() {
       { "@type": "Question", name: "¿Añadirás más herramientas en el futuro?", acceptedAnswer: { "@type": "Answer", text: "Sí. Estoy trabajando en rotación de páginas y extracción de imágenes. También quiero añadir un compresor por lotes. Sígueme en redes sociales o revisa el blog para novedades." } },
     ],
   };
+  const speakableSchema = {
+    "@context": "https://schema.org", "@type": "WebPage",
+    "@id": "https://trulyfreetools.com/blog/alternativas-smallpdf-gratis#webpage",
+    url: "https://trulyfreetools.com/blog/alternativas-smallpdf-gratis",
+    speakable: { "@type": "SpeakableSpecification", cssSelector: ["#faq"] },
+  };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
       <ArticleWrapper
         category="COMPARATIVA" categoryColor="#7c3aed" categoryBg="#f5f3ff"
         title="Alternativas a Smallpdf Gratuitas en 2026 (Sin Limite de 2 Tareas)"
@@ -75,7 +82,7 @@ export default function AlternativasSmallpdfGratisPage() {
         <p>El modelo de negocio (anuncios) significa que no necesito presionarte para que pagues. No hay pop-ups de "upgrade now". No hay emails de "your free trial is ending". Solo herramientas que funcionan.</p>
         <p>La privacidad local es importante. Smallpdf guarda tus archivos en AWS. iLovePDF también. Sejda también (aunque por menos tiempo). Mis herramientas no guardan nada porque no hay servidor. El archivo se procesa en tu ordenador y se olvida cuando cierras la pestaña.</p>
 
-        <h2>Preguntas Frecuentes</h2>
+        <h2 id="faq">Preguntas Frecuentes</h2>
         <h3>¿Es realmente gratis? ¿No hay trampa?</h3>
         <p>No hay trampa. Los anuncios en la página principal y en el blog pagan el hosting. No te pediré dinero. No hay versión "Pro" escondida.</p>
         <h3>¿Puedo usar tus herramientas sin conexión a internet?</h3>

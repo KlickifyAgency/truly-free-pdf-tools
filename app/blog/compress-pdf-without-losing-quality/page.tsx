@@ -30,11 +30,18 @@ export default function CompressPdfWithoutLosingQualityPage() {
       { "@type": "Question", name: "Why does Smallpdf watermark free compressions but you don't?", acceptedAnswer: { "@type": "Answer", text: "Because Smallpdf wants you to pay. The watermark is a psychological trick: they give you an almost-useful file but ruin it with branding. You either pay or find another tool. I do not watermark because I am not trying to force you into a subscription. My revenue comes from ads, not from frustrating you into upgrading. It is a completely different business model, and I think mine is more honest." } },
     ],
   };
+  const speakableSchema = {
+    "@context": "https://schema.org", "@type": "WebPage",
+    "@id": "https://trulyfreetools.com/blog/compress-pdf-without-losing-quality#webpage",
+    url: "https://trulyfreetools.com/blog/compress-pdf-without-losing-quality",
+    speakable: { "@type": "SpeakableSpecification", cssSelector: ["#faq"] },
+  };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
       <ArticleWrapper
         category="HOW-TO GUIDE" categoryColor="#16a34a" categoryBg="#f0fdf4"
         title="How to Compress PDF Without Losing Quality (Free, No Limit)"
@@ -73,7 +80,7 @@ export default function CompressPdfWithoutLosingQualityPage() {
         <p>The privacy piece is non-negotiable for me. Because the tool runs locally, your PDF never touches my server. You are not "uploading" anything. You are just opening a file in your browser, and the browser processes it. Compare that to Smallpdf: every file you upload gets copied to their Amazon AWS servers. They keep it for 24 hours. Their privacy policy says they may use it "to improve their algorithms." That means humans could theoretically look at your tax return. No thanks.</p>
         <p>No account means no data harvesting. I do not know your email. I do not know your name. I cannot sell your data to advertisers because I have none. You will never get a "we miss you" email from me. You will never have to click "unsubscribe" from a newsletter you never signed up for. Open the site, do your compression, close the tab. That is the whole transaction.</p>
 
-        <h2>Frequently Asked Questions</h2>
+        <h2 id="faq">Frequently Asked Questions</h2>
         <h3>What is the maximum file size I can compress?</h3>
         <p>Technically, your browser's memory limit. I have successfully compressed a 500MB PDF on a laptop with 16GB of RAM. On a phone with 4GB of RAM, 100MB is safer. The tool will warn you if the file is too large for your device. Unlike Smallpdf's 1GB hard cap or iLovePDF's 20MB free cap, there is no artificial limit. If your computer can handle it, my tool can handle it.</p>
         <h3>Will the compression remove my hyperlinks or form fields?</h3>

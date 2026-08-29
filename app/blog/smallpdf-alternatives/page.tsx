@@ -30,11 +30,18 @@ export default function SmallpdfAlternativesPage() {
       { "@type": "Question", name: "Can I remove a password from any PDF?", acceptedAnswer: { "@type": "Answer", text: "You can remove passwords from PDFs that you own and have permission to unlock. If you forgot a password on your own tax return or a scanned document you created, the tool will remove it instantly. If the PDF has a permissions password (restricting printing or editing), that also gets removed. But I will not help you unlock someone else's copyrighted book or a confidential company file without authorization. The tool works technically, but use it ethically." } },
     ],
   };
+  const speakableSchema = {
+    "@context": "https://schema.org", "@type": "WebPage",
+    "@id": "https://trulyfreetools.com/blog/smallpdf-alternatives#webpage",
+    url: "https://trulyfreetools.com/blog/smallpdf-alternatives",
+    speakable: { "@type": "SpeakableSpecification", cssSelector: ["#faq"] },
+  };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
       <ArticleWrapper
         category="COMPARISON" categoryColor="#0058c3" categoryBg="#eff6ff"
         title="Smallpdf Alternatives That Are Actually Free in 2026"
@@ -77,7 +84,7 @@ export default function SmallpdfAlternativesPage() {
         <p>The privacy advantage is even more important. Because the tools use WebAssembly (specifically the pdf-lib library), every operation happens inside your browser. When you compress a PDF, the file never travels to a server. When you merge three PDFs, your browser combines them locally. When you remove a password, the decryption happens on your machine. I cannot see your files. The government cannot subpoena them. No hacker can intercept them because they never leave your device. Compare that to Smallpdf, which uploads every file to their AWS servers and keeps it for 24 hours. Or iLovePDF, which stores your documents for up to 24 hours for "quality improvement." No thank you.</p>
         <p>No account required means no spam. I do not have your email address because I never ask for it. You will never get a "Your free trial ends in 3 days" email from me because there is no trial. You will never get an upsell call from a salesperson. You will never have to cancel a subscription you forgot about. Open the site, use the tool, close the tab. That is the whole relationship. I built this for small business owners, students, teachers, real estate agents, and anyone else who just needs to get a PDF job done without paying Adobe rent.</p>
 
-        <h2>Frequently Asked Questions</h2>
+        <h2 id="faq">Frequently Asked Questions</h2>
         <h3>Is Truly Free PDF Tools really 100% free with no limits?</h3>
         <p>Yes. No daily task limits, no file size limits (beyond what your browser can handle), no page limits, no watermarks, no "pro" upgrade button hiding in the corner. I fund the site through display ads on the dashboard and blog pages. You never pay a cent. I have tested the compressor on a 500MB PDF with 1,200 pages. It worked. Slow, but it worked. That is the kind of "no limits" you do not get from Smallpdf (2 tasks/day) or Sejda (3 tasks/hour).</p>
         <h3>Is it safe to upload sensitive PDFs like tax returns or contracts?</h3>

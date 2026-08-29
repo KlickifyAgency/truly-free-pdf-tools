@@ -30,11 +30,18 @@ export default function IlovepdfAlternativePage() {
       { "@type": "Question", name: "Is Truly Free PDF Tools faster than iLovePDF?", acceptedAnswer: { "@type": "Answer", text: "For small files (under 20MB), they are similar. For large files (over 100MB), Truly Free PDF Tools is much faster because there is no upload time. iLovePDF has to upload your entire file to their servers before processing. On a slow connection, uploading 100MB can take minutes. On Truly Free PDF Tools, the file never leaves your device, so processing starts instantly. The only waiting is for the browser to do the work." } },
     ],
   };
+  const speakableSchema = {
+    "@context": "https://schema.org", "@type": "WebPage",
+    "@id": "https://trulyfreetools.com/blog/ilovepdf-alternative-free-unlimited#webpage",
+    url: "https://trulyfreetools.com/blog/ilovepdf-alternative-free-unlimited",
+    speakable: { "@type": "SpeakableSpecification", cssSelector: ["#faq"] },
+  };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
       <ArticleWrapper
         category="COMPARISON" categoryColor="#0058c3" categoryBg="#eff6ff"
         title="iLovePDF Alternative — Free & Unlimited PDF Tools in 2026"
@@ -71,7 +78,7 @@ export default function IlovepdfAlternativePage() {
         <p>The technical reason I can keep it free: WebAssembly and pdf-lib are open source. I did not have to build a PDF engine from scratch. I just wrapped an existing library in a user-friendly interface. My costs are near-zero. Smallpdf and iLovePDF have huge teams, sales departments, and venture capital investors demanding returns. They have to charge. I do not. It is really that simple.</p>
         <p>Privacy is the other pillar. Because splitting happens locally, your file never leaves your computer. iLovePDF's privacy policy explicitly says: "We may access your files to improve our services." That means a human at iLovePDF could theoretically open your contract, your tax return, or your business plan. I cannot do that because the files never reach me. No server, no access, no problem.</p>
 
-        <h2>Frequently Asked Questions</h2>
+        <h2 id="faq">Frequently Asked Questions</h2>
         <h3>Does the free version of iLovePDF really watermark split PDFs?</h3>
         <p>Yes. I tested it last week. Split a 10-page PDF into two 5-page files. Every single page had a light gray "iLovePDF" watermark in the corner. Their free tier is basically a demo. To remove the watermark, you pay $48 a year. On Truly Free PDF Tools, there is never a watermark. Not on splits, not on merges, not on anything.</p>
         <h3>Can I split a password-protected PDF?</h3>

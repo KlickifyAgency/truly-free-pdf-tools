@@ -129,7 +129,7 @@ export default function Page() {
         categoryBg="#eff6ff"
         title="PDF Accessibility: How to Make PDFs Readable by Screen Readers"
         description="Step‑by‑step instructions, free tools, and best‑practice tips to ensure every PDF you publish works for screen‑reader users."
-        date="2026 08 29"
+        date="August 29, 2026"
         readTime="9 min"
         relatedLinks={relatedLinks}
       >

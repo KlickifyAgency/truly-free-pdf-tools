@@ -37,6 +37,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "compress-pdf-without-losing-quality",
     "ilovepdf-alternative-free-unlimited",
     "why-smallpdf-limits-free-users",
+    "how-to-convert-powerpoint-to-pdf-for-free",
+    "how-to-convert-excel-to-pdf-with-formatting-intact",
+    "how-to-edit-a-pdf-without-converting-it-to-word",
+    "pdf-accessibility-how-to-make-pdfs-readable-by-screen-reader",
   ];
 
   return [

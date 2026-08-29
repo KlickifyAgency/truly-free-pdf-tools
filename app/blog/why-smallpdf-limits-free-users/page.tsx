@@ -30,11 +30,18 @@ export default function WhySmallpdfLimitsFreeUsersPage() {
       { "@type": "Question", name: "Will Smallpdf ever remove the two-task limit?", acceptedAnswer: { "@type": "Answer", text: "No. That limit is central to their business model. If they gave unlimited free tasks, they would lose most of their paying customers. The limit is not a technical constraint; it is a deliberate choice. My tool has no limit because I made a different choice." } },
     ],
   };
+  const speakableSchema = {
+    "@context": "https://schema.org", "@type": "WebPage",
+    "@id": "https://trulyfreetools.com/blog/why-smallpdf-limits-free-users#webpage",
+    url: "https://trulyfreetools.com/blog/why-smallpdf-limits-free-users",
+    speakable: { "@type": "SpeakableSpecification", cssSelector: ["#faq"] },
+  };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
       <ArticleWrapper
         category="COMPARISON" categoryColor="#0058c3" categoryBg="#eff6ff"
         title="Why Smallpdf Limits Free Users (And What to Do About It)"
@@ -72,7 +79,7 @@ export default function WhySmallpdfLimitsFreeUsersPage() {
         <p>The privacy difference is not a cost issue. Smallpdf could run tools locally like I do. They choose not to because running locally means they cannot track you, cannot enforce limits, and cannot collect data. Their business model depends on you uploading files to their servers. My business model depends on nothing except you seeing an ad on my homepage.</p>
         <p>I am not saying Smallpdf is evil. They provide a good service if you are willing to pay. What I am saying is that their "free" tier is misleading. Two tasks per day is not free. It is a demo. If you need a demo, use theirs. If you need real unlimited free tools, use mine.</p>
 
-        <h2>Frequently Asked Questions</h2>
+        <h2 id="faq">Frequently Asked Questions</h2>
         <h3>Why does Smallpdf only give two free tasks per day?</h3>
         <p>Because their data shows that two tasks is the sweet spot. Enough to demonstrate value, not enough to satisfy most users. After two tasks, you either pay or leave. Enough people pay that this model is profitable.</p>
         <h3>Can I bypass Smallpdf's limit by using incognito mode?</h3>

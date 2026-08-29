@@ -30,11 +30,18 @@ export default function HerramientasPdfGratisPage() {
       { "@type": "Question", name: "¿Añadirás más herramientas en el futuro?", acceptedAnswer: { "@type": "Answer", text: "Quizás. Quiero añadir rotación de páginas y extracción de imágenes. Pero no añadiré herramientas que requieran subir archivos a un servidor. Eso rompe mi promesa de privacidad. Si puedo hacerlo localmente, lo haré." } },
     ],
   };
+  const speakableSchema = {
+    "@context": "https://schema.org", "@type": "WebPage",
+    "@id": "https://trulyfreetools.com/blog/herramientas-pdf-gratis#webpage",
+    url: "https://trulyfreetools.com/blog/herramientas-pdf-gratis",
+    speakable: { "@type": "SpeakableSpecification", cssSelector: ["#faq"] },
+  };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
       <ArticleWrapper
         category="COMPARATIVA" categoryColor="#7c3aed" categoryBg="#f5f3ff"
         title="Herramientas PDF Gratis en 2026 (Sin Registro, Sin Limites)"
@@ -70,7 +77,7 @@ export default function HerramientasPdfGratisPage() {
         <p>La privacidad es importante. Como las herramientas funcionan localmente (usando WebAssembly), tus archivos nunca salen de tu ordenador. No los subes a ningún servidor. Ni siquiera yo puedo verlos. Smallpdf y iLovePDF guardan tus archivos en sus servidores durante 24 horas. Adobe los guarda 30 días. Yo no guardo nada porque no hay servidor.</p>
         <p>No necesitas cuenta. No te pido email. No te enviaré spam. No hay suscripción que cancelar. Abres el sitio, usas la herramienta, cierras la pestaña. Así de simple.</p>
 
-        <h2>Preguntas Frecuentes</h2>
+        <h2 id="faq">Preguntas Frecuentes</h2>
         <h3>¿Realmente no hay límite de tareas al día?</h3>
         <p>No. Puedes comprimir 100 PDFs seguidos si quieres. No hay contador. No hay "has usado 2 de 2 tareas". La herramienta no te rastrea porque no hay servidor para hacerlo.</p>
         <h3>¿Es seguro subir documentos confidenciales?</h3>

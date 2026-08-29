@@ -30,11 +30,18 @@ export default function AdobeAcrobatAlternativePage() {
       { "@type": "Question", name: "Will you ever add a paid tier?", acceptedAnswer: { "@type": "Answer", text: "I promise no. I have seen too many 'free' tools turn into paid subscriptions after they get popular. I am not taking venture capital. I have no investors demanding returns. As long as advertising revenue covers hosting costs, the tools stay free. If that revenue drops to zero, I will pay out of pocket because I believe in this project. Your files will never be held hostage." } },
     ],
   };
+  const speakableSchema = {
+    "@context": "https://schema.org", "@type": "WebPage",
+    "@id": "https://trulyfreetools.com/blog/adobe-acrobat-alternative-free#webpage",
+    url: "https://trulyfreetools.com/blog/adobe-acrobat-alternative-free",
+    speakable: { "@type": "SpeakableSpecification", cssSelector: ["#faq"] },
+  };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
       <ArticleWrapper
         category="COMPARISON" categoryColor="#0058c3" categoryBg="#eff6ff"
         title="Adobe Acrobat Alternative — Free PDF Editor for 2026"
@@ -72,7 +79,7 @@ export default function AdobeAcrobatAlternativePage() {
         <p>Why not charge $5 a month? Because then I would have to deal with payment processors, refunds, customer support, and angry emails when someone's subscription renews. That is a headache I do not want. Keeping it 100% free means no stress for me and no risk for you. Everyone wins except Adobe.</p>
         <p>The privacy angle is real. Adobe's online PDF tools upload your files to their cloud. Their privacy policy says they may use your documents to "improve their artificial intelligence models." That means your business contract could become training data for Adobe's AI. I am not making that up. Read their terms. With Truly Free PDF Tools, nothing leaves your browser. No AI training. No cloud storage. No human looking at your tax return.</p>
 
-        <h2>Frequently Asked Questions</h2>
+        <h2 id="faq">Frequently Asked Questions</h2>
         <h3>Can I edit text in a PDF for free like Adobe Acrobat?</h3>
         <p>Not with my tools. Editing text in a PDF is technically complex because PDFs are not designed to be edited like Word documents. Free libraries cannot reliably change text without breaking formatting. Adobe owns proprietary technology for this. If you need to change text, use LibreOffice Draw (free desktop software) or upload to Google Docs (which converts PDF to editable text but loses formatting). For now, my tools focus on structural edits: splitting, merging, compressing, and password removal.</p>
         <h3>How does your PDF Merger compare to Adobe Acrobat's merge feature?</h3>

@@ -83,7 +83,7 @@ export default function Page() {
       categoryBg="#F7F7F7"
       title="How to Convert Excel to PDF with Formatting Intact"
       description="Learn how to convert Excel files to PDF while preserving the original formatting, including step-by-step instructions and comparisons with top tools."
-      date="2026 07 31"
+      date="July 31, 2026"
       readTime="10 minutes"
       relatedLinks={[
         { label: 'Merge PDF', href: '/merge-pdf' },

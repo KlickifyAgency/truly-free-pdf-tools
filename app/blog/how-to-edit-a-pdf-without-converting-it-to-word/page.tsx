@@ -83,7 +83,7 @@ export default function Page() {
       categoryBg="#FFD7AC"
       title="How to edit a PDF without converting it to Word"
       description="Learn how to edit PDFs directly without converting them to Word, using the best online tools and software."
-      date="2026 08 07"
+      date="August 7, 2026"
       readTime="15 minutes"
       relatedLinks={[
         { label: 'PDF to Word', href: '/pdf-to-word' },
