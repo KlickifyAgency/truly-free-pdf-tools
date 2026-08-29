@@ -57,11 +57,34 @@ const faqSchema = {
   ]
 }
 
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to remove a PDF password",
+  "description": "Unlock a password-protected PDF you own, entirely in your browser.",
+  "step": [
+    { "@type": "HowToStep", "name": "Upload your password-protected PDF", "text": "Click the upload area or drag the PDF onto it. The encrypted file is read into your browser's local memory. Nothing goes anywhere — not the file, not the password." },
+    { "@type": "HowToStep", "name": "Enter the password", "text": "Type the password you use to open the PDF. The tool uses this password locally to decrypt the file — the password itself is never sent anywhere." },
+    { "@type": "HowToStep", "name": "Click Remove Password", "text": "The tool decrypts the PDF using WebAssembly, strips the encryption layer, and the unlocked file is ready. The content itself is untouched — same pages, same formatting, just no password required to open it." },
+    { "@type": "HowToStep", "name": "Download the unlocked PDF", "text": "The output PDF opens without a password in any viewer. Store it securely — it no longer has access restrictions." },
+  ]
+}
+
+const speakableSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://trulyfreetools.com/remove-pdf-password#webpage",
+  "url": "https://trulyfreetools.com/remove-pdf-password",
+  "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#answer-capsule", "#faq"] }
+}
+
 export default function RemovePDFPasswordPage() {
   return (
     <main style={{ minHeight: "100vh", background: "#f7fafc", padding: "60px 24px 80px", fontFamily: "Inter, sans-serif" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(toolSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
       <div style={{ maxWidth: 720, margin: "0 auto" }}>
 
         <div style={{ marginBottom: 32, textAlign: "center" }}>
@@ -113,7 +136,7 @@ export default function RemovePDFPasswordPage() {
             </div>
           </div>
 
-          <div style={{ background: "#f0f4ff", borderLeft: "4px solid #2563eb", borderRadius: 8, padding: "28px 32px", marginBottom: 48 }}>
+          <div id="answer-capsule" style={{ background: "#f0f4ff", borderLeft: "4px solid #2563eb", borderRadius: 8, padding: "28px 32px", marginBottom: 48 }}>
             <h2 style={{ fontSize: 18, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: 12 }}>
               Your password never leaves your device
             </h2>
@@ -129,7 +152,7 @@ export default function RemovePDFPasswordPage() {
             <h2 style={{ fontSize: 22, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.03em", marginBottom: 20 }}>
               Frequently asked questions
             </h2>
-            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            <div id="faq" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               {[
                 ["Can I remove a password I forgot?", "No. This tool removes the restriction from PDFs where you already know the password. It does not crack or bypass unknown passwords."],
                 ["What is the difference between user password and owner password?", "A user password prevents opening the PDF. An owner password allows viewing but restricts editing or printing. This tool handles both types when the correct password is provided."],

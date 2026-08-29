@@ -14,7 +14,7 @@ export default function HowToSplitPdfFreePage() {
     "@context": "https://schema.org", "@type": "Article",
     headline: "How to Split a PDF Free Online — No Account",
     description: "Split any PDF for free with no watermark, no page limits, and no account required. Extract specific pages or custom ranges. No files uploaded to any server.",
-    datePublished: "2026-06-09", dateModified: "2026-06-09",
+    datePublished: "2026-06-09", dateModified: "2026-08-29",
     author: { "@type": "Person", name: "George Smith", url: "https://www.linkedin.com/in/george-smith-832113217/" },
     publisher: { "@type": "Organization", name: "TrulyFreeTools", url: "https://trulyfreetools.com" },
     mainEntityOfPage: "https://trulyfreetools.com/blog/how-to-split-pdf-free",
@@ -28,13 +28,21 @@ export default function HowToSplitPdfFreePage() {
       { "@type": "Question", name: "Can I split a password-protected PDF?", acceptedAnswer: { "@type": "Answer", text: "No. You must remove the password first using our PDF Password Remover. Once unlocked, you can split it. The splitter cannot read encrypted PDFs because the encryption scrambles the page structure." } },
       { "@type": "Question", name: "Does Smallpdf really watermark every page of a free split?", acceptedAnswer: { "@type": "Answer", text: "Yes. I tested it yesterday. Split a 10-page PDF into 10 single-page PDFs. Every single output page had a light gray 'Smallpdf' watermark in the bottom-right corner. To remove it, you pay $12 a month. On Truly Free PDF Tools, there is never a watermark." } },
       { "@type": "Question", name: "How fast is the splitter compared to Sejda?", acceptedAnswer: { "@type": "Answer", text: "For small files (under 20MB), they are similar. For large files (over 100MB), Truly Free PDF Tools is faster because there is no upload time. Sejda has to upload your entire file to their servers before splitting. On a slow connection, uploading 100MB can take a minute or more. My tool starts splitting instantly because the file is already on your device." } },
+      { "@type": "Question", name: "Can I split a PDF on my phone without an app?", acceptedAnswer: { "@type": "Answer", text: "Yes. Open trulyfreetools.com/split-pdf in any mobile browser — Safari on iOS or Chrome on Android — upload the PDF, set your page range, and download the result. The same WebAssembly engine that runs on desktop runs in mobile browsers." } },
     ],
+  };
+  const speakableSchema = {
+    "@context": "https://schema.org", "@type": "WebPage",
+    "@id": "https://trulyfreetools.com/blog/how-to-split-pdf-free#webpage",
+    url: "https://trulyfreetools.com/blog/how-to-split-pdf-free",
+    speakable: { "@type": "SpeakableSpecification", cssSelector: ["#faq"] },
   };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
       <ArticleWrapper
         category="HOW-TO GUIDE" categoryColor="#16a34a" categoryBg="#f0fdf4"
         title="How to Split a PDF Free Online — No Account"
@@ -72,7 +80,7 @@ export default function HowToSplitPdfFreePage() {
         <p>The costs are minimal. Trulyfreetools.com is a static site. The PDF tools are HTML, JavaScript, and WebAssembly files hosted on a CDN. The CDN costs about $10 per month. The domain is $15 per year. That is it. I do not have a database, a backend server, or any moving parts that cost money. So I do not need to charge you. Smallpdf, by contrast, has to pay for AWS servers, a team of developers, customer support, and marketing. That is why they charge $108 a year.</p>
         <p>Privacy is the other differentiator. Because splitting happens locally, your file never leaves your computer. Smallpdf uploads your PDF to their servers, splits it there, then deletes it after 24 hours. But "deletes" is not guaranteed. Their privacy policy says they may keep copies for "security and legal compliance." That is vague. I prefer the simpler approach: the file never arrives in the first place.</p>
 
-        <h2>Frequently Asked Questions</h2>
+        <h2 id="faq">Frequently Asked Questions</h2>
         <h3>Can I split a PDF by file size (e.g., 10MB chunks) instead of by pages?</h3>
         <p>Not yet. The splitter works by page ranges only. Splitting by file size is more complex because you would need to estimate how many pages fit into 10MB, which varies based on image density. I am considering adding this feature. Email me at info@klickifyagency.com if you need it.</p>
         <h3>Will the split PDFs lose quality?</h3>
@@ -85,6 +93,8 @@ export default function HowToSplitPdfFreePage() {
         <p>Yes. I tested it yesterday. Split a 10-page PDF into 10 single-page PDFs. Every single output page had a light gray "Smallpdf" watermark in the bottom-right corner. To remove it, you pay $12 a month. On Truly Free PDF Tools, there is never a watermark.</p>
         <h3>How fast is the splitter compared to Sejda?</h3>
         <p>For small files (under 20MB), they are similar. For large files (over 100MB), Truly Free PDF Tools is faster because there is no upload time. Sejda has to upload your entire file to their servers before splitting. On a slow connection, uploading 100MB can take a minute or more. My tool starts splitting instantly because the file is already on your device.</p>
+        <h3>Can I split a PDF on my phone without an app?</h3>
+        <p>Yes. Open trulyfreetools.com/split-pdf in any mobile browser — Safari on iOS or Chrome on Android — upload the PDF, set your page range, and download the result. The same WebAssembly engine that runs on desktop runs in mobile browsers.</p>
         <p>Try the splitter now. Take any multi-page PDF. Split out just the pages you need. No watermark. No account. No hidden limits. If you find a limit, it is a bug — tell me and I will fix it.</p>
 
         <AuthorBox />

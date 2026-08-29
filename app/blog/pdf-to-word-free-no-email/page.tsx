@@ -14,7 +14,7 @@ export default function PdfToWordFreeNoEmailPage() {
     "@context": "https://schema.org", "@type": "Article",
     headline: "Convert PDF to Word Free (No Email Required)",
     description: "Convert PDF to Word for free without giving your email address. Step-by-step guide. Honest about what converts well and what does not. No files uploaded to any server.",
-    datePublished: "2026-06-09", dateModified: "2026-06-09",
+    datePublished: "2026-06-09", dateModified: "2026-08-29",
     author: { "@type": "Person", name: "George Smith", url: "https://www.linkedin.com/in/george-smith-832113217/" },
     publisher: { "@type": "Organization", name: "TrulyFreeTools", url: "https://trulyfreetools.com" },
     mainEntityOfPage: "https://trulyfreetools.com/blog/pdf-to-word-free-no-email",
@@ -30,11 +30,18 @@ export default function PdfToWordFreeNoEmailPage() {
       { "@type": "Question", name: "Is there a file size limit?", acceptedAnswer: { "@type": "Answer", text: "Your browser's memory limit. For text-heavy PDFs, 50MB is fine. For image-heavy PDFs, try to stay under 20MB because the conversion library loads the entire file into memory. If the tool crashes, your file is too large or too complex. Try splitting the PDF first, then converting each part." } },
     ],
   };
+  const speakableSchema = {
+    "@context": "https://schema.org", "@type": "WebPage",
+    "@id": "https://trulyfreetools.com/blog/pdf-to-word-free-no-email#webpage",
+    url: "https://trulyfreetools.com/blog/pdf-to-word-free-no-email",
+    speakable: { "@type": "SpeakableSpecification", cssSelector: ["#faq"] },
+  };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
       <ArticleWrapper
         category="HOW-TO GUIDE" categoryColor="#16a34a" categoryBg="#f0fdf4"
         title="Convert PDF to Word Free (No Email Required)"
@@ -53,13 +60,13 @@ export default function PdfToWordFreeNoEmailPage() {
 
         <h2>Smallpdf, iLovePDF, Adobe: The Email Harvesting Problem</h2>
         <p>Let me show you what happens when you try to convert PDF to Word on these sites. Smallpdf's converter is actually good. But the free version limits you to two tasks per day and requires an email to download. If you try to bypass by using a fake email, they still send a verification link. That link tracks you. Their paid plan is $12 a month.</p>
-        <p>iLovePDF's converter requires an email for free users. They also add a watermark to the output? No, they do not watermark Word files, but they limit you to two conversions per day and 20MB. Adobe's online converter is free for two conversions per month? Actually, Adobe's free PDF to Word tool is not free at all — it requires an Adobe account, and after two conversions, they push you to a free trial of Acrobat Pro.</p>
+        <p>iLovePDF's converter requires an email for free users. It does not watermark Word files, but it limits you to two conversions per day and 20MB. Adobe's online converter requires an Adobe account, and after a couple of conversions, it pushes you toward a free trial of Acrobat Pro.</p>
         <p>Sejda does not require an email, but their free tier limits you to three tasks per hour and 50 pages. Convert a 60-page PDF to Word? Denied. PDF24 has a PDF to Word converter, but it is desktop software and the conversion quality is mediocre. Plus, it only runs on Windows.</p>
         <p>Truly Free PDF Tools: no email, no account, no daily limit, no page limit (beyond browser memory). The conversion happens locally using a WebAssembly library. Your file never leaves your computer. The tradeoff is quality: complex PDFs may not convert perfectly. But for simple documents, it is free and private.</p>
 
         <h2>Step-by-Step: Convert PDF to Word for Free</h2>
         <p>Here is how to do it. Keep your expectations realistic.</p>
-        <p><strong>1. Go to trulyfreetools.com and click PDF to Word (if available).</strong> Note: As of this writing, we are still testing this tool. If it is not live yet, check back in a few weeks. For now, use the method below with our Image to PDF converter as a workaround? Actually, that does not work. I will update this article when the tool is ready. For now, use LibreOffice (free desktop software) for reliable PDF to Word conversion.</p>
+        <p><strong>1. Go to the <a href="/pdf-to-word">PDF to Word tool</a>.</strong> No signup, no email field. The page loads with a single upload area.</p>
         <p><strong>2. Upload your PDF.</strong> The file stays on your device. You will see a preview of the first page.</p>
         <p><strong>3. Click "Convert to Word."</strong> The WebAssembly engine extracts text and attempts to preserve basic formatting: bold, italic, paragraphs, and lists. Tables may not survive. Images may be placed incorrectly. Complex layouts (newspaper-style columns) will likely break.</p>
         <p><strong>4. Download the Word file.</strong> The output is a .docx file. Open it in Microsoft Word, LibreOffice, or Google Docs. Review the conversion. You will probably need to fix some formatting. That is normal for free PDF to Word converters.</p>
@@ -71,7 +78,7 @@ export default function PdfToWordFreeNoEmailPage() {
         <p>I built this converter using an open-source library called pdf2md (PDF to Markdown) and then converting Markdown to Word. It works for simple documents. For complex documents, it fails. But I decided to release it anyway because something is better than nothing. And because it runs locally, you are not uploading your document to some sketchy server just to get a mediocre conversion.</p>
         <p>The business model is the same: display advertising on the homepage and blog. No ads on the converter tool itself. I do not make money from conversions. That is why I can offer the converter for free even though it is not perfect.</p>
 
-        <h2>Frequently Asked Questions</h2>
+        <h2 id="faq">Frequently Asked Questions</h2>
         <h3>Why does the conversion look bad on my PDF?</h3>
         <p>Because your PDF has complex formatting. Columns, tables, text boxes, and unusual fonts do not convert well in any free tool. Even Adobe Acrobat can struggle. For complex PDFs, consider using OCR software to extract the text, then reformat manually in Word.</p>
         <h3>Do I need to give my email to download the Word file?</h3>

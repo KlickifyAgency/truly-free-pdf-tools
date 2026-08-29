@@ -57,11 +57,34 @@ const faqSchema = {
   ]
 }
 
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to convert PDF to Word",
+  "description": "Convert text-based PDFs to editable Word documents, entirely in your browser.",
+  "step": [
+    { "@type": "HowToStep", "name": "Verify your PDF is text-based", "text": "Open the PDF in any viewer and try to select text with your cursor. If text highlights, the PDF is text-based and will convert successfully. If nothing selects, it is a scanned document and requires OCR software." },
+    { "@type": "HowToStep", "name": "Upload your PDF", "text": "Click the upload area or drag the PDF onto it. The file is read into your browser's local memory — nothing leaves your device at this step or any step." },
+    { "@type": "HowToStep", "name": "Click Convert to Word", "text": "The tool extracts text content, paragraph structure, and basic formatting from the PDF and builds a .docx file. Everything runs locally in your browser. No internet connection required after the page loads." },
+    { "@type": "HowToStep", "name": "Download the .docx file", "text": "Download the Word document and open it in Microsoft Word, Google Docs, LibreOffice, or any .docx-compatible editor. Review and adjust formatting as needed." },
+  ]
+}
+
+const speakableSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://trulyfreetools.com/pdf-to-word#webpage",
+  "url": "https://trulyfreetools.com/pdf-to-word",
+  "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#answer-capsule", "#faq"] }
+}
+
 export default function PDFToWordPage() {
   return (
     <main style={{ minHeight: "100vh", background: "#f7fafc", padding: "60px 24px 80px", fontFamily: "Inter, sans-serif" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(toolSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
       <div style={{ maxWidth: 720, margin: "0 auto" }}>
 
         <div style={{ marginBottom: 32, textAlign: "center" }}>
@@ -119,7 +142,7 @@ export default function PDFToWordPage() {
             </div>
           </div>
 
-          <div style={{ background: "#f0f4ff", borderLeft: "4px solid #2563eb", borderRadius: 8, padding: "28px 32px", marginBottom: 48 }}>
+          <div id="answer-capsule" style={{ background: "#f0f4ff", borderLeft: "4px solid #2563eb", borderRadius: 8, padding: "28px 32px", marginBottom: 48 }}>
             <h2 style={{ fontSize: 18, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: 12 }}>
               What to expect from PDF to Word conversion
             </h2>
@@ -135,7 +158,7 @@ export default function PDFToWordPage() {
             <h2 style={{ fontSize: 22, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.03em", marginBottom: 20 }}>
               Frequently asked questions
             </h2>
-            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            <div id="faq" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               {[
                 ["Why does my converted PDF lose formatting?", "PDF and Word use different layout models. PDFs place elements at absolute coordinates; Word uses a flow-based layout. Complex columns, tables, and decorative elements are most likely to shift. Documents exported from Word to PDF and converted back achieve the highest fidelity."],
                 ["Can I convert a scanned PDF to Word?", "No. Scanned PDFs are images of pages with no text data. This tool works with text-based PDFs. If you cannot select text in your PDF viewer, the document is scanned and requires OCR software."],

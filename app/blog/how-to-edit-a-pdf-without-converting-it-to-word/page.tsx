@@ -20,8 +20,9 @@ const articleSchema = {
   "author": {
     "@type": "Person",
     "name": "George Smith",
-    "url": "https://trulyfreetools.com/team/george-smith"
-  }
+    "url": "https://www.linkedin.com/in/george-smith-832113217/"
+  },
+  "dateModified": "2026-08-29"
 };
 
 const faqSchema = {
@@ -63,6 +64,17 @@ const faqSchema = {
   ]
 };
 
+const speakableSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://trulyfreetools.com/blog/how-to-edit-a-pdf-without-converting-it-to-word#webpage",
+  "url": "https://trulyfreetools.com/blog/how-to-edit-a-pdf-without-converting-it-to-word",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["#faq"]
+  }
+};
+
 export default function Page() {
   return (
     <ArticleWrapper
@@ -74,9 +86,9 @@ export default function Page() {
       date="2026 08 07"
       readTime="15 minutes"
       relatedLinks={[
-        { text: 'Merge PDF', url: 'https://trulyfreetools.com/merge-pdf' },
-        { text: 'Split PDF', url: 'https://trulyfreetools.com/split-pdf' },
-        { text: 'Compress PDF', url: 'https://trulyfreetools.com/compress-pdf' }
+        { label: 'PDF to Word', href: '/pdf-to-word' },
+        { label: 'Merge PDF', href: '/merge-pdf' },
+        { label: 'Compress PDF', href: '/compress-pdf' }
       ]}
     >
       <h1>Introduction</h1>
@@ -99,11 +111,11 @@ export default function Page() {
         <li>Use the various tools and features to edit your PDF, such as text, images, and pages.</li>
         <li>Save your edited PDF to your computer or cloud storage.</li>
       </ol>
-      <h2>CTA</h2>
-      <p>Ready to start editing your PDFs? Try our online PDF editor today and discover how easy it is to edit PDFs without converting them to Word. <a href="https://trulyfreetools.com/edit-pdf">Edit your PDF now</a> and take advantage of our free and ad-supported service.</p>
+      <h2>What If You Just Need to Change a Few Words?</h2>
+      <p>TrulyFreeTools does not offer a visual PDF editor. For light text edits, a common workaround is converting the PDF to an editable .docx with our free <a href="/pdf-to-word">PDF to Word tool</a> (works on text-based PDFs, runs locally in your browser, no upload), making the edit in Word or Google Docs, then exporting back to PDF. It is not a substitute for a true PDF editor on complex layouts, but it covers most simple text-change requests without installing anything.</p>
       <h2>FAQ</h2>
       <p>Got questions about editing PDFs? Check out our FAQ section below for answers to common questions.</p>
-      <div>
+      <div id="faq">
         <h3>What is the best tool to edit a PDF?</h3>
         <p>The best tool to edit a PDF depends on your specific needs, but popular options include Smallpdf, iLovePDF, and Adobe Acrobat.</p>
       </div>
@@ -119,10 +131,18 @@ export default function Page() {
         <h3>Is it safe to edit a PDF online?</h3>
         <p>Yes, it is safe to edit a PDF online if you use a reputable and secure online PDF editor, such as Smallpdf or iLovePDF.</p>
       </div>
-      <AuthorBox
-        name="George Smith"
-        title="Founder, Klickify Agency"
-        image="/img/authors/george-smith.png"
+      <AuthorBox />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
       />
     </ArticleWrapper>
   );

@@ -62,12 +62,24 @@ const faqSchema = {
   })),
 }
 
+const speakableSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://trulyfreetools.com/help#webpage",
+  "url": "https://trulyfreetools.com/help",
+  "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#faq"] },
+}
+
 export default function HelpPage() {
   return (
     <main style={{ background: "#f7fafc", minHeight: "100vh", fontFamily: "Inter, sans-serif" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
       />
       <section style={{ maxWidth: 720, margin: "0 auto", padding: "80px 24px 80px" }}>
         <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.08em", color: "#718096", textTransform: "uppercase", marginBottom: 16 }}>
@@ -80,7 +92,7 @@ export default function HelpPage() {
           Answers to common questions. If yours is not here, use the contact page.
         </p>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+        <div id="faq" style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           {faqs.map((faq, i) => (
             <div key={i} style={{ background: "#ffffff", borderRadius: 8, padding: "24px 28px", boxShadow: "0px 8px 24px rgba(24,28,30,0.06)" }}>
               <h2 style={{ fontSize: 15, fontWeight: 700, letterSpacing: "-0.02em", color: "#181c1e", marginBottom: 8 }}>

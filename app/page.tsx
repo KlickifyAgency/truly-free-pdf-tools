@@ -76,12 +76,24 @@ const faqSchema = {
   ],
 };
 
+const speakableSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://trulyfreetools.com/#webpage",
+  "url": "https://trulyfreetools.com",
+  "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#answer-capsule", "#faq"] },
+};
+
 export default function HomePage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
       />
       <main style={{ minHeight: "100vh", background: "#f7fafc", fontFamily: "'Inter', system-ui, sans-serif", letterSpacing: "-0.02em" }}>
 
@@ -133,6 +145,17 @@ export default function HomePage() {
               {tools.map((tool) => (
                 <ToolCard key={tool.slug} tool={tool} />
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Content Capsule — direct answer for AI answer engines */}
+        <section style={{ padding: "0 24px 64px", background: "#f7fafc" }}>
+          <div style={{ maxWidth: 760, margin: "0 auto" }}>
+            <div id="answer-capsule" style={{ background: "#f0f4ff", borderLeft: "4px solid #2563eb", borderRadius: 8, padding: "28px 32px" }}>
+              <p style={{ fontSize: 16, color: "#181c1e", lineHeight: 1.7, letterSpacing: "-0.01em", margin: 0 }}>
+                <strong>TrulyFreeTools</strong> lets you compress, merge, split, convert to Word, and remove passwords from PDFs entirely in your browser — free, unlimited, no signup, no watermark, and no file ever leaves your device.
+              </p>
             </div>
           </div>
         </section>
@@ -215,7 +238,7 @@ export default function HomePage() {
             <h2 style={{ fontSize: "clamp(22px, 4vw, 34px)", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.15, margin: "0 0 40px", color: "#181c1e" }}>
               Frequently asked questions
             </h2>
-            <div style={{ display: "grid", gap: 32 }}>
+            <div id="faq" style={{ display: "grid", gap: 32 }}>
               {faqSchema.mainEntity.map((item) => (
                 <div key={item.name} style={{ borderBottom: "1px solid #e5e9eb", paddingBottom: 32 }}>
                   <h3 style={{ fontSize: 16, fontWeight: 700, letterSpacing: "-0.02em", color: "#181c1e", margin: "0 0 10px" }}>{item.name}</h3>

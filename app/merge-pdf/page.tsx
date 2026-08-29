@@ -57,11 +57,34 @@ const faqSchema = {
   ]
 }
 
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to merge PDF files",
+  "description": "Combine multiple PDFs into one file, entirely in your browser.",
+  "step": [
+    { "@type": "HowToStep", "name": "Add your PDF files", "text": "Click the upload area to select multiple PDFs, or drag and drop them directly. You can add files from any folder on your device. Each file is read into local browser memory only." },
+    { "@type": "HowToStep", "name": "Arrange the order", "text": "Drag files into the sequence you want them to appear in the final document. The first file in the list becomes the first pages of the merged PDF." },
+    { "@type": "HowToStep", "name": "Click Merge PDF", "text": "The tool combines all pages from all files into a single PDF document. Page content, images, and links from each source file are preserved exactly as they appear in the originals." },
+    { "@type": "HowToStep", "name": "Download the merged file", "text": "Click the download button to save the combined PDF. The file is generated locally and downloaded directly — no server, no wait, no signup." },
+  ]
+}
+
+const speakableSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://trulyfreetools.com/merge-pdf#webpage",
+  "url": "https://trulyfreetools.com/merge-pdf",
+  "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#answer-capsule", "#faq"] }
+}
+
 export default function MergePDFPage() {
   return (
     <main style={{ minHeight: "100vh", background: "#f7fafc", padding: "60px 24px 80px", fontFamily: "Inter, sans-serif" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(toolSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
       <div style={{ maxWidth: 720, margin: "0 auto" }}>
 
         <div style={{ marginBottom: 32, textAlign: "center" }}>
@@ -113,7 +136,7 @@ export default function MergePDFPage() {
             </div>
           </div>
 
-          <div style={{ background: "#f0f4ff", borderLeft: "4px solid #2563eb", borderRadius: 8, padding: "28px 32px", marginBottom: 48 }}>
+          <div id="answer-capsule" style={{ background: "#f0f4ff", borderLeft: "4px solid #2563eb", borderRadius: 8, padding: "28px 32px", marginBottom: 48 }}>
             <h2 style={{ fontSize: 18, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: 12 }}>
               No upload. No watermark. No daily limit.
             </h2>
@@ -129,7 +152,7 @@ export default function MergePDFPage() {
             <h2 style={{ fontSize: 22, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.03em", marginBottom: 20 }}>
               Frequently asked questions
             </h2>
-            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            <div id="faq" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               {[
                 ["Can I merge more than 2 PDFs at once?", "Yes. Add as many files as needed and rearrange them before merging. No limit on the number of files per session."],
                 ["Does merging PDFs affect quality?", "No. Merging combines page streams without re-encoding content. Images, text, and formatting in source files are preserved exactly."],

@@ -20,8 +20,9 @@ const articleSchema = {
   "author": {
     "@type": "Person",
     "name": "George Smith",
-    "url": "https://trulyfreetools.com/"
-  }
+    "url": "https://www.linkedin.com/in/george-smith-832113217/"
+  },
+  "dateModified": "2026-08-29"
 };
 
 const faqSchema = {
@@ -49,7 +50,7 @@ const faqSchema = {
       "name": "Are online Excel to PDF converters free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Some online Excel to PDF converters are free, while others may offer ad-supported or paid options. Truly Free Tools offers a free Excel to PDF converter."
+        "text": "Some online Excel to PDF converters are free, while others may offer ad-supported or paid options. Excel's own built-in \"Save As PDF\" export is free and requires no online tool at all."
       }
     },
     {
@@ -57,10 +58,21 @@ const faqSchema = {
       "name": "Can I convert multiple Excel files to PDF at once?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, some online tools, such as Truly Free Tools, allow you to convert multiple Excel files to PDF at once."
+        "text": "Yes, some online tools allow batch conversion of multiple Excel files to PDF at once, though free tiers often cap the number of files per batch."
       }
     }
   ]
+};
+
+const speakableSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://trulyfreetools.com/blog/how-to-convert-excel-to-pdf-with-formatting-intact#webpage",
+  "url": "https://trulyfreetools.com/blog/how-to-convert-excel-to-pdf-with-formatting-intact",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["#faq"]
+  }
 };
 
 export default function Page() {
@@ -74,9 +86,9 @@ export default function Page() {
       date="2026 07 31"
       readTime="10 minutes"
       relatedLinks={[
-        { text: 'Convert Excel to PDF', url: '/excel-to-pdf' },
-        { text: 'Merge PDF', url: '/merge-pdf' },
-        { text: 'Split PDF', url: '/split-pdf' }
+        { label: 'Merge PDF', href: '/merge-pdf' },
+        { label: 'Split PDF', href: '/split-pdf' },
+        { label: 'Compress PDF', href: '/compress-pdf' }
       ]}
     >
       <h1>Introduction</h1>
@@ -105,17 +117,12 @@ export default function Page() {
         <li>Alternatively, use an online tool like Smallpdf or iLovePDF to convert your Excel file to PDF.</li>
       </ol>
 
-      <h2>Call to Action</h2>
-      <p>Ready to convert your Excel files to PDF? Try our free online Excel to PDF converter tool, which preserves the original formatting and is easy to use. <a href="/excel-to-pdf">Click here to get started</a>.</p>
+      <h2>What to Do With the PDF After You Export It</h2>
+      <p>TrulyFreeTools does not currently offer a dedicated Excel-to-PDF converter — Excel&apos;s own &quot;Save As PDF&quot; export or the tools above handle that step. Once you have the PDF, our free browser-based tools can help with what comes next: <a href="/compress-pdf">compress it</a> if the file is too large to email, or <a href="/merge-pdf">merge it</a> with other documents. Everything runs locally in your browser — no upload, no signup, no watermark.</p>
 
-      <AuthorBox
-        name="George Smith"
-        title="Founder, Klickify Agency"
-        image="/george-smith.png"
-        bio="George Smith is the founder of Klickify Agency, a digital marketing agency that specializes in SEO and content creation."
-      />
+      <AuthorBox />
 
-      <h2>Frequently Asked Questions</h2>
+      <h2 id="faq">Frequently Asked Questions</h2>
       <ul>
         <li>
           <strong>What is the best way to convert Excel to PDF?</strong>
@@ -127,13 +134,25 @@ export default function Page() {
         </li>
         <li>
           <strong>Are online Excel to PDF converters free?</strong>
-          <p>Some online Excel to PDF converters are free, while others may offer ad-supported or paid options. Truly Free Tools offers a free Excel to PDF converter.</p>
+          <p>Some online Excel to PDF converters are free, while others may offer ad-supported or paid options. Excel&apos;s own built-in &quot;Save As PDF&quot; export is free and requires no online tool at all.</p>
         </li>
         <li>
           <strong>Can I convert multiple Excel files to PDF at once?</strong>
-          <p>Yes, some online tools, such as Truly Free Tools, allow you to convert multiple Excel files to PDF at once.</p>
+          <p>Yes, some online tools allow batch conversion of multiple Excel files to PDF at once, though free tiers often cap the number of files per batch.</p>
         </li>
       </ul>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
+      />
     </ArticleWrapper>
   );
 }

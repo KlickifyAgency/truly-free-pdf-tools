@@ -14,7 +14,7 @@ export default function HowToMergePdfFreePage() {
     "@context": "https://schema.org", "@type": "Article",
     headline: "How to Merge PDF Files Free — No Email, No Account",
     description: "Merge any number of PDFs for free with no watermark, no daily limit, and no account required. Step-by-step guide. No files uploaded to any server.",
-    datePublished: "2026-06-09", dateModified: "2026-06-09",
+    datePublished: "2026-06-09", dateModified: "2026-08-29",
     author: { "@type": "Person", name: "George Smith", url: "https://www.linkedin.com/in/george-smith-832113217/" },
     publisher: { "@type": "Organization", name: "TrulyFreeTools", url: "https://trulyfreetools.com" },
     mainEntityOfPage: "https://trulyfreetools.com/blog/how-to-merge-pdf-free",
@@ -28,13 +28,21 @@ export default function HowToMergePdfFreePage() {
       { "@type": "Question", name: "Can I merge PDFs of different page sizes (e.g., letter and legal)?", acceptedAnswer: { "@type": "Answer", text: "Yes. The merger preserves each page's original dimensions. A letter-sized page (8.5x11) will remain letter-sized. A legal-sized page (8.5x14) will remain legal-sized. When viewed on screen, the page sizes may look different, but that is normal. Printing may require manual paper selection." } },
       { "@type": "Question", name: "How does your merger compare to Smallpdf's paid merger?", acceptedAnswer: { "@type": "Answer", text: "For basic merging (combining full PDFs in order), they are identical. Smallpdf's paid version allows you to select specific pages from each file (e.g., pages 1-3 from file A, pages 5-7 from file B). My tool does not have that — you merge whole files only. For 95% of users, that is fine. If you need page-level selection, use the splitter first to extract the pages you want, then merge." } },
       { "@type": "Question", name: "Why does Smallpdf ask for my email even for a free merge?", acceptedAnswer: { "@type": "Answer", text: "Because you are the product. Smallpdf collects emails to build their marketing list. They send you 'helpful tips' that are really just upsells. They also track which tools you use so they can target ads to you. I do not do any of that because I do not have your email. It is impossible for me to spam you. That is a feature." } },
+      { "@type": "Question", name: "Can I merge PDFs on my phone without an app?", acceptedAnswer: { "@type": "Answer", text: "Yes. Open trulyfreetools.com/merge-pdf in Safari on iPhone or Chrome on Android, upload your PDFs, arrange the order, and tap Merge. No app install needed — the same WebAssembly engine that runs on desktop runs in mobile browsers too." } },
     ],
+  };
+  const speakableSchema = {
+    "@context": "https://schema.org", "@type": "WebPage",
+    "@id": "https://trulyfreetools.com/blog/how-to-merge-pdf-free#webpage",
+    url: "https://trulyfreetools.com/blog/how-to-merge-pdf-free",
+    speakable: { "@type": "SpeakableSpecification", cssSelector: ["#faq"] },
   };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
       <ArticleWrapper
         category="HOW-TO GUIDE" categoryColor="#16a34a" categoryBg="#f0fdf4"
         title="How to Merge PDF Files Free — No Email, No Account"
@@ -60,7 +68,7 @@ export default function HowToMergePdfFreePage() {
         <h2>Step-by-Step: Merge PDF Files in Under 30 Seconds</h2>
         <p>Here is the fastest way to combine multiple PDFs into one.</p>
         <p><strong>1. Go to trulyfreetools.com and click PDF Merger.</strong> The page loads instantly. No splash screen. No "sign up to continue." Just a clean interface with an upload area.</p>
-        <p><strong>2. Drag and drop your PDF files.</strong> You can drag multiple files at once. The tool accepts PDFs only — if you try to upload a JPG, it will warn you. Use the Image to PDF Converter for images first, then merge.</p>
+        <p><strong>2. Drag and drop your PDF files.</strong> You can drag multiple files at once. The tool accepts PDFs only — if you try to upload a JPG, it will warn you. Convert images to PDF first using your phone's built-in scan-to-PDF feature or a desktop tool, then merge.</p>
         <p><strong>3. Arrange the files in the correct order.</strong> The merger shows a list of your files with up/down arrows. Click and drag to reorder. The first file in the list becomes page 1 of the merged PDF. The second file becomes the next set of pages, etc. I have seen people merge cover pages, then contracts, then appendices. The order matters.</p>
         <p><strong>4. Check the page counts.</strong> The tool displays the page count for each file. Example: "Cover.pdf (1 page)", "Contract.pdf (12 pages)", "Signature.pdf (1 page)". Total pages after merge: 14. This helps you catch mistakes before merging.</p>
         <p><strong>5. Click "Merge PDF."</strong> The WebAssembly engine combines the files. It copies pages from each source PDF into a new PDF document. This takes 2-5 seconds for most merges. For very large files (100+ pages total), maybe 10 seconds. No progress bar needed because it is so fast.</p>
@@ -74,7 +82,7 @@ export default function HowToMergePdfFreePage() {
         <p>The PDF tools themselves are static HTML/JavaScript files served from a CDN. That costs almost nothing.</p>
         <p>Privacy matters more to me than profit. Because the merge happens locally, your files never touch my server. I cannot see them. The government cannot subpoena them. A hacker cannot intercept them. Compare that to iLovePDF, which stores your merged files for 24 hours "for quality assurance." That means an iLovePDF employee could theoretically open your business plan. No thank you.</p>
 
-        <h2>Frequently Asked Questions</h2>
+        <h2 id="faq">Frequently Asked Questions</h2>
         <h3>Do I need to create an account to merge PDFs?</h3>
         <p>No. Never. There is no account system on trulyfreetools.com. I do not have a database of users. I do not know your email. I cannot send you a password reset link because there is no password. You just use the tool and leave.</p>
         <h3>What is the maximum number of files I can merge at once?</h3>
@@ -87,6 +95,8 @@ export default function HowToMergePdfFreePage() {
         <p>For basic merging (combining full PDFs in order), they are identical. Smallpdf's paid version allows you to select specific pages from each file (e.g., pages 1-3 from file A, pages 5-7 from file B). My tool does not have that — you merge whole files only. For 95% of users, that is fine. If you need page-level selection, use the splitter first to extract the pages you want, then merge.</p>
         <h3>Why does Smallpdf ask for my email even for a free merge?</h3>
         <p>Because you are the product. Smallpdf collects emails to build their marketing list. They send you "helpful tips" that are really just upsells. They also track which tools you use so they can target ads to you. I do not do any of that because I do not have your email. It is impossible for me to spam you. That is a feature.</p>
+        <h3>Can I merge PDFs on my phone without an app?</h3>
+        <p>Yes. Open trulyfreetools.com/merge-pdf in Safari on iPhone or Chrome on Android, upload your PDFs, arrange the order, and tap Merge. No app install needed — the same WebAssembly engine that runs on desktop runs in mobile browsers too.</p>
         <p>Try the merger now. Combine two PDFs in five seconds. No email. No account. If you see a pop-up asking for your credit card, you are on the wrong site.</p>
 
         <AuthorBox />

@@ -57,11 +57,34 @@ const faqSchema = {
   ]
 }
 
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to split a PDF",
+  "description": "Extract pages or split a PDF into separate files, entirely in your browser.",
+  "step": [
+    { "@type": "HowToStep", "name": "Upload your PDF", "text": "Click the upload area or drag your PDF onto it. The file is read into local browser memory. Nothing is transmitted to any server." },
+    { "@type": "HowToStep", "name": "Specify the pages to extract", "text": "Enter a page range like 1-5, individual page numbers like 2, 4, 7, or choose to split into all individual pages. The tool shows the page count before processing." },
+    { "@type": "HowToStep", "name": "Click Split PDF", "text": "The tool extracts the specified pages into one or more PDF files. Each output file contains only the requested pages with content identical to the original." },
+    { "@type": "HowToStep", "name": "Download the result", "text": "Download each extracted file. If you split into individual pages, each page is a separate download. No signup, no email, no waiting." },
+  ]
+}
+
+const speakableSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://trulyfreetools.com/split-pdf#webpage",
+  "url": "https://trulyfreetools.com/split-pdf",
+  "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["#answer-capsule", "#faq"] }
+}
+
 export default function SplitPDFPage() {
   return (
     <main style={{ minHeight: "100vh", background: "#f7fafc", padding: "60px 24px 80px", fontFamily: "Inter, sans-serif" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(toolSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
       <div style={{ maxWidth: 720, margin: "0 auto" }}>
 
         <div style={{ marginBottom: 32, textAlign: "center" }}>
@@ -113,7 +136,7 @@ export default function SplitPDFPage() {
             </div>
           </div>
 
-          <div style={{ background: "#f0f4ff", borderLeft: "4px solid #2563eb", borderRadius: 8, padding: "28px 32px", marginBottom: 48 }}>
+          <div id="answer-capsule" style={{ background: "#f0f4ff", borderLeft: "4px solid #2563eb", borderRadius: 8, padding: "28px 32px", marginBottom: 48 }}>
             <h2 style={{ fontSize: 18, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: 12 }}>
               Split PDFs without uploading to any server
             </h2>
@@ -129,7 +152,7 @@ export default function SplitPDFPage() {
             <h2 style={{ fontSize: 22, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.03em", marginBottom: 20 }}>
               Frequently asked questions
             </h2>
-            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            <div id="faq" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               {[
                 ["Can I extract just one page from a PDF?", "Yes. Enter a single page number in the range field. You can also specify multiple non-consecutive pages."],
                 ["Does splitting affect quality?", "No. Splitting separates pages without re-encoding content. Images, fonts, and text in each extracted page are identical to the originals."],
