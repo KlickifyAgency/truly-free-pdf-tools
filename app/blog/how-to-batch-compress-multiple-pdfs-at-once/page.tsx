@@ -19,7 +19,7 @@ export default function Page() {
     headline: 'How to Batch Compress Multiple PDFs at Once',
     description:
       'A practical guide that shows you how to shrink a folder of PDFs in seconds, using free web services, desktop utilities, and command‑line scripts.',
-    image: 'https://trulyfreetools.com/assets/blog/batch-compress-pdf.jpg',
+    image: 'https://trulyfreetools.com/logo.png',
     author: {
       '@type': 'Person',
       name: 'George Smith',
@@ -83,16 +83,16 @@ export default function Page() {
 
   const relatedLinks = [
     {
-      title: 'Free PDF Merger',
-      href: '/tools/pdf-merge',
+      label: 'Free PDF Merger',
+      href: '/merge-pdf',
     },
     {
-      title: 'Online PDF Splitter',
-      href: '/tools/pdf-split',
+      label: 'Online PDF Splitter',
+      href: '/split-pdf',
     },
     {
-      title: 'Convert PDF to Word',
-      href: '/tools/pdf-to-word',
+      label: 'Convert PDF to Word',
+      href: '/pdf-to-word',
     },
   ];
 
@@ -103,7 +103,7 @@ export default function Page() {
       categoryBg="bg-indigo-100"
       title="How to Batch Compress Multiple PDFs at Once"
       description="Compress dozens of PDFs in seconds with free web tools, desktop utilities, and command‑line scripts."
-      date="2026 09 04"
+      date="September 4, 2026"
       readTime="8 min"
       relatedLinks={relatedLinks}
     >
@@ -118,12 +118,7 @@ export default function Page() {
       />
 
       {/* Author Box */}
-      <AuthorBox
-        name="George Smith"
-        title="Founder, Klickify Agency"
-        imgSrc="/authors/george-smith.png"
-        bio="I build free tools that help busy professionals automate repetitive tasks."
-      />
+      <AuthorBox />
 
       {/* Article Content */}
       <section className="prose prose-lg max-w-none mt-8">
@@ -223,7 +218,7 @@ echo Done. Files saved to %OUTPUTDIR%
 {`# Bash script (compress.sh)
 #!/bin/bash
 INPUTDIR="$1"
-OUTPUTDIR="${2:-${INPUTDIR}_compressed}"
+OUTPUTDIR="\${2:-\${INPUTDIR}_compressed}"
 mkdir -p "$OUTPUTDIR"
 
 for f in "$INPUTDIR"/*.pdf; do
@@ -231,7 +226,7 @@ for f in "$INPUTDIR"/*.pdf; do
   echo "Compressing $fname..."
   pdftk "$f" output "$OUTPUTDIR/$fname" compress
 done
-echo "All done!"}          </pre>
+echo "All done!"`}          </pre>
         <p>
           PDFtk’s <code>compress</code> flag removes duplicate objects and
           optimizes the internal stream layout. It does not downsample images,
@@ -303,16 +298,15 @@ batchCompress(process.argv[2] || '.');` }          </pre>
           code releases.
         </p>
 
-        <h2>CTA – Try Our Free Online Batch Compressor</h2>
+        <h2>Compress a Single PDF in Your Browser</h2>
         <p>
-          Want a no‑install, ad‑supported solution that works on any device? Our
-          in‑house batch compressor (built on the same engine as Smallpdf) is
-          available at{' '}
-          <a href="/tools/pdf-batch-compress" className="text-indigo-600 underline">
-            trulyfreetools.com/tools/pdf-batch-compress
-          </a>
-          . Upload a ZIP, select “High‑Quality” or “Maximum Compression,” and get
-          a new ZIP back in under a minute.
+          The scripts above are the right tool for a whole folder. If you only
+          need to shrink one file, our free compressor at{' '}
+          <a href="/compress-pdf" className="text-indigo-600 underline">
+            trulyfreetools.com/compress-pdf
+          </a>{' '}
+          handles it one PDF at a time, entirely in your browser — no signup, no
+          watermarks, and the file never leaves your device.
         </p>
 
         <h2>FAQ</h2>
