@@ -1,0 +1,21 @@
+{
+  "app_dir": "app",
+  "site_url": "https://trulyfreetools.com",
+  "author": {
+    "name": "George Smith",
+    "title": "Founder, Klickify Agency"
+  },
+  "imports": [
+    "import type { Metadata } from 'next'",
+    "import Link from 'next/link'",
+    "import ArticleWrapper from '@/components/blog/ArticleWrapper'",
+    "import AuthorBox from '@/components/blog/AuthorBox'"
+  ],
+  "prompt_extra": "- Wrap all content in <ArticleWrapper> with exactly these props: category (string),\n  categoryColor, categoryBg, title, description, date, readTime, and relatedLinks\n  as an array of objects shaped { href, label } \u2014 the key is label, never title.\n- Include <AuthorBox /> with NO props. AuthorBox accepts no props at all.\n- This site never uploads files to a server and has no batch processing. Do not\n  describe uploading, ZIP files, or processing several files at once.",
+  "default_card": {
+    "category": "HOW-TO GUIDE",
+    "categoryColor": "#16a34a",
+    "categoryBg": "#f0fdf4",
+    "readTime": "9 min read"
+  }
+}
