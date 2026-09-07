@@ -41,6 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "how-to-convert-excel-to-pdf-with-formatting-intact",
     "how-to-edit-a-pdf-without-converting-it-to-word",
     "pdf-accessibility-how-to-make-pdfs-readable-by-screen-reader",
+    "how-to-batch-compress-multiple-pdfs-at-once",
   ];
 
   return [
