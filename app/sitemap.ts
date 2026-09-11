@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const blogPosts = [
+    "how-to-convert-pdf-to-png-for-presentations",
     "pdf-statistics-2026",
     "best-free-pdf-tools-2026",
     "smallpdf-alternatives",
