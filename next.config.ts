@@ -3,6 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   async redirects() {
     return [
+      // 2026-09-18: duplicado autogenerado con limites de Smallpdf inventados
+      { source: "/blog/how-smallpdf-limits-free-users-and-what-to-use-instead", destination: "/blog/why-smallpdf-limits-free-users", permanent: true },
       { source: "/compress-pdf-without-uploading", destination: "/compress-pdf", permanent: true },
       { source: "/compress-large-pdf-free-no-limit", destination: "/compress-pdf", permanent: true },
       { source: "/merge-pdf-free-no-watermark", destination: "/merge-pdf", permanent: true },

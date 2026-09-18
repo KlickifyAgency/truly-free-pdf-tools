@@ -34,6 +34,9 @@ jobs:
 
           WEEK=$(date +%V | sed 's/^0*//')
 
+          # Sin comparativas contra competidores (Smallpdf, iLovePDF, Adobe vs):
+          # el modelo inventa sus limites y el sitio ya tiene esas paginas
+          # revisadas a mano. Sacadas 2026-09-18.
           TOPICS=(
             "How to sign a PDF for free without Adobe Acrobat"
             "How to extract pages from a PDF without uploading it"
@@ -72,9 +75,6 @@ jobs:
             "PDF accessibility: how to make PDFs readable by screen readers"
             "How to batch compress multiple PDFs at once"
             "How to convert PDF to PNG for presentations"
-            "How Smallpdf limits free users and what to use instead"
-            "iLovePDF alternatives that have no daily limits"
-            "Adobe Acrobat vs free PDF tools: an honest comparison"
             "How to compress a medical PDF for email"
             "How to reduce PDF file size on a Chromebook"
             "How to combine PDF and images in a single document"
@@ -104,6 +104,12 @@ jobs:
           TOPIC: ${{ steps.topic.outputs.topic }}
           SLUG: ${{ steps.topic.outputs.slug }}
         run: |
+          # Un run manual + el programado en la misma semana eligen el mismo
+          # tema: sin esto el segundo pisaba el articulo ya publicado.
+          if [ -f "app/blog/$SLUG/page.tsx" ]; then
+            echo "::notice::$SLUG ya esta publicado, nada que hacer esta semana"
+            exit 0
+          fi
           if [ -z "$GROQ_API_KEY" ]; then
             echo "::error::GROQ_API_KEY no esta seteado"
             exit 1

@@ -285,7 +285,10 @@ export default function CompressPDFTool() {
 
         console.warn = originalWarn;
 
-        if (pagesRendered === pagesToRender) {
+        // Solo si cubre TODAS las paginas: con numPages > MAX_CANVAS_PAGES
+        // el resultado rasterizado traia solo las primeras 5 y se entregaba
+        // igual (PDF de 8 paginas -> 5, verificado en produccion 2026-09-18).
+        if (pagesRendered === numPages) {
           const canvasBytes = await outDoc.save({ useObjectStreams: true });
           if (canvasBytes.byteLength < bestSize) { bestBytes = canvasBytes; bestSize = canvasBytes.byteLength; }
         }

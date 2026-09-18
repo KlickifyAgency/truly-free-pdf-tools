@@ -74,7 +74,7 @@ export default function Page() {
         name: 'Is there a privacy risk when using free online converters?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Reputable converters delete files after a short period and use HTTPS encryption. If the document contains sensitive data, use a local tool such as Preview on macOS or the Print to file option on Windows instead.',
+          text: 'Reputable converters delete files after a short period and use HTTPS encryption. If the document contains sensitive data, use a local tool such as Preview on macOS or ImageMagick on Windows instead.',
         },
       },
     ],
@@ -126,9 +126,9 @@ export default function Page() {
       </p>
       <ul>
         <li>
-          <strong>Built-in OS utilities</strong> - Preview on macOS, Microsoft
-          Print to PDF on Windows, and the free <em>Snipping Tool</em> can all
-          export a PDF page as a PNG without any third-party software.
+          <strong>Built-in OS utilities</strong> - Preview on macOS exports any
+          PDF page as a PNG. Windows has no built-in PDF-to-PNG export, but the
+          free <em>Snipping Tool</em> can capture a page on screen as a PNG.
         </li>
         <li>
           <strong>Free online converters</strong> - Sites such as <a href="https://www.ilovepdf.com/pdf_to_image" target="_blank" rel="noopener noreferrer">iLovePDF</a> or <a href="https://smallpdf.com/pdf-to-jpg" target="_blank" rel="noopener noreferrer">Smallpdf</a> let you upload a PDF and download PNGs instantly.
@@ -153,21 +153,19 @@ export default function Page() {
         <li>Choose a destination folder and click <strong>Save</strong>.</li>
       </ol>
       <p>
-        Repeat the steps for each page you need. The resulting PNG files retain the
-        original vector clarity, making them ideal for high-resolution displays.
+        Repeat the steps for each page you need. The PNGs are sharp at the resolution
+        you chose, so pick one at least as large as the slide they will fill.
       </p>
 
-      <h2>3. Using Windows “Print to file” method</h2>
+      <h2>3. On Windows: a quick screenshot with Snipping Tool</h2>
       <ol>
-        <li>Open the PDF with Microsoft Edge or any PDF viewer.</li>
-        <li>Press <strong>Ctrl + P</strong> to open the print dialog.</li>
-        <li>Select the printer named <strong>Microsoft Print to PDF</strong> and click <strong>Print</strong>. This creates a new PDF - a step that may look unnecessary but allows us to control DPI later.</li>
-        <li>Open the newly saved PDF in <strong>Paint 3</strong> (the free version that comes with Windows).</li>
-        <li>Choose <strong>File → Save as → PNG picture</strong>.</li>
-        <li>In Paint 3, go to <strong>Properties</strong> and set the resolution to at least 300 dpi before saving.</li>
+        <li>Open the PDF in Microsoft Edge or any PDF viewer and zoom in until the page fills the screen.</li>
+        <li>Press <strong>Windows + Shift + S</strong> and drag over the page.</li>
+        <li>Click the notification that appears, then save the capture as PNG.</li>
       </ol>
       <p>
-        Although it involves an extra PDF step, this method works without any third-party download.
+        The image is only as sharp as your screen, which is fine for a slide but not for print.
+        For full-resolution PNGs on Windows, use an online converter or ImageMagick, below.
       </p>
 
       <h2>4. Converting with a free online service</h2>
@@ -214,8 +212,7 @@ export default function Page() {
         After conversion, you can shrink the PNG without losing visual fidelity:
       </p>
       <ul>
-        <li>Use <a href="/compress-pdf">our free PNG optimizer</a> - it works the same way as PDF compression but is tailored for images.</li>
-        <li>Or run <code>optipng -o7 output.png</code> on the command line for a lossless reduction.</li>
+        <li>Run <code>optipng -o7 output.png</code> on the command line for a lossless reduction.</li>
       </ul>
 
       <h2>7. Inserting PNGs into PowerPoint or Google Slides</h2>
@@ -229,7 +226,8 @@ export default function Page() {
         <li>If the slide size differs from the image dimensions, use the corner handles to resize while holding <strong>Shift</strong> to maintain aspect ratio.</li>
       </ol>
       <p>
-        Because PNGs are raster images, they will not distort when you zoom in during a live presentation.
+        PNGs are made of pixels, so they stay sharp up to the resolution you exported and blur if
+        you enlarge them beyond it. Export at 300 dpi and you will have room to spare on a 1080p slide.
       </p>
 
       <h2>FAQ</h2>

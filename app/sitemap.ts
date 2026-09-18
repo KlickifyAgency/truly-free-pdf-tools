@@ -22,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const blogPosts = [
-    "how-smallpdf-limits-free-users-and-what-to-use-instead",
+    "how-to-compress-a-medical-pdf-for-email",
     "how-to-convert-pdf-to-png-for-presentations",
     "pdf-statistics-2026",
     "best-free-pdf-tools-2026",
