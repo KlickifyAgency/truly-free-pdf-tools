@@ -40,9 +40,16 @@ async function renderPageToJpeg(page: any, dpi: number, quality: number): Promis
     canvas.height = Math.floor(viewport.height);
     const ctx = canvas.getContext("2d");
     const task = page.render({ canvasContext: ctx, viewport });
-    await Promise.race([task.promise.catch(() => {}), new Promise(r => setTimeout(r, 8000))]);
+    // Si el render falla o pasa de 8s, NO devolver el canvas a medio dibujar
+    // (salia una pagina en blanco o incompleta en el PDF final).
+    const rendered = await Promise.race([
+      task.promise.then(() => true, () => false),
+      new Promise<boolean>(r => setTimeout(() => r(false), 8000)),
+    ]);
+    if (!rendered) return null;
     return await new Promise(resolve => {
       canvas.toBlob(blob => {
+        canvas.width = 0; canvas.height = 0;
         if (!blob) { resolve(null); return; }
         blob.arrayBuffer().then(buf => resolve(new Uint8Array(buf))).catch(() => resolve(null));
       }, "image/jpeg", quality);
@@ -260,7 +267,8 @@ export default function CompressPDFTool() {
 
         const pdfJsDoc = await pdfjsLib.getDocument({ data: new Uint8Array(arrayBuffer), verbosity: 0 }).promise;
         const numPages = pdfJsDoc.numPages;
-        const MAX_CANVAS_PAGES = 5;
+        // Con 5, cualquier escaneo de mas de 5 paginas salia sin comprimir.
+        const MAX_CANVAS_PAGES = 100;
         const pagesToRender = Math.min(numPages, MAX_CANVAS_PAGES);
         setTotalPages(pagesToRender);
 
