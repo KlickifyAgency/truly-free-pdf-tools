@@ -2,8 +2,14 @@ name: Publish Friday Article
 
 on:
   schedule:
-    - cron: '0 14 * * 5'  # Every Friday 2pm UTC (9am CDT)
+    - cron: '0 14 * * 5'  # Friday 14:00 UTC. Tools :00, QR :15, Mortgage :30 - they share one Groq key (TPM limit)
+    - cron: '0 14 * * 6'  # Saturday backup: does nothing if an article already went out since Friday
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Run every gate but do not push'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -13,6 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # the Saturday guard reads this week's history
 
       - uses: actions/setup-node@v4
         with:
@@ -30,6 +38,17 @@ jobs:
             echo "slug=$SLUG" >> $GITHUB_OUTPUT
             echo "source=scheduled" >> $GITHUB_OUTPUT
             exit 0
+          fi
+
+          # Backup del sabado: si ya entro un articulo desde el viernes de esta
+          # semana (el run del viernes o uno a mano), no hacer nada.
+          if [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
+            FRIDAY=$(date -u -d "$(( $(date -u +%u) - 5 )) days ago" +%F)
+            if [ -n "$(git log --since="${FRIDAY}T00:00:00Z" --diff-filter=A --name-only --format= -- 'app/blog/*/page.tsx')" ]; then
+              echo "::notice::ya se publico un articulo desde el viernes $FRIDAY, nada que hacer"
+              echo "source=none" >> $GITHUB_OUTPUT
+              exit 0
+            fi
           fi
 
           WEEK=$(date +%V | sed 's/^0*//')
@@ -88,78 +107,102 @@ jobs:
             "How to print to PDF on any operating system"
           )
 
-          IDX=$(( ($WEEK - 1) % ${#TOPICS[@]} ))
-          TOPIC="${TOPICS[$IDX]}"
-          SLUG=$(echo "$TOPIC" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9 ]//g' | tr ' ' '-' | sed 's/--*/-/g' | cut -c1-60)
-
-          echo "topic=$TOPIC" >> $GITHUB_OUTPUT
-          echo "slug=$SLUG" >> $GITHUB_OUTPUT
+          # Hasta 3 temas sin publicar, empezando por el slot de esta semana. Si
+          # uno es rechazado, el paso siguiente prueba el proximo en el mismo
+          # run: un rechazo ya no pierde la semana. Un tema ya publicado se salta.
+          N=${#TOPICS[@]}
+          IDX=$(( ($WEEK - 1) % N ))
+          : > "$RUNNER_TEMP/candidates.tsv"
+          COUNT=0
+          for i in $(seq 0 $((N - 1))); do
+            CAND="${TOPICS[$(( (IDX + i) % N ))]}"
+            CSLUG=$(echo "$CAND" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9 ]//g' | tr ' ' '-' | sed 's/--*/-/g' | cut -c1-60)
+            if [ ! -f "app/blog/$CSLUG/page.tsx" ]; then
+              printf '%s\t%s\n' "$CSLUG" "$CAND" >> "$RUNNER_TEMP/candidates.tsv"
+              COUNT=$((COUNT + 1))
+              if [ $COUNT -ge 3 ]; then break; fi
+            fi
+          done
+          if [ $COUNT -eq 0 ]; then
+            echo "::error::todos los temas de TOPICS ya estan publicados; agregar temas nuevos"
+            exit 1
+          fi
+          cat "$RUNNER_TEMP/candidates.tsv"
           echo "source=generated" >> $GITHUB_OUTPUT
 
-      - name: Generate + validate article
+      # Groq inventa datos todas las semanas (credenciales del autor, casos con
+      # porcentajes, limites de competidores, funciones que el sitio no tiene).
+      # Por tema: generar + validar -> fact-check -> build. Claude Code revisa el
+      # borrador contra scripts/site_facts.md y lo corrige; si despues de 4
+      # pasadas sigue habiendo problemas, ese tema se descarta. El fact-check usa
+      # la suscripcion Claude (token de `claude setup-token`), NUNCA la API paga
+      # de Anthropic: por eso no hay ANTHROPIC_API_KEY en este paso. El build
+      # es el gate que faltaba: antes el articulo roto llegaba a main.
+      - name: Generate, fact-check, build (up to 3 topics)
         id: gen
         if: steps.topic.outputs.source == 'generated'
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-          TOPIC: ${{ steps.topic.outputs.topic }}
-          SLUG: ${{ steps.topic.outputs.slug }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: |
-          # Un run manual + el programado en la misma semana eligen el mismo
-          # tema: sin esto el segundo pisaba el articulo ya publicado.
-          if [ -f "app/blog/$SLUG/page.tsx" ]; then
-            echo "::notice::$SLUG ya esta publicado, nada que hacer esta semana"
-            echo "skip=true" >> $GITHUB_OUTPUT
-            exit 0
-          fi
           if [ -z "$GROQ_API_KEY" ]; then
             echo "::error::GROQ_API_KEY no esta seteado"
             exit 1
           fi
-          TODAY=$(date +%Y-%m-%d) python3 scripts/generate_article.py
-
-      # Groq inventa datos todas las semanas (credenciales del autor, casos con
-      # porcentajes, limites de competidores, funciones que el sitio no tiene).
-      # Claude Code revisa el borrador contra scripts/site_facts.md y lo corrige;
-      # si despues de 3 pasadas sigue habiendo problemas, falla y NO se publica.
-      # Usa la suscripcion Claude (token de `claude setup-token`), NUNCA la API
-      # paga de Anthropic: por eso no hay ANTHROPIC_API_KEY en este paso.
-      - name: Fact-check gate
-        if: steps.topic.outputs.source == 'generated' && steps.gen.outputs.skip != 'true'
-        env:
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          SLUG: ${{ steps.topic.outputs.slug }}
-        run: |
           if [ -z "$CLAUDE_CODE_OAUTH_TOKEN" ]; then
             echo "::error::falta el secret CLAUDE_CODE_OAUTH_TOKEN (claude setup-token)"
             exit 1
           fi
           npm install -g @anthropic-ai/claude-code
-          python3 scripts/review_article.py
+          env -u NODE_ENV npm ci
+          # fd 3: que ningun comando del loop se coma la lista por stdin
+          while IFS=$'\t' read -r SLUG TOPIC <&3; do
+            echo "::group::$TOPIC"
+            if TOPIC="$TOPIC" SLUG="$SLUG" TODAY=$(date +%Y-%m-%d) python3 scripts/generate_article.py \
+               && SLUG="$SLUG" python3 scripts/review_article.py \
+               && npm run build; then
+              echo "::endgroup::"
+              echo "slug=$SLUG" >> $GITHUB_OUTPUT
+              exit 0
+            fi
+            echo "::endgroup::"
+            echo "::warning::rechazado: $TOPIC. Probando el siguiente tema."
+            git checkout -- app
+            git clean -fdq -- app
+          done 3< "$RUNNER_TEMP/candidates.tsv"
+          echo "::error::ninguno de los temas paso validacion + fact-check + build"
+          exit 1
 
-      # El gate que faltaba. Antes se commiteaba sin compilar nunca, y el
-      # articulo roto llegaba a main. Si esto falla, no se pushea nada.
-      - name: Build gate
+      - name: Build gate (scheduled article)
+        if: steps.topic.outputs.source == 'scheduled'
         run: |
           env -u NODE_ENV npm ci
           npm run build
 
       - name: Commit and push
+        if: steps.topic.outputs.source != 'none' && !inputs.dry_run
         run: |
           git config user.name "Klickify Agency Bot"
           git config user.email "info@klickifyagency.com"
-          SLUG="${{ steps.topic.outputs.slug }}"
+          SLUG="${{ steps.gen.outputs.slug || steps.topic.outputs.slug }}"
           git add "app/blog/$SLUG" "app/sitemap.ts" "app/blog/page.tsx"
           git add -u _scheduled 2>/dev/null || true
           if git diff --staged --quiet; then
             echo "Nothing to commit"
           else
             git commit -m "publish: weekly article - $SLUG"
+            # el run dura hasta ~25 min: si alguien pusheo a main mientras, rebase
+            git pull --rebase origin main
             git push
           fi
+
+      - name: Dry run result
+        if: inputs.dry_run
+        run: echo "::notice::dry run - ${{ steps.gen.outputs.slug || steps.topic.outputs.slug }} paso todos los gates, no se pusheo"
 
       - name: Report failure
         if: failure()
         run: |
           echo "::error::El articulo de esta semana NO se publico. Revisar el log:"
-          echo "::error::validacion o fact-check rechazado, o el build no compila. Nada fue pusheado."
+          echo "::error::los temas candidatos fueron rechazados (validacion, fact-check o build). Nada fue pusheado."
           ls -la _rejected_*.tsx 2>/dev/null && cat _rejected_*.tsx | head -60 || true
