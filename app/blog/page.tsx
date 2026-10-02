@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "how-to-convert-pdf-to-html", title: "How to Convert PDF to HTML", description: "A practical guide to turning PDF documents into editable HTML, covering tools, steps, and troubleshooting.", date: "October 2, 2026", readTime: "9 min read", lang: "EN", category: "HOW-TO GUIDE", categoryColor: "#16a34a", categoryBg: "#f0fdf4" },
   { slug: "how-to-combine-pdf-and-images-in-a-single-document", title: "How to Combine PDF and Images in a Single Document", description: "A step-by-step guide to merging PDF pages and images into one clean document using free tools.", date: "September 26, 2026", readTime: "9 min read", lang: "EN", category: "HOW-TO GUIDE", categoryColor: "#16a34a", categoryBg: "#f0fdf4" },
   { slug: "how-to-compress-a-medical-pdf-for-email", title: "How to Compress a Medical PDF for Email", description: "Shrink scanned medical records and lab reports enough to email them, keep them readable, and send them without exposing health information.", date: "September 18, 2026", readTime: "9 min read", lang: "EN", category: "HOW-TO GUIDE", categoryColor: "#16a34a", categoryBg: "#f0fdf4" },
   { slug: "how-to-convert-pdf-to-png-for-presentations", title: "How to convert PDF to PNG for presentations", description: "Step-by-step guide on turning PDF pages into high-resolution PNG images that look great in any slide deck.", date: "September 11, 2026", readTime: "9 min read", lang: "EN", category: "HOW-TO GUIDE", categoryColor: "#16a34a", categoryBg: "#f0fdf4" },

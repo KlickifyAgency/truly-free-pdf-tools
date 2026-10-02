@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const blogPosts = [
+    "how-to-convert-pdf-to-html",
     "how-to-combine-pdf-and-images-in-a-single-document",
     "how-to-compress-a-medical-pdf-for-email",
     "how-to-convert-pdf-to-png-for-presentations",
