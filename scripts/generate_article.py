@@ -234,8 +234,9 @@ def validate(src, routes):
         if AUTHOR_NAME.split()[0] not in val and "@type" not in val:
             errs.append(f"author distinto del configurado: {val!r}")
 
-    # 5. < sin escapar que quedo vivo (scan con regex de Python, no grep ASCII)
-    for m in re.finditer(r"<(?![A-Za-z/!>])", src_n):
+    # 5. < sin escapar que quedo vivo (scan con regex de Python, no grep ASCII).
+    # {'<'} ya es el escape correcto: antes se marcaba igual y tumbaba el run.
+    for m in re.finditer(r"(?<!\{['\"])<(?![A-Za-z/!>])", src_n):
         ctx = src_n[max(0, m.start() - 40):m.start() + 40].replace("\n", " ")
         errs.append(f"< sin escapar: ...{ctx}...")
 
