@@ -195,6 +195,30 @@ def repair(src):
     return src.strip() + "\n", fixes
 
 
+def fix_links(src, routes):
+    """Links internos inventados con destino real obvio. Visto en vivo
+    2026-10-23: /blog/mortgage-calculator (existe /mortgage-calculator) y
+    /blog/how-to-compress-pdf-... (existe /blog/compress-pdf-...). Solo reglas
+    exactas: un match difuso confunde merge con split. Lo que no matchee lo
+    sigue frenando validate()."""
+    fixes = []
+
+    def sub(m):
+        href = m.group(2)
+        clean = "/" + href.strip("/")
+        if clean in routes or clean == f"/blog/{SLUG}" or not clean.startswith("/blog/"):
+            return m.group(0)
+        tail = clean[len("/blog/"):]
+        for cand in ("/" + tail, "/blog/" + tail.removeprefix("how-to-")):
+            if cand != clean and cand in routes:
+                fixes.append(f"link {href} -> {cand}")
+                return m.group(1) + cand
+        return m.group(0)
+
+    src = re.sub(r"(href=[\"'])(/[^\"'#?]*)", sub, src)
+    return src, fixes
+
+
 # ---------------------------------------------------------------- validacion
 FAKE_CREDENTIALS = [
     r"\b\d+\+?\s*years?\s+(?:of\s+)?(?:experience|helping|working|in\s+the)",
@@ -368,7 +392,8 @@ def main():
 
     raw = generate(routes)
     src, fixes = repair(raw)
-    for f in fixes:
+    src, link_fixes = fix_links(src, routes)
+    for f in fixes + link_fixes:
         print(f"  reparado: {f}")
 
     errs = validate(src, routes)
