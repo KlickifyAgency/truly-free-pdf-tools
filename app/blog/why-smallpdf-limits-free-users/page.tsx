@@ -4,8 +4,8 @@ import ArticleWrapper from "../../../components/blog/ArticleWrapper";
 import AuthorBox from "@/components/blog/AuthorBox";
 
 export const metadata: Metadata = {
-  title: "Why Smallpdf Limits Free Users (And What to Do About It)",
-  description: "Smallpdf gives you two free tasks per day then locks you out. The real economics behind the limit, what their watermark costs you, and which unlimited free alternative to use instead.",
+  title: "Hit Smallpdf's Daily Limit? How to Keep Working for Free",
+  description: "Locked out by Smallpdf's free-task limit mid-project? Finish your PDF now with a free tool that has no daily cap and no watermark, plus why Smallpdf limits free users.",
   alternates: { canonical: "https://trulyfreetools.com/blog/why-smallpdf-limits-free-users" },
 };
 
