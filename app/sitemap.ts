@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const blogPosts = [
+    "how-to-sign-a-pdf-on-android-without-an-app",
     "how-to-share-pdf-files-securely",
     "pdf-compression-for-architects-and-cad-drawings",
     "how-to-convert-pdf-to-html",

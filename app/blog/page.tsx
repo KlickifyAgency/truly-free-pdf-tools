@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 };
 
 const posts = [
+  { slug: "how-to-sign-a-pdf-on-android-without-an-app", title: "How to Sign a PDF on Android without an App", description: "Step-by-step guide to sign a PDF on Android using only built-in tools and free online services-no app downloads needed.", date: "October 30, 2026", readTime: "9 min read", lang: "EN", category: "HOW-TO GUIDE", categoryColor: "#16a34a", categoryBg: "#f0fdf4" },
   { slug: "how-to-share-pdf-files-securely", title: "How to Share PDF Files Securely", description: "Step-by-step guide to protect your PDFs before sharing. Learn encryption, password protection, and safe transfer methods.", date: "October 24, 2026", readTime: "9 min read", lang: "EN", category: "HOW-TO GUIDE", categoryColor: "#16a34a", categoryBg: "#f0fdf4" },
   { slug: "pdf-compression-for-architects-and-cad-drawings", title: "PDF Compression for Architects and CAD Drawings", description: "A step-by-step guide to compress PDF files that contain architectural plans and CAD drawings without losing essential detail.", date: "October 16, 2026", readTime: "9 min read", lang: "EN", category: "HOW-TO GUIDE", categoryColor: "#16a34a", categoryBg: "#f0fdf4" },
   { slug: "how-to-convert-pdf-to-html", title: "How to Convert PDF to HTML", description: "A practical guide to turning PDF documents into editable HTML, covering tools, steps, and troubleshooting.", date: "October 2, 2026", readTime: "9 min read", lang: "EN", category: "HOW-TO GUIDE", categoryColor: "#16a34a", categoryBg: "#f0fdf4" },
