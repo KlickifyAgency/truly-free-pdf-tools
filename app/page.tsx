@@ -62,7 +62,7 @@ const faqSchema = {
       name: "Do I need to create an account?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No account is required for any tool. Open the tool, drop your file, download the result. No email address, no credit card, no profile. Each session is completely stateless — nothing is stored about you or your files.",
+        text: "No account is required for any tool. Open the tool, drop your file, download the result. No email address, no credit card, no profile. Your files are never stored, and there is no account to keep.",
       },
     },
     {

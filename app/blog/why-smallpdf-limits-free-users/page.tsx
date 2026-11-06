@@ -76,7 +76,7 @@ export default function WhySmallpdfLimitsFreeUsersPage() {
 
         <h2>Why Truly Free PDF Tools Is Actually Free</h2>
         <p>I have explained the ad-supported model multiple times. But let me address the Smallpdf comparison directly. Why can I offer unlimited tasks while Smallpdf cannot? Because I am not trying to build a billion-dollar company. I am a solo developer. My costs are under $200 per year. Smallpdf's costs are in the millions. They have to charge.</p>
-        <p>The privacy difference is not a cost issue. Smallpdf could run tools locally like I do. They choose not to because running locally means they cannot track you, cannot enforce limits, and cannot collect data. Their business model depends on you uploading files to their servers. My business model depends on nothing except you seeing an ad on my homepage.</p>
+        <p>The privacy difference is not a cost issue. Smallpdf could run tools locally like I do. They choose not to because running locally means they cannot see your files, cannot enforce limits, and cannot keep your documents. Their business model depends on you uploading files to their servers. My business model depends on nothing except you seeing an ad on my homepage.</p>
         <p>I am not saying Smallpdf is evil. They provide a good service if you are willing to pay. What I am saying is that their "free" tier is misleading. Two tasks per day is not free. It is a demo. If you need a demo, use theirs. If you need real unlimited free tools, use mine.</p>
 
         <h2 id="faq">Frequently Asked Questions</h2>

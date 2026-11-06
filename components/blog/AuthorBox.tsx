@@ -20,7 +20,7 @@ export default function AuthorBox() {
           style={{ borderRadius: "50%", objectFit: "cover" }}
         />
       </div>
-      <div>
+      <div style={{ minWidth: 0, overflowWrap: "anywhere" }}>
         <div style={{
           fontSize: "10px",
           fontWeight: 600,

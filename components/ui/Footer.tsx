@@ -42,6 +42,10 @@ export default function Footer() {
           <a href="https://klickifyagency.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#0058c3", fontWeight: 600, textDecoration: "none" }}>
             Klickify Agency
           </a>
+          {" "}· Powered by{" "}
+          <a href="https://vacaysmith.com" target="_blank" rel="noopener" style={{ color: "#0058c3", fontWeight: 600, textDecoration: "none" }}>
+            VacaySmith
+          </a>
         </p>
         <a href="https://google.com/preferences/source?q=trulyfreetools.com" target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: "#718096", letterSpacing: "-0.01em", textDecoration: "underline" }}>
           Mark as a preferred source on Google

@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Privacy Policy — Truly Free PDF Tools",
-  description: "We process your files locally in your browser. No uploads, no data collection, no tracking beyond standard analytics.",
+  description: "We process your files locally in your browser, with no uploads. This page lists the analytics and advertising services we use.",
   alternates: { canonical: "https://trulyfreetools.com/privacy" },
 }
 
@@ -13,7 +13,7 @@ const sections = [
   },
   {
     title: "Data We Collect",
-    body: "We do not use third-party analytics services. No personally identifiable information is collected. We do not collect names, email addresses, file contents, or behavioral profiles. The only data processing on this site occurs locally in your browser.",
+    body: "We use Google Analytics and Google Tag Manager to understand how visitors use this site. They record pages viewed, approximate location, device and browser type, and the referring site. We also use Cloudflare Web Analytics, which measures page performance and does not set cookies. We do not collect names, email addresses, file contents, file names, or PDF passwords.",
   },
   {
     title: "Advertising",
@@ -21,19 +21,19 @@ const sections = [
   },
   {
     title: "Cookies",
-    body: "We use functional cookies necessary for site operation and analytics cookies to understand aggregate traffic patterns. Advertising cookies are managed by Google AdSense. No cookies store your file data — files exist only in browser memory during the active session.",
+    body: "We use functional cookies necessary for site operation and Google Analytics cookies, such as _ga, to understand aggregate traffic patterns. You can opt out of Google Analytics at tools.google.com/dlpage/gaoptout. Advertising cookies are managed by Google AdSense. No cookies store your file data — files exist only in browser memory during the active session.",
   },
   {
     title: "Third-Party Services",
-    body: "We use Google AdSense for advertising, governed by Google's Privacy Policy at policies.google.com. No other third-party data processors receive information about your usage of this site.",
+    body: "We use Google AdSense for advertising, Google Analytics and Google Tag Manager for traffic measurement, and Cloudflare for site delivery and Web Analytics. Google's services are governed by Google's Privacy Policy at policies.google.com. None of these services receive your files, file names, or PDF passwords.",
   },
   {
     title: "Data Retention",
-    body: "Because files are processed locally, there is no file data to retain. We do not maintain a user database. Advertising cookies managed by Google AdSense follow Google's standard retention policies.",
+    body: "Because files are processed locally, there is no file data to retain. We do not maintain a user database. Google Analytics data follows the retention period set in our account, and advertising cookies managed by Google AdSense follow Google's standard retention policies.",
   },
   {
     title: "Your Rights",
-    body: "Under GDPR and CCPA, you have the right to access, correct, or delete personal data we hold. Since we hold no personally identifiable information, there is effectively no personal data to manage. For advertising opt-out, visit the Google Ads Settings page.",
+    body: "Under GDPR and CCPA, you have the right to access, correct, or delete personal data we hold. We keep no names, email addresses, or account records. Analytics data is held by Google, and you can opt out at tools.google.com/dlpage/gaoptout. For advertising opt-out, visit the Google Ads Settings page.",
   },
   {
     title: "Contact",
@@ -52,7 +52,7 @@ export default function PrivacyPage() {
           Privacy Policy
         </h1>
         <p style={{ fontSize: 14, color: "#718096", letterSpacing: "-0.02em", marginBottom: 48 }}>
-          Last updated: April 21, 2026
+          Last updated: November 6, 2026
         </p>
 
         <div style={{ background: "#f0f4ff", borderLeft: "4px solid #2563eb", borderRadius: 8, padding: "24px 28px", marginBottom: 48 }}>

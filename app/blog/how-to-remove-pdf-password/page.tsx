@@ -56,7 +56,7 @@ export default function HowToRemovePdfPasswordPage() {
         <p>Smallpdf's restriction remover doesn't watermark output, and the free tier works — but it's capped at two tasks per day. If you have a folder of ten restricted PDFs, that's five days, or a $12/month plan.</p>
         <p>iLovePDF has a similar limit: two free tasks per day, plus a 20MB file size cap. A scanned document with images can easily exceed that. Their premium plan ($48/year) removes the cap. Adobe Acrobat Pro has no daily limits but costs $240 a year.</p>
         <p>Sejda is more generous: three tasks per hour, 50MB limit, 50-page limit. Like every tool in this category, Sejda's remover cannot remove a real open password without knowing it, same as everyone else.</p>
-        <p>Avoid sketchy sites like "PDFunlock.com" that claim to remove any password for free. Uploading a file to an unknown server means you don't know if a copy gets kept. Any tool that runs in your browser, including this one, avoids that risk entirely — nothing leaves your device.</p>
+        <p>Avoid sketchy sites like "PDFunlock.com" that claim to remove any password for free. Uploading a file to an unknown server means you don't know if a copy gets kept. Any tool that runs in your browser, including this one, avoids that risk entirely — your file stays on your device.</p>
 
         <h2>Step-by-Step: Remove a Password from a PDF</h2>
         <p>This works on PDFs that need a password to open, as long as you know it, and on PDFs that open fine but have printing/editing/copying disabled. It cannot help if you don't know the open password.</p>
