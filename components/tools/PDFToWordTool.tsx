@@ -14,8 +14,22 @@ function formatBytes(bytes: number): string {
   return (bytes / (1024 * 1024)).toFixed(2) + " MB";
 }
 
+const CRC_TABLE = new Uint32Array(256).map((_, n) => {
+  let c = n;
+  for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1;
+  return c;
+});
+
+function crc32(data: Uint8Array): number {
+  let c = 0xffffffff;
+  for (const byte of data) c = CRC_TABLE[(c ^ byte) & 0xff] ^ (c >>> 8);
+  return (c ^ 0xffffffff) >>> 0;
+}
+
 function textToDocx(text: string, filename: string): Blob {
   const escaped = text
+    // Control characters are illegal in XML: Word refuses the whole file.
+    .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\uFFFE\uFFFF]/g, "")
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
@@ -54,6 +68,7 @@ function textToDocx(text: string, filename: string): Blob {
 
     for (const file of files) {
       const nameBytes = enc.encode(file.name);
+      const crc = crc32(file.data);
       const local = new Uint8Array(30 + nameBytes.length + file.data.length);
       const view = new DataView(local.buffer);
       view.setUint32(0, 0x04034b50, true);
@@ -62,7 +77,7 @@ function textToDocx(text: string, filename: string): Blob {
       view.setUint16(8, 0, true);
       view.setUint16(10, 0, true);
       view.setUint16(12, 0, true);
-      view.setUint32(14, 0, true);
+      view.setUint32(14, crc, true);
       view.setUint32(18, file.data.length, true);
       view.setUint32(22, file.data.length, true);
       view.setUint16(26, nameBytes.length, true);
@@ -79,7 +94,7 @@ function textToDocx(text: string, filename: string): Blob {
       cdv.setUint16(10, 0, true);
       cdv.setUint16(12, 0, true);
       cdv.setUint16(14, 0, true);
-      cdv.setUint32(16, 0, true);
+      cdv.setUint32(16, crc, true);
       cdv.setUint32(20, file.data.length, true);
       cdv.setUint32(24, file.data.length, true);
       cdv.setUint16(28, nameBytes.length, true);
@@ -117,8 +132,8 @@ function textToDocx(text: string, filename: string): Blob {
   }
 
   const zipBytes = zip([
-    { name: "_rels/.rels", data: relsBytes },
     { name: "[Content_Types].xml", data: ctBytes },
+    { name: "_rels/.rels", data: relsBytes },
     { name: "word/document.xml", data: docBytes },
   ]);
 
@@ -155,8 +170,8 @@ export default function PDFToWordTool() {
     setProcessing(true);
     setError(null);
     try {
-      const pdfjsLib = await import("pdfjs-dist");
-      pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`;
+      const pdfjsLib = await import("pdfjs-dist/legacy/build/pdf.mjs");
+      pdfjsLib.GlobalWorkerOptions.workerSrc = new URL("pdfjs-dist/legacy/build/pdf.worker.mjs", import.meta.url).toString();
       const buf = await fileState.file.arrayBuffer();
       const pdf = await pdfjsLib.getDocument({ data: buf }).promise;
       let fullText = "";

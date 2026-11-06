@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, useRef, useCallback, useEffect } from "react";
-import { PDFDocument } from "pdf-lib";
+import { PDFArray, PDFDocument, PDFName, PDFNumber, PDFRawStream, PDFRef, PDFStream, decodePDFRawStream } from "pdf-lib";
 
 type CompressionLevel = "low" | "medium" | "high";
 interface FileState { file: File; name: string; originalSize: number; }
-interface ResultState { blob: Blob; compressedSize: number; originalSize: number; }
+interface ResultState { blob: Blob; compressedSize: number; originalSize: number; rasterized: boolean; }
 
 const LEVELS: Record<CompressionLevel, { dpi: number; quality: number; label: string }> = {
   low:    { dpi: 150, quality: 0.85, label: "Low — best quality, moderate reduction" },
@@ -16,10 +16,103 @@ const LEVELS: Record<CompressionLevel, { dpi: number; quality: number; label: st
 const FACTS = [
   "Your file never leaves this browser tab.",
   "Zero uploads. Zero servers. Zero risk.",
-  "WebAssembly runs on your device.",
+  "All processing runs on your device.",
   "When you close this tab, all data is gone.",
   "No account. No email. No trace.",
 ];
+
+const ENCRYPTED_ERROR = "This PDF is password protected. Remove the password first, then compress it here.";
+const MIN_IMAGE_BYTES = 10 * 1024;
+const key = PDFName.of;
+const RAW_FILTERS = ["FlateDecode", "LZWDecode", "ASCII85Decode", "ASCIIHexDecode", "RunLengthDecode"].map(key);
+
+function colorComponents(cs: unknown): 1 | 3 | null {
+  if (cs === key("DeviceRGB")) return 3;
+  if (cs === key("DeviceGray")) return 1;
+  if (cs instanceof PDFArray && cs.lookup(0) === key("ICCBased")) {
+    const profile = cs.lookup(1);
+    const n = profile instanceof PDFStream ? profile.dict.lookup(key("N")) : null;
+    if (n instanceof PDFNumber && (n.asNumber() === 1 || n.asNumber() === 3)) return n.asNumber() as 1 | 3;
+  }
+  return null;
+}
+
+// shortcut: skips CMYK, Indexed, non-8-bit, color-key masks and predictor-encoded images, upgrade if real files stay too big.
+function jpegCandidate(stream: PDFRawStream): { components: 1 | 3; isJpeg: boolean } | null {
+  const { dict, contents } = stream;
+  if (dict.lookup(key("Subtype")) !== key("Image") || contents.length < MIN_IMAGE_BYTES) return null;
+  const bits = dict.lookup(key("BitsPerComponent"));
+  if (!(bits instanceof PDFNumber) || bits.asNumber() !== 8) return null;
+  if (dict.has(key("Decode")) || dict.has(key("DecodeParms")) || dict.lookup(key("Mask")) instanceof PDFArray) return null;
+  // A matted soft mask must keep the exact size of its parent image.
+  const softMask = dict.lookup(key("SMask"));
+  if (softMask instanceof PDFStream && softMask.dict.has(key("Matte"))) return null;
+  const components = colorComponents(dict.lookup(key("ColorSpace")));
+  if (!components) return null;
+  const filter = dict.lookup(key("Filter"));
+  const filters = filter instanceof PDFArray ? filter.asArray().map(f => dict.context.lookup(f)) : filter ? [filter] : [];
+  const isJpeg = filters.length === 1 && filters[0] === key("DCTDecode");
+  if (!isJpeg && !filters.every(f => RAW_FILTERS.includes(f as PDFName))) return null;
+  return { components, isJpeg };
+}
+
+function samplesToImageData(samples: Uint8Array, width: number, height: number, components: 1 | 3): ImageData {
+  if (samples.length < width * height * components) throw new Error("Truncated image data");
+  const rgba = new Uint8ClampedArray(width * height * 4);
+  for (let px = 0, src = 0, dst = 0; px < width * height; px++, src += components, dst += 4) {
+    rgba[dst] = samples[src];
+    rgba[dst + 1] = samples[components === 3 ? src + 1 : src];
+    rgba[dst + 2] = samples[components === 3 ? src + 2 : src];
+    rgba[dst + 3] = 255;
+  }
+  return new ImageData(rgba, width, height);
+}
+
+// Re-encodes embedded images in place, so text, fonts, links and vector art stay untouched.
+async function recompressImages(doc: PDFDocument, dpi: number, quality: number, onProgress: (done: number, total: number) => void) {
+  const objects = doc.context.enumerateIndirectObjects();
+  // Soft masks must stay single-channel, and JPEG from a canvas is always three-channel.
+  const softMasks = new Set(objects.map(([, obj]) => obj instanceof PDFRawStream ? obj.dict.get(key("SMask")) : undefined));
+  const images = objects.flatMap(([ref, obj]) => {
+    if (!(obj instanceof PDFRawStream) || softMasks.has(ref)) return [];
+    const candidate = jpegCandidate(obj);
+    return candidate ? [{ ref, stream: obj, ...candidate }] : [];
+  });
+  // A full-page image needs no more pixels than the largest page side at the target dpi.
+  const maxSide = (dpi / 72) * Math.max(...doc.getPages().flatMap(p => [p.getWidth(), p.getHeight()]));
+
+  for (const [i, { ref, stream, components, isJpeg }] of images.entries()) {
+    onProgress(i + 1, images.length);
+    try {
+      const { dict, contents } = stream;
+      const width = (dict.lookup(key("Width")) as PDFNumber).asNumber();
+      const height = (dict.lookup(key("Height")) as PDFNumber).asNumber();
+      const source = isJpeg
+        ? new Blob([contents as BlobPart], { type: "image/jpeg" })
+        : samplesToImageData(decodePDFRawStream(stream).decode(), width, height, components);
+      const bitmap = await createImageBitmap(source, { colorSpaceConversion: "none" });
+      const scale = Math.min(1, maxSide / Math.max(bitmap.width, bitmap.height));
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.round(bitmap.width * scale);
+      canvas.height = Math.round(bitmap.height * scale);
+      const ctx = canvas.getContext("2d")!;
+      ctx.imageSmoothingQuality = "high";
+      ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+      bitmap.close();
+      const jpeg = await new Promise<Blob | null>(resolve => canvas.toBlob(resolve, "image/jpeg", quality));
+      const [newWidth, newHeight] = [canvas.width, canvas.height];
+      canvas.width = 0; canvas.height = 0;
+      if (!jpeg || jpeg.size >= contents.length) continue;
+      dict.set(key("Filter"), key("DCTDecode"));
+      dict.set(key("Width"), PDFNumber.of(newWidth));
+      dict.set(key("Height"), PDFNumber.of(newHeight));
+      if (components === 1) dict.set(key("ColorSpace"), key("DeviceRGB"));
+      doc.context.assign(ref as PDFRef, PDFRawStream.of(dict, new Uint8Array(await jpeg.arrayBuffer())));
+    } catch {
+      // Keep this image as it is. One bad image must not fail the whole file.
+    }
+  }
+}
 
 function formatBytes(b: number): string {
   if (b < 1024) return b + " B";
@@ -57,7 +150,7 @@ async function renderPageToJpeg(page: any, dpi: number, quality: number): Promis
   } catch { return null; }
 }
 
-function ScanLoader({ realProgress, currentPage, totalPages }: { realProgress: number; currentPage: number; totalPages: number }) {
+function ScanLoader({ realProgress, currentPage, totalPages, unit }: { realProgress: number; currentPage: number; totalPages: number; unit: string }) {
   const [displayProgress, setDisplayProgress] = useState(0);
   const [factIndex, setFactIndex] = useState(0);
   const [factVisible, setFactVisible] = useState(true);
@@ -182,7 +275,7 @@ function ScanLoader({ realProgress, currentPage, totalPages }: { realProgress: n
       <div style={{ width: "100%", maxWidth: 260 }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
           <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: "#718096", textTransform: "uppercase" }}>
-            {totalPages > 0 ? `Page ${Math.min(currentPage, totalPages)} of ${totalPages}` : "Initializing..."}
+            {totalPages > 0 ? `${unit} ${Math.min(currentPage, totalPages)} of ${totalPages}` : "Initializing..."}
           </span>
           <span style={{ fontSize: 12, fontWeight: 700, color: "#0058c3" }}>{displayProgress}%</span>
         </div>
@@ -212,6 +305,7 @@ function ScanLoader({ realProgress, currentPage, totalPages }: { realProgress: n
 export default function CompressPDFTool() {
   const [fileState, setFileState] = useState<FileState | null>(null);
   const [level, setLevel] = useState<CompressionLevel>("medium");
+  const [imageMode, setImageMode] = useState(false);
   const [processing, setProcessing] = useState(false);
   const [realProgress, setRealProgress] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
@@ -245,7 +339,13 @@ export default function CompressPDFTool() {
       const { dpi, quality } = LEVELS[level];
       const arrayBuffer = await fileState.file.arrayBuffer();
 
-      const pdfDoc = await PDFDocument.load(arrayBuffer, { ignoreEncryption: true });
+      // /Encrypt lives in the trailer or the xref stream dict, which are never compressed.
+      if (/\/Encrypt\s*(\d|<<)/.test(new TextDecoder("latin1").decode(new Uint8Array(arrayBuffer)))) {
+        setError(ENCRYPTED_ERROR);
+        return;
+      }
+
+      const pdfDoc = await PDFDocument.load(arrayBuffer);
       if (level === "medium" || level === "high") {
         pdfDoc.setTitle(""); pdfDoc.setAuthor(""); pdfDoc.setSubject("");
         pdfDoc.setKeywords([]); pdfDoc.setProducer(""); pdfDoc.setCreator("");
@@ -253,13 +353,21 @@ export default function CompressPDFTool() {
       if (level === "high") {
         pdfDoc.setCreationDate(new Date(0)); pdfDoc.setModificationDate(new Date(0));
       }
-      const structBytes = await pdfDoc.save({ useObjectStreams: true, addDefaultPage: false });
-      setRealProgress(15);
+      if (!imageMode) {
+        await recompressImages(pdfDoc, dpi, quality, (done, total) => {
+          setTotalPages(total);
+          setCurrentPage(done);
+          setRealProgress(15 + Math.round((done / total) * 80));
+        });
+      }
+      const structBytes = await pdfDoc.save({ useObjectStreams: true, addDefaultPage: false, updateFieldAppearances: false });
+      setRealProgress(imageMode ? 15 : 95);
 
       let bestBytes: Uint8Array = structBytes;
       let bestSize: number = structBytes.byteLength;
+      let rasterized = false;
 
-      try {
+      if (imageMode) try {
         const pdfjsLib = await import("pdfjs-dist/legacy/build/pdf.mjs");
         pdfjsLib.GlobalWorkerOptions.workerSrc = new URL("pdfjs-dist/legacy/build/pdf.worker.mjs", import.meta.url).toString();
         const originalWarn = console.warn;
@@ -283,7 +391,8 @@ export default function CompressPDFTool() {
             const jpegBytes = await renderPageToJpeg(page, dpi, quality);
             if (jpegBytes) {
               const jpegImage = await outDoc.embedJpg(jpegBytes);
-              const { width, height } = jpegImage.scale(1);
+              // Page size in points, not image pixels, or the page grows with dpi.
+              const { width, height } = page.getViewport({ scale: 1 });
               const outPage = outDoc.addPage([width, height]);
               outPage.drawImage(jpegImage, { x: 0, y: 0, width, height });
               pagesRendered++;
@@ -298,19 +407,21 @@ export default function CompressPDFTool() {
         // igual (PDF de 8 paginas -> 5, verificado en produccion 2026-09-18).
         if (pagesRendered === numPages) {
           const canvasBytes = await outDoc.save({ useObjectStreams: true });
-          if (canvasBytes.byteLength < bestSize) { bestBytes = canvasBytes; bestSize = canvasBytes.byteLength; }
+          if (canvasBytes.byteLength < bestSize) { bestBytes = canvasBytes; bestSize = canvasBytes.byteLength; rasterized = true; }
         }
       } catch {}
 
       setRealProgress(100);
 
       if (bestSize >= fileState.originalSize) {
-        setError("This PDF is already fully optimized and cannot be reduced further.");
+        setError(imageMode
+          ? "This PDF is already fully optimized and cannot be reduced further."
+          : "This PDF has little left to compress while keeping its text selectable. Maximum compression (image mode) may reduce it further.");
         return;
       }
 
       const blob = new Blob([bestBytes.buffer as ArrayBuffer], { type: "application/pdf" });
-      setResult({ blob, compressedSize: blob.size, originalSize: fileState.originalSize });
+      setResult({ blob, compressedSize: blob.size, originalSize: fileState.originalSize, rasterized });
     } catch {
       setError("Could not compress this PDF. It may be corrupted or unsupported.");
     } finally {
@@ -329,7 +440,7 @@ export default function CompressPDFTool() {
   };
 
   const reset = () => {
-    setFileState(null); setResult(null); setError(null);
+    setFileState(null); setResult(null); setError(null); setImageMode(false);
     setRealProgress(0); setCurrentPage(0); setTotalPages(0);
     if (inputRef.current) inputRef.current.value = "";
   };
@@ -361,6 +472,7 @@ export default function CompressPDFTool() {
       {error && (
         <div style={{ background: "rgba(220,38,38,0.06)", borderRadius: 8, padding: "12px 16px" }}>
           <p style={{ color: "#dc2626", fontSize: 13, fontWeight: 500 }}>{error}</p>
+          {error === ENCRYPTED_ERROR && <a href="/remove-pdf-password" style={{ display: "inline-block", color: "#0058c3", fontSize: 12, fontWeight: 600, padding: "8px 16px 0 0" }}>Remove PDF password</a>}
           <button onClick={reset} style={{ color: "#0058c3", fontSize: 12, background: "none", border: "none", cursor: "pointer", padding: "8px 0 0", fontWeight: 600 }}>Try another PDF</button>
         </div>
       )}
@@ -368,7 +480,7 @@ export default function CompressPDFTool() {
       {fileState && !result && !error && (
         <div style={{ background: "#ffffff", borderRadius: 8, boxShadow: "0px 8px 24px rgba(24,28,30,0.06)", overflow: "hidden" }}>
           {processing ? (
-            <ScanLoader realProgress={realProgress} currentPage={currentPage} totalPages={totalPages} />
+            <ScanLoader realProgress={realProgress} currentPage={currentPage} totalPages={totalPages} unit={imageMode ? "Page" : "Image"} />
           ) : (
             <div style={{ padding: 20 }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20 }}>
@@ -396,6 +508,11 @@ export default function CompressPDFTool() {
                 <p style={{ color: "#718096", fontSize: 12, marginTop: 8 }}>{LEVELS[level].label}</p>
               </div>
 
+              <label style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 20, cursor: "pointer" }}>
+                <input type="checkbox" checked={imageMode} onChange={e => setImageMode(e.target.checked)} style={{ marginTop: 2 }} />
+                <span style={{ color: "#4a5568", fontSize: 12 }}><strong>Maximum compression (image mode).</strong> Pages become images: text can no longer be selected or searched, and links stop working.</span>
+              </label>
+
               <button onClick={compress} className="btn-primary" style={{ width: "100%", padding: "14px 0", fontSize: 15, border: "none", cursor: "pointer" }}>
                 Compress PDF
               </button>
@@ -422,6 +539,10 @@ export default function CompressPDFTool() {
               </div>
             ))}
           </div>
+
+          <p style={{ color: "#4a5568", fontSize: 13, marginBottom: 16 }}>
+            {result.rasterized ? "Image mode: pages are now images, so text can no longer be selected or searched." : "Text stays selectable and searchable."}
+          </p>
 
           <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 16 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 6, background: "rgba(0,88,195,0.08)", borderRadius: 4, padding: "5px 10px" }}>

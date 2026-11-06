@@ -21,6 +21,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Vendored qpdf build (see public/wasm/NOTICE.txt).
+    "public/wasm/**",
   ]),
 ]);
 

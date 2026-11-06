@@ -1,12 +1,32 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
-import { PDFDocument } from "pdf-lib";
 
 interface FileState {
   file: File;
   name: string;
   size: number;
+}
+
+type Qpdf = {
+  callMain(args: string[]): number;
+  FS: {
+    writeFile(path: string, data: Uint8Array): void;
+    readFile(path: string): Uint8Array;
+  };
+};
+
+// qpdf is vendored in public/wasm (see NOTICE.txt). Each run needs a fresh instance.
+function loadQpdf(): Promise<Qpdf> {
+  const w = window as unknown as { Module?: (opts: { locateFile: () => string }) => Promise<Qpdf> };
+  const script = w.Module ? Promise.resolve() : new Promise<void>((resolve, reject) => {
+    const el = document.createElement("script");
+    el.src = "/wasm/qpdf.js";
+    el.onload = () => resolve();
+    el.onerror = () => reject(new Error("qpdf failed to load"));
+    document.head.appendChild(el);
+  });
+  return script.then(() => w.Module!({ locateFile: () => "/wasm/qpdf.wasm" }));
 }
 
 function formatBytes(bytes: number): string {
@@ -21,6 +41,7 @@ export default function RemovePasswordTool() {
   const [resultBlob, setResultBlob] = useState<Blob | null>(null);
   const [dragging, setDragging] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [password, setPassword] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleFile = useCallback((file: File) => {
@@ -45,22 +66,28 @@ export default function RemovePasswordTool() {
     setProcessing(true);
     setError(null);
     try {
-      const buf = await fileState.file.arrayBuffer();
-      const doc = await PDFDocument.load(buf, {
-        ignoreEncryption: true,
-      });
-      if (doc.isEncrypted) {
-        setError("This PDF is encrypted. This tool cannot decrypt password-protected PDFs in the browser — please remove the password using the app that created the PDF (or Acrobat) first, then upload the unprotected file.");
+      const buf = new Uint8Array(await fileState.file.arrayBuffer());
+      // /Encrypt lives in the trailer or the xref stream dict, which are never compressed.
+      if (!/\/Encrypt\s*(\d|<<)/.test(new TextDecoder("latin1").decode(buf))) {
+        setError("This PDF has no password protection, so there is nothing to remove.");
         return;
       }
-      const unlocked = await PDFDocument.create();
-      const pages = await unlocked.copyPages(doc, doc.getPageIndices());
-      pages.forEach(p => unlocked.addPage(p));
-      const bytes = await unlocked.save();
-      const blob = new Blob([bytes.buffer as ArrayBuffer], { type: "application/pdf" });
-      setResultBlob(blob);
+      const qpdf = await loadQpdf();
+      // qpdf runs on the main thread: let the spinner paint first.
+      await new Promise(resolve => setTimeout(resolve, 30));
+      qpdf.FS.writeFile("/in.pdf", buf);
+      const code = qpdf.callMain([`--password=${password}`, "--decrypt", "/in.pdf", "/out.pdf"]);
+      // qpdf exit codes: 0 = ok, 3 = ok with warnings, 2 = failed.
+      if (code !== 0 && code !== 3) {
+        setError(password
+          ? "Could not unlock this PDF. The password is wrong or the file is damaged."
+          : "This PDF needs a password to open. Enter it above and try again.");
+        return;
+      }
+      setResultBlob(new Blob([qpdf.FS.readFile("/out.pdf") as BlobPart], { type: "application/pdf" }));
+      setPassword("");
     } catch {
-      setError("Could not unlock this PDF. Check that the password is correct.");
+      setError("Could not unlock this PDF. It may be damaged or too large for this device.");
     } finally {
       setProcessing(false);
     }
@@ -80,6 +107,7 @@ export default function RemovePasswordTool() {
     setFileState(null);
     setResultBlob(null);
     setError(null);
+    setPassword("");
     if (inputRef.current) inputRef.current.value = "";
   };
 
@@ -109,7 +137,7 @@ export default function RemovePasswordTool() {
             </svg>
           </div>
           <p style={{ color: "#181c1e", fontWeight: 600, fontSize: 15, marginBottom: 4 }}>Drop your PDF here or click to upload</p>
-          <p style={{ color: "#718096", fontSize: 13 }}>Works on PDFs without real encryption (owner-locked, not password-locked)</p>
+          <p style={{ color: "#718096", fontSize: 13 }}>Works on PDFs locked with a password you know, and on PDFs that block printing, copying, or editing</p>
         </div>
       )}
 
@@ -133,6 +161,18 @@ export default function RemovePasswordTool() {
             </div>
             <button onClick={reset} style={{ color: "#718096", fontSize: 12, background: "none", border: "none", cursor: "pointer", padding: 4 }}>Remove</button>
           </div>
+
+          <label htmlFor="pdf-password" style={{ display: "block", color: "#181c1e", fontWeight: 600, fontSize: 13, marginBottom: 6 }}>PDF password</label>
+          <input
+            id="pdf-password"
+            type="password"
+            autoComplete="off"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            onKeyDown={e => { if (e.key === "Enter" && !processing) unlock(); }}
+            style={{ width: "100%", padding: "10px 12px", fontSize: 14, border: "1px solid rgba(74,85,104,0.25)", borderRadius: 6, marginBottom: 6 }}
+          />
+          <p style={{ color: "#718096", fontSize: 12, marginBottom: 16 }}>Leave blank if the PDF opens without a password and only blocks printing, copying, or editing.</p>
 
           <button
             onClick={unlock}
@@ -166,8 +206,9 @@ export default function RemovePasswordTool() {
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M6.5 1.5C3.74 1.5 1.5 3.74 1.5 6.5S3.74 11.5 6.5 11.5 11.5 9.26 11.5 6.5 9.26 1.5 6.5 1.5zm0 4.5a1 1 0 110-2 1 1 0 010 2zm1 3H5.5V7h2v2z" fill="#718096"/>
         </svg>
-        <p style={{ color: "#718096", fontSize: 12 }}>Your files never leave your browser. Processed locally.</p>
+        <p style={{ color: "#718096", fontSize: 12 }}>Your files and password never leave your browser. Processed locally.</p>
       </div>
+      <p style={{ color: "#718096", fontSize: 12, textAlign: "center", marginTop: -14 }}>Use this tool only on PDFs you own or have permission to unlock.</p>
     </div>
   );
 }
