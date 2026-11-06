@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 const tools = [
-  { slug: "compress-pdf", label: "Compress PDF", description: "Reduce file size without losing quality. No limits.", badge: "Most Popular" },
+  { slug: "compress-pdf", label: "Compress PDF", description: "Reduce file size and keep text selectable. No limits.", badge: "Most Popular" },
   { slug: "merge-pdf", label: "Merge PDF", description: "Combine multiple PDFs into one file instantly.", badge: null },
   { slug: "split-pdf", label: "Split PDF", description: "Extract pages or split a PDF into separate files.", badge: null },
   { slug: "pdf-to-word", label: "PDF to Word", description: "Convert PDF to editable .docx without formatting loss.", badge: null },
@@ -38,7 +38,7 @@ const faqSchema = {
       name: "Do my files get uploaded to a server when I use these tools?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No. All PDF processing runs locally in your browser using WebAssembly — a compiled binary format that runs at near-native speed without any server round-trip. Your file is read into browser memory, processed there, and downloaded directly to your device. No network request containing your file is ever made.",
+        text: "No. All PDF processing runs locally in your browser, with no server round-trip. Your file is read into browser memory, processed there, and downloaded directly to your device. No network request containing your file is ever made.",
       },
     },
     {
@@ -70,7 +70,7 @@ const faqSchema = {
       name: "Who is behind TrulyFreeTools?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "TrulyFreeTools is built and maintained by George Smith, founder of Klickify Agency. The site exists because the PDF tool market is dominated by freemium products that use artificial limits to push users toward paid subscriptions. WebAssembly makes it possible to run the same operations entirely in the browser — eliminating server costs and the business incentive to paywall basic functionality.",
+        text: "TrulyFreeTools is built and maintained by George Smith, founder of Klickify Agency. The site exists because the PDF tool market is dominated by freemium products that use artificial limits to push users toward paid subscriptions. Modern browsers make it possible to run the same operations entirely on your device — eliminating server costs and the business incentive to paywall basic functionality.",
       },
     },
   ],
@@ -173,7 +173,7 @@ export default function HomePage() {
               When you upload a file to a cloud-based PDF tool, that file travels to a remote server, gets processed there, and comes back to you. For most documents that trade-off feels invisible — until you realize the file lived on someone else's infrastructure for a few minutes, subject to their retention policy and data handling practices.
             </p>
             <p style={{ fontSize: 16, color: "#4a5568", lineHeight: 1.75, marginBottom: 16 }}>
-              TrulyFreeTools works differently. All PDF operations run in your browser using WebAssembly — a compiled binary format that executes at near-native speed without any server round-trip. The same libraries used in production server environments run locally on your device. Your file is read into browser memory, processed there, and the result is downloaded directly to you. No file data ever leaves your machine.
+              TrulyFreeTools works differently. All PDF operations run in your browser, with no server round-trip. The same libraries used in production server environments run locally on your device. Your file is read into browser memory, processed there, and the result is downloaded directly to you. No file data ever leaves your machine.
             </p>
             <p style={{ fontSize: 16, color: "#4a5568", lineHeight: 1.75 }}>
               This is not a marketing promise. It is an architectural constraint. There is no upload endpoint to send your file to, no server-side processing queue, and no temporary storage. The privacy guarantee comes from the design of the system, not from a policy that could change.

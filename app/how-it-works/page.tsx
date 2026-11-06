@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "How It Works — Truly Free PDF Tools",
-  description: "Technical architecture: how we process PDF files entirely in your browser using WebAssembly, pdf-lib, and PDF.js.",
+  description: "Technical architecture: how we process PDF files entirely in your browser using pdf-lib, PDF.js, and qpdf.",
   alternates: { canonical: "https://trulyfreetools.com/how-it-works" },
 }
 
@@ -14,8 +14,8 @@ const steps = [
   },
   {
     step: "02",
-    title: "WebAssembly Processing",
-    body: "pdf-lib and PDF.js are compiled WebAssembly modules running inside your browser tab. These are the same libraries used in production software — not simplified versions. Compression, page splitting, merging, and password operations all execute here, in local memory.",
+    title: "Local Processing",
+    body: "pdf-lib and PDF.js are JavaScript libraries running inside your browser tab, and password removal uses qpdf compiled to WebAssembly. These are the same libraries used in production software — not simplified versions. Compression, page splitting, merging, and password operations all execute here, in local memory.",
   },
   {
     step: "03",
@@ -30,12 +30,12 @@ const steps = [
 ]
 
 const specs = [
-  { label: "PDF Engine", value: "pdf-lib 1.17 + PDF.js 4.x" },
-  { label: "Runtime", value: "WebAssembly (WASM) in-browser" },
+  { label: "PDF Engine", value: "pdf-lib 1.17 + PDF.js 6.x + qpdf 12" },
+  { label: "Runtime", value: "JavaScript + WebAssembly in-browser" },
   { label: "Server Calls", value: "None for file processing" },
   { label: "File Transmission", value: "Zero — local only" },
-  { label: "Framework", value: "Next.js 15 + TypeScript" },
-  { label: "Hosting", value: "Vercel Edge Network" },
+  { label: "Framework", value: "Next.js 16 + TypeScript" },
+  { label: "Hosting", value: "Own server behind Cloudflare" },
   { label: "Max File Size", value: "Device memory limited" },
   { label: "Supported Formats", value: "PDF 1.0 — 2.0" },
 ]

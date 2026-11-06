@@ -76,7 +76,7 @@ export default function HerramientasPdfGratisPage() {
 
         <h2>Por Qué Truly Free PDF Tools es Realmente Gratis</h2>
         <p>Voy a ser honesto. El sitio muestra publicidad en la página principal y en los artículos del blog. Cuando visitas, ves un anuncio de un VPN o de un software de edición de fotos. Eso paga el hosting. No gano dinero con las herramientas. No tengo empleados. No tengo inversores. Soy un desarrollador independiente.</p>
-        <p>La privacidad es importante. Como las herramientas funcionan localmente (usando WebAssembly), tus archivos nunca salen de tu ordenador. No los subes a ningún servidor. Ni siquiera yo puedo verlos. Smallpdf y iLovePDF guardan tus archivos en sus servidores durante 24 horas. Adobe los guarda 30 días. Yo no guardo nada porque no hay servidor.</p>
+        <p>La privacidad es importante. Como las herramientas funcionan localmente, tus archivos nunca salen de tu ordenador. No los subes a ningún servidor. Ni siquiera yo puedo verlos. Smallpdf y iLovePDF guardan tus archivos en sus servidores durante 24 horas. Adobe los guarda 30 días. Yo no guardo nada porque no hay servidor.</p>
         <p>No necesitas cuenta. No te pido email. No te enviaré spam. No hay suscripción que cancelar. Abres el sitio, usas la herramienta, cierras la pestaña. Así de simple.</p>
 
         <h2 id="faq">Preguntas Frecuentes</h2>

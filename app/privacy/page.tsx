@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 const sections = [
   {
     title: "Files Never Leave Your Browser",
-    body: "All PDF processing on Truly Free PDF Tools runs entirely in your browser using WebAssembly technology. Your files are loaded into local memory, processed on your device, and made available for download — without ever being transmitted to any server. We have no technical capability to receive, store, or access your documents.",
+    body: "All PDF processing on Truly Free PDF Tools runs entirely in your browser. Your files are loaded into local memory, processed on your device, and made available for download — without ever being transmitted to any server. We have no technical capability to receive, store, or access your documents.",
   },
   {
     title: "Data We Collect",

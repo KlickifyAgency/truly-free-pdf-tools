@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     q: "Are my files uploaded to your servers?",
-    a: "No. Every operation runs in your browser using WebAssembly. Your files are loaded into local memory on your device and processed there. Nothing is transmitted to our servers. When you close the tab, the data is gone.",
+    a: "No. Every operation runs in your browser. Your files are loaded into local memory on your device and processed there. Nothing is transmitted to our servers. When you close the tab, the data is gone.",
   },
   {
     q: "Why is my compressed PDF larger than expected?",

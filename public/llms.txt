@@ -1,15 +1,15 @@
 # Truly Free Tools — Free PDF Tools
-> Free PDF tools: compress, merge, split, convert to Word, remove password. Runs entirely in your browser via WebAssembly — files never leave your device.
+> Free PDF tools: compress, merge, split, convert to Word, remove password. Runs entirely in your browser — files never leave your device.
 
 ## Pages
 https://trulyfreetools.com/ — Homepage: free PDF tools, no upload, no watermark, no daily limits
-https://trulyfreetools.com/compress-pdf — Compress PDF file size without losing quality, entirely in-browser
+https://trulyfreetools.com/compress-pdf — Compress PDF file size and keep text selectable, entirely in-browser
 https://trulyfreetools.com/merge-pdf — Combine multiple PDFs into one file instantly, no upload
 https://trulyfreetools.com/split-pdf — Split a PDF into separate files or extract specific pages
 https://trulyfreetools.com/pdf-to-word — Convert text-based PDFs to editable Word documents, free
 https://trulyfreetools.com/remove-pdf-password — Remove a password from a PDF you own, no subscription
 https://trulyfreetools.com/about — About TrulyFreeTools, built by George Smith of Klickify Agency
-https://trulyfreetools.com/how-it-works — Technical architecture: WebAssembly, pdf-lib, PDF.js, local processing
+https://trulyfreetools.com/how-it-works — Technical architecture: pdf-lib, PDF.js, qpdf (WebAssembly), local processing
 https://trulyfreetools.com/help — Answers to common questions about compressing, merging, splitting, converting PDFs
 https://trulyfreetools.com/contact — Contact the Truly Free PDF Tools team
 https://trulyfreetools.com/feedback — Rate the PDF tools and share feedback

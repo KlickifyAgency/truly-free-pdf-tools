@@ -5,7 +5,7 @@ import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "Compress PDF Free — No Signup, No Watermark, No Limit | TrulyFree Tools",
-  description: "Reduce PDF file size without losing quality. Runs entirely in your browser — your files never leave your device. No watermarks. No email. No daily limits.",
+  description: "Reduce PDF file size and keep text selectable. Runs entirely in your browser — your files never leave your device. No watermarks. No email. No daily limits.",
   alternates: { canonical: "https://trulyfreetools.com/compress-pdf" },
 }
 
@@ -17,7 +17,7 @@ const toolSchema = {
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "Web Browser",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "description": "Compress PDF files for free in your browser. No file uploads, no account, no daily limits. Runs two compression passes and delivers the smaller result.",
+  "description": "Compress PDF files for free in your browser. No file uploads, no account, no daily limits. Shrinks embedded images and keeps text selectable.",
 }
 
 const faqSchema = {
@@ -27,17 +27,17 @@ const faqSchema = {
     {
       "@type": "Question",
       "name": "Does compressing a PDF reduce text quality?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No — and this surprises a lot of people. Text in PDFs isn't stored as an image. It's stored as vector data, which means it's resolution-independent. Compression doesn't touch it. Your text comes out exactly as sharp as it went in. The only thing that can lose quality is embedded images, and even then, only if you choose the High compression setting." }
+      "acceptedAnswer": { "@type": "Answer", "text": "No — and this surprises a lot of people. Text in PDFs isn't stored as an image. It's stored as vector data, which means it's resolution-independent. Compression doesn't touch it. Your text comes out exactly as sharp as it went in. The only thing that can lose quality is embedded images, and the level you pick controls how much. The one exception is the optional image mode, which turns each page into an image, so text can no longer be selected or searched." }
     },
     {
       "@type": "Question",
       "name": "Why did my compressed PDF end up larger than the original?",
-      "acceptedAnswer": { "@type": "Answer", "text": "If your PDF was made by Word, Google Docs, or a modern version of Acrobat, it's probably already well-optimized internally. There's not much left to squeeze. When that happens, both compression passes come back bigger than the original — and the tool tells you that honestly instead of handing you a larger file and calling it compressed." }
+      "acceptedAnswer": { "@type": "Answer", "text": "If your PDF was made by Word, Google Docs, or a modern version of Acrobat, it's probably already well-optimized internally. There's not much left to squeeze. When that happens, the result comes out no smaller than the original — and the tool tells you that honestly instead of handing you a larger file and calling it compressed." }
     },
     {
       "@type": "Question",
       "name": "Is there a file size limit for compression?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No server limit, because there's no server. The ceiling is whatever your device's RAM can handle — which for most modern laptops and desktops means files well above 100MB are fine. If you're compressing a 300-page scanned archive, use Chrome or Edge on a desktop. Mobile browsers have tighter memory budgets." }
+      "acceptedAnswer": { "@type": "Answer", "text": "No server limit, because there's no server. The ceiling is whatever your device's RAM can handle. If you're compressing a 300-page scanned archive, use Chrome or Edge on a desktop. Mobile browsers have tighter memory budgets." }
     },
     {
       "@type": "Question",
@@ -52,7 +52,7 @@ const faqSchema = {
     {
       "@type": "Question",
       "name": "How much can a PDF be compressed?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Text-only PDFs typically compress 20–40% through structural optimization. Image-heavy PDFs and scanned documents can compress 60–90% when images are resampled. PDFs already compressed aggressively by the source application may compress less than 10%." }
+      "acceptedAnswer": { "@type": "Answer", "text": "It depends on what's inside. Scanned and photo-heavy PDFs shrink the most: in our tests a 4.2 MB photo-heavy file came out at 212 KB on Medium. Text-only PDFs have little to remove: a 46 KB text file came out at 39 KB. PDFs that are already compressed may barely change." }
     },
   ]
 }
@@ -64,8 +64,8 @@ const howToSchema = {
   "description": "Reduce PDF file size without losing quality, entirely in your browser.",
   "step": [
     { "@type": "HowToStep", "name": "Upload your PDF", "text": "Click the upload area or drag your PDF file directly onto it. Your file is read into browser memory — no upload to any server occurs." },
-    { "@type": "HowToStep", "name": "Choose compression level", "text": "Select Standard for most documents, or High for maximum size reduction on image-heavy PDFs. Standard is lossless for text; High resamples embedded images." },
-    { "@type": "HowToStep", "name": "Click Compress PDF", "text": "The tool runs two compression passes in parallel: a structural pass that rebuilds internal PDF architecture, and an image pass that resamples embedded images. The smaller result is delivered." },
+    { "@type": "HowToStep", "name": "Choose compression level", "text": "Select Low, Medium, or High. Higher levels shrink embedded images further and lose more image detail. Turn on image mode only if you need the smallest possible file and don't need selectable text." },
+    { "@type": "HowToStep", "name": "Click Compress PDF", "text": "The tool re-encodes embedded images at the level you chose and cleans up the file's internal structure. If the result isn't smaller than the original, it tells you instead of handing you a bigger file." },
     { "@type": "HowToStep", "name": "Download the result", "text": "Click the download button to save the compressed file. If compression produced no reduction — common with already-optimized PDFs — the tool reports this rather than delivering a larger file." },
   ]
 }
@@ -95,7 +95,7 @@ export default function CompressPDFPage() {
             Compress PDF Free
           </h1>
           <p style={{ fontSize: 16, color: "#4a5568", maxWidth: 480, margin: "0 auto", lineHeight: 1.6, letterSpacing: "-0.02em" }}>
-            Reduce PDF file size without losing quality. No watermarks. No email. No limits.
+            Reduce PDF file size and keep text selectable. No watermarks. No email. No limits.
           </p>
         </div>
 
@@ -121,8 +121,8 @@ export default function CompressPDFPage() {
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
               {[
                 ["Upload your PDF", "Click the upload area or drag your PDF file directly onto it. Your file is read into browser memory — no upload to any server occurs."],
-                ["Choose compression level", "Select Standard for most documents, or High for maximum size reduction on image-heavy PDFs. Standard is lossless for text; High resamples embedded images."],
-                ["Click Compress PDF", "The tool runs two compression passes in parallel: a structural pass that rebuilds internal PDF architecture, and an image pass that resamples embedded images. The smaller result is delivered."],
+                ["Choose compression level", "Select Low, Medium, or High. Higher levels shrink embedded images further and lose more image detail. Turn on image mode only if you need the smallest possible file and don't need selectable text."],
+                ["Click Compress PDF", "The tool re-encodes embedded images at the level you chose and cleans up the file's internal structure. If the result isn't smaller than the original, it tells you instead of handing you a bigger file."],
                 ["Download the result", "Click the download button to save the compressed file. If compression produced no reduction — common with already-optimized PDFs — the tool reports this rather than delivering a larger file."],
               ].map(([title, body], i) => (
                 <div key={i} style={{ display: "flex", gap: 20, background: "#ffffff", borderRadius: 8, padding: "20px 24px", boxShadow: "0px 4px 12px rgba(24,28,30,0.05)" }}>
@@ -144,7 +144,7 @@ export default function CompressPDFPage() {
               Here's what actually happens when you use Smallpdf or iLovePDF: your file leaves your computer, travels across the internet to a server you've never heard of, gets processed there, and comes back. For a flyer or a school report — fine. For a contract, a tax return, or anything with real names and signatures on it — that's a different conversation.
             </p>
             <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", margin: 0 }}>
-              TrulyFreeTools uses WebAssembly — the same compiled runtime that powers video editors and design tools in the browser — to run the entire compression on your machine. Your file loads into browser memory. It gets processed there. It downloads back to you. We never see it. When you close the tab, it's gone.
+              TrulyFreeTools runs the entire compression on your machine, inside your browser tab. Your file loads into browser memory. It gets processed there. It downloads back to you. We never see it. When you close the tab, it's gone.
             </p>
           </div>
 
@@ -154,12 +154,12 @@ export default function CompressPDFPage() {
             </h2>
             <div id="faq" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               {[
-                ["Does compressing a PDF reduce text quality?", "No — and this surprises a lot of people. Text in PDFs isn't stored as an image. It's stored as vector data, which means it's resolution-independent. Compression doesn't touch it. Your text comes out exactly as sharp as it went in. The only thing that can lose quality is embedded images, and even then, only if you choose the High compression setting."],
-                ["Why did my compressed PDF end up larger than the original?", "PDFs generated by modern apps like Word, Google Docs, or Adobe Acrobat are already well-optimized. If both compression passes produce a file larger than the original, the tool reports no reduction rather than delivering a bloated result."],
-                ["Is there a file size limit?", "No server-imposed limit — processing runs entirely in your browser. The practical limit is your device memory. Most devices handle up to 200MB without issue. For very large files, use Chrome or Edge on a desktop."],
+                ["Does compressing a PDF reduce text quality?", "No — and this surprises a lot of people. Text in PDFs isn't stored as an image. It's stored as vector data, which means it's resolution-independent. Compression doesn't touch it. Your text comes out exactly as sharp as it went in. The only thing that can lose quality is embedded images, and the level you pick controls how much. The one exception is the optional image mode, which turns each page into an image, so text can no longer be selected or searched."],
+                ["Why did my compressed PDF end up larger than the original?", "PDFs generated by modern apps like Word, Google Docs, or Adobe Acrobat are already well-optimized. If compression can't beat the original, the tool reports no reduction rather than delivering a bloated result."],
+                ["Is there a file size limit?", "No server-imposed limit — processing runs entirely in your browser. The practical limit is your device memory. For very large files, use Chrome or Edge on a desktop."],
                 ["How do I compress a PDF on Mac without installing software?", "Upload the PDF on this page in any browser. No installation needed. macOS Preview has a built-in Quartz filter but produces inconsistent results. Browser-based compression is more reliable."],
-                ["Is it safe to compress a PDF with sensitive information?", "Yes. The PDF never leaves your device. It is loaded into local browser memory, compressed using WebAssembly, and downloaded locally. No data is transmitted to any server at any point."],
-                ["How much can a PDF be compressed?", "Text-only PDFs typically compress 20–40% through structural optimization. Image-heavy or scanned PDFs can compress 60–90%. PDFs already compressed by the source application may compress under 10%."],
+                ["Is it safe to compress a PDF with sensitive information?", "Yes. The PDF never leaves your device. It is loaded into local browser memory, compressed there, and downloaded locally. No data is transmitted to any server at any point."],
+                ["How much can a PDF be compressed?", "It depends on what's inside. Scanned and photo-heavy PDFs shrink the most: in our tests a 4.2 MB photo-heavy file came out at 212 KB on Medium. Text-only PDFs have little to remove: a 46 KB text file came out at 39 KB. PDFs that are already compressed may barely change."],
               ].map(([q, a], i) => (
                 <div key={i} style={{ background: "#ffffff", borderRadius: 8, padding: "20px 24px", boxShadow: "0px 4px 12px rgba(24,28,30,0.05)" }}>
                   <p style={{ fontSize: 15, fontWeight: 700, color: "#181c1e", letterSpacing: "-0.02em", marginBottom: 8 }}>{q}</p>

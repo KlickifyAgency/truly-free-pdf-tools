@@ -24,7 +24,7 @@ export default function AlternativasSmallpdfGratisPage() {
     "@context": "https://schema.org", "@type": "FAQPage",
     mainEntity: [
       { "@type": "Question", name: "¿Es realmente gratis? ¿No hay trampa?", acceptedAnswer: { "@type": "Answer", text: "No hay trampa. Los anuncios en la página principal y en el blog pagan el hosting. No te pediré dinero. No hay versión 'Pro' escondida." } },
-      { "@type": "Question", name: "¿Puedo usar tus herramientas sin conexión a internet?", acceptedAnswer: { "@type": "Answer", text: "Una vez que la página está cargada, sí. El código se descarga en tu navegador y funciona sin internet. Esto es útil si estás en un avión o en una zona sin cobertura." } },
+      { "@type": "Question", name: "¿Puedo usar tus herramientas sin conexión a internet?", acceptedAnswer: { "@type": "Answer", text: "Una vez que la página está cargada, unir, dividir y comprimir funcionan sin internet. Convertir a Word y quitar contraseñas necesitan conexión. Esto es útil si estás en un avión o en una zona sin cobertura." } },
       { "@type": "Question", name: "¿Por qué Smallpdf es tan popular si no es gratis?", acceptedAnswer: { "@type": "Answer", text: "Porque invierten mucho en SEO y publicidad. Aparecen primero en Google. La mayoría de la gente no sabe que hay alternativas mejores hasta que se topan con los límites." } },
       { "@type": "Question", name: "¿Tus herramientas son seguras para documentos fiscales?", acceptedAnswer: { "@type": "Answer", text: "Sí, porque no subes los archivos a ningún servidor. El procesamiento es local. Ni siquiera yo puedo ver tus documentos. Es más seguro que cualquier herramienta que requiera subir el archivo." } },
       { "@type": "Question", name: "¿Qué pasa si necesito convertir PDF a Word?", acceptedAnswer: { "@type": "Answer", text: "Usa LibreOffice (gratis) o la prueba gratuita de Adobe Acrobat. Mi herramienta no hace conversión a Word porque no puedo garantizar calidad sin enviar archivos a un servidor." } },
@@ -88,7 +88,7 @@ export default function AlternativasSmallpdfGratisPage() {
         <h3>¿Es realmente gratis? ¿No hay trampa?</h3>
         <p>No hay trampa. Los anuncios en la página principal y en el blog pagan el hosting. No te pediré dinero. No hay versión "Pro" escondida.</p>
         <h3>¿Puedo usar tus herramientas sin conexión a internet?</h3>
-        <p>Una vez que la página está cargada, sí. El código se descarga en tu navegador y funciona sin internet. Esto es útil si estás en un avión o en una zona sin cobertura.</p>
+        <p>Una vez que la página está cargada, unir, dividir y comprimir funcionan sin internet. Convertir a Word y quitar contraseñas necesitan conexión. Esto es útil si estás en un avión o en una zona sin cobertura.</p>
         <h3>¿Por qué Smallpdf es tan popular si no es gratis?</h3>
         <p>Porque invierten mucho en SEO y publicidad. Aparecen primero en Google. La mayoría de la gente no sabe que hay alternativas mejores hasta que se topan con los límites.</p>
         <h3>¿Tus herramientas son seguras para documentos fiscales?</h3>

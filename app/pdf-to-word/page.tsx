@@ -27,7 +27,7 @@ const faqSchema = {
     {
       "@type": "Question",
       "name": "Why does my converted PDF lose formatting when converted to Word?",
-      "acceptedAnswer": { "@type": "Answer", "text": "PDF and Word use fundamentally different layout models. PDFs place each element at absolute coordinates; Word uses a flow-based layout with styles. Complex multi-column layouts, tables, and decorative elements are the most likely to shift during conversion. Documents created directly in Word and exported to PDF convert back with the highest fidelity." }
+      "acceptedAnswer": { "@type": "Answer", "text": "This converter extracts text only. PDFs place each element at absolute coordinates, while Word uses flowing text, so layout, images, tables, and fonts are not carried over. You get the text of each page as plain paragraphs, ready to format in Word." }
     },
     {
       "@type": "Question",
@@ -47,7 +47,7 @@ const faqSchema = {
     {
       "@type": "Question",
       "name": "Does the tool upload my PDF to a server?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No — and this is the whole point. The conversion runs directly in your browser, using JavaScript and WebAssembly to extract the content and build the .docx file locally. Your PDF never goes anywhere. The Word document is generated on your machine and downloaded from there." }
+      "acceptedAnswer": { "@type": "Answer", "text": "No — and this is the whole point. The conversion runs directly in your browser, using JavaScript to extract the content and build the .docx file locally. Your PDF never goes anywhere. The Word document is generated on your machine and downloaded from there." }
     },
     {
       "@type": "Question",
@@ -65,8 +65,8 @@ const howToSchema = {
   "step": [
     { "@type": "HowToStep", "name": "Verify your PDF is text-based", "text": "Open the PDF in any viewer and try to select text with your cursor. If text highlights, the PDF is text-based and will convert successfully. If nothing selects, it is a scanned document and requires OCR software." },
     { "@type": "HowToStep", "name": "Upload your PDF", "text": "Click the upload area or drag the PDF onto it. The file is read into your browser's local memory — nothing leaves your device at this step or any step." },
-    { "@type": "HowToStep", "name": "Click Convert to Word", "text": "The tool extracts text content, paragraph structure, and basic formatting from the PDF and builds a .docx file. Everything runs locally in your browser. No internet connection required after the page loads." },
-    { "@type": "HowToStep", "name": "Download the .docx file", "text": "Download the Word document and open it in Microsoft Word, Google Docs, LibreOffice, or any .docx-compatible editor. Review and adjust formatting as needed." },
+    { "@type": "HowToStep", "name": "Click Convert to Word", "text": "The tool extracts the text from each page and builds a .docx file with plain paragraphs. Everything runs locally in your browser." },
+    { "@type": "HowToStep", "name": "Download the .docx file", "text": "Download the Word document and open it in Microsoft Word, Google Docs, LibreOffice, or any .docx-compatible editor. Add any formatting you need." },
   ]
 }
 
@@ -128,8 +128,8 @@ export default function PDFToWordPage() {
               {[
                 ["Verify your PDF is text-based", "Open the PDF in any viewer and try to select text with your cursor. If text highlights, the PDF is text-based and will convert successfully. If nothing selects, it is a scanned document and requires OCR software."],
                 ["Upload your PDF", "Click the upload area or drag the PDF onto it. The file is read into your browser's local memory — nothing leaves your device at this step or any step."],
-                ["Click Convert to Word", "The tool extracts text content, paragraph structure, and basic formatting from the PDF and builds a .docx file. Everything runs locally in your browser. No internet connection required after the page loads."],
-                ["Download the .docx file", "Download the Word document and open it in Microsoft Word, Google Docs, LibreOffice, or any .docx-compatible editor. Review and adjust formatting as needed."],
+                ["Click Convert to Word", "The tool extracts the text from each page and builds a .docx file with plain paragraphs. Everything runs locally in your browser."],
+                ["Download the .docx file", "Download the Word document and open it in Microsoft Word, Google Docs, LibreOffice, or any .docx-compatible editor. Add any formatting you need."],
               ].map(([title, body], i) => (
                 <div key={i} style={{ display: "flex", gap: 20, background: "#ffffff", borderRadius: 8, padding: "20px 24px", boxShadow: "0px 4px 12px rgba(24,28,30,0.05)" }}>
                   <span style={{ fontSize: 13, fontWeight: 700, color: "#0058c3", letterSpacing: "0.04em", minWidth: 24, paddingTop: 1 }}>0{i + 1}</span>
@@ -147,10 +147,10 @@ export default function PDFToWordPage() {
               What to expect from PDF to Word conversion
             </h2>
             <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", marginBottom: 12 }}>
-              PDF to Word conversion works best with documents that were originally created in a word processor and exported to PDF — resumes, reports, letters, and standard business documents. These convert with high text fidelity and reasonable formatting preservation.
+              PDF to Word conversion works best with documents that were originally created in a word processor and exported to PDF — resumes, reports, letters, and standard business documents. These convert with high text fidelity, though you get plain text without the original formatting.
             </p>
             <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", margin: 0 }}>
-              Complex layouts — multi-column magazines, heavily formatted brochures, PDFs with intricate table structures — will require formatting cleanup after conversion. This is expected with all PDF to Word tools, not a limitation specific to this one. No converter perfectly replicates absolute-positioned PDF layouts in Word's flow-based model.
+              Complex layouts — multi-column magazines, heavily formatted brochures, PDFs with intricate table structures — will not keep their structure. This tool extracts text only, so columns can run together and tables flatten into plain text. If you need the layout preserved, use a desktop converter instead.
             </p>
           </div>
 
@@ -160,11 +160,11 @@ export default function PDFToWordPage() {
             </h2>
             <div id="faq" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               {[
-                ["Why does my converted PDF lose formatting?", "PDF and Word use different layout models. PDFs place elements at absolute coordinates; Word uses a flow-based layout. Complex columns, tables, and decorative elements are most likely to shift. Documents exported from Word to PDF and converted back achieve the highest fidelity."],
+                ["Why does my converted PDF lose formatting?", "This converter extracts text only. PDFs place each element at absolute coordinates, while Word uses flowing text, so layout, images, tables, and fonts are not carried over. You get the text of each page as plain paragraphs, ready to format in Word."],
                 ["Can I convert a scanned PDF to Word?", "No. Scanned PDFs are images of pages with no text data. This tool works with text-based PDFs. If you cannot select text in your PDF viewer, the document is scanned and requires OCR software."],
                 ["What is the difference between text-based and scanned PDFs?", "Text-based PDFs store actual characters you can select and copy. Scanned PDFs are photographs of printed pages stored as images. If text highlights when you click it in a PDF viewer, the document is text-based."],
                 ["Is the tool free forever?", "Yes. No daily limits, no file restrictions, no watermarks, no signup. Supported by non-intrusive advertising."],
-                ["Does the tool upload my PDF?", "No server involved at all. Your PDF loads into browser memory, the conversion happens there, and the .docx downloads to your device. You could turn off WiFi after the page loads and it'd still work."],
+                ["Does the tool upload my PDF?", "No server involved at all. Your PDF loads into browser memory, the conversion happens there, and the .docx downloads to your device."],
                 ["What format does the output use?", ".docx — compatible with Microsoft Word, Google Docs, LibreOffice, and Apple Pages. No special software required."],
               ].map(([q, a], i) => (
                 <div key={i} style={{ background: "#ffffff", borderRadius: 8, padding: "20px 24px", boxShadow: "0px 4px 12px rgba(24,28,30,0.05)" }}>

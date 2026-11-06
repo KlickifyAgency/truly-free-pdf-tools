@@ -42,7 +42,7 @@ const faqSchema = {
     {
       "@type": "Question",
       "name": "Why does the tool say my PDF has no password?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Some PDFs have restrictions on editing or printing without requiring a password to open. These are permissions-restricted PDFs with an empty or blank owner password. If the tool reports no password found, the PDF may already be unlocked for viewing even if it appears restricted in some applications." }
+      "acceptedAnswer": { "@type": "Answer", "text": "That message means the file has no encryption at all, so there is nothing to remove. PDFs that block printing, copying, or editing are encrypted, and you can unlock them here with the password field left blank. If you see this message and the file still seems restricted, the restriction comes from the app you are using, not from the PDF." }
     },
     {
       "@type": "Question",
@@ -155,9 +155,9 @@ export default function RemovePDFPasswordPage() {
             <div id="faq" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               {[
                 ["Can I remove a password I forgot?", "No. This tool removes the restriction from PDFs where you already know the password. It does not crack or bypass unknown passwords."],
-                ["What is the difference between user password and owner password?", "A user password prevents opening the PDF. An owner password allows viewing but restricts editing or printing. This tool handles both types when the correct password is provided."],
+                ["What is the difference between user password and owner password?", "A user password prevents opening the PDF. An owner password allows viewing but restricts editing or printing. Enter either one if you know it, or leave the field blank if the PDF opens without a password."],
                 ["Is it legal to remove a PDF password?", "Removing a password from a document you own or are authorized to edit is legal. Only use this tool on documents you own or have explicit permission to modify."],
-                ["Why does the tool say my PDF has no password?", "Some PDFs have editing restrictions with no visible password. If the tool reports no password found, the PDF may already be viewable without a password even if restricted in some apps."],
+                ["Why does the tool say my PDF has no password?", "That message means the file has no encryption at all, so there is nothing to remove. PDFs that block printing, copying, or editing are encrypted, and you can unlock them here with the password field left blank. If you see this message and the file still seems restricted, the restriction comes from the app you are using, not from the PDF."],
                 ["Does removing the password change the content?", "No. Only the encryption layer is removed. All text, images, layout, bookmarks, and links remain identical to the original."],
                 ["Is it safe to process a confidential document?", "Yes — more so than with most tools, actually. Your file and your password both stay in browser memory. Neither is transmitted to any server. Close the tab and both are gone. It's the safest way to handle password removal short of using a local desktop application."],
               ].map(([q, a], i) => (

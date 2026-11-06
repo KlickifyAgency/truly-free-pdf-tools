@@ -144,7 +144,7 @@ export default function SplitPDFPage() {
               Most PDF splitters work like this: your file goes up to a cloud server, gets cut apart there, and the pieces come back down to you. You've probably never stopped to think about that — most people don't. But if you're splitting a legal agreement, a medical record, or anything with private information, that upload matters.
             </p>
             <p style={{ fontSize: 15, color: "#4a5568", lineHeight: 1.7, letterSpacing: "-0.01em", margin: 0 }}>
-              TrulyFreeTools does the splitting directly in your browser using WebAssembly. The file loads into local memory, gets cut there, and downloads to your device. It never hits a server. Not even for a second.
+              TrulyFreeTools does the splitting directly in your browser. The file loads into local memory, gets cut there, and downloads to your device. It never hits a server. Not even for a second.
             </p>
           </div>
 

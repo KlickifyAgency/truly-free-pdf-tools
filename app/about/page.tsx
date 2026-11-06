@@ -18,7 +18,7 @@ const organizationSchema = {
     name: "George Smith",
     url: "https://www.linkedin.com/in/george-smith-832113217/",
     jobTitle: "Founder",
-    knowsAbout: ["PDF compression", "document processing", "WebAssembly", "digital tools"],
+    knowsAbout: ["PDF compression", "document processing", "browser-based file processing", "digital tools"],
     worksFor: { "@type": "Organization", name: "Klickify Agency" },
   },
   description: "Free PDF tools that process files entirely in your browser — no uploads, no accounts, no daily limits, no watermarks. Ad-supported.",
@@ -69,7 +69,7 @@ export default function AboutPage() {
           <h2 style={{ fontSize: "clamp(22px, 3vw, 32px)", fontWeight: 700, letterSpacing: "-0.02em", color: "#181c1e", margin: "0 0 20px" }}>How free PDF tools actually work</h2>
           <p style={{ fontSize: "15px", color: "#4a5568", lineHeight: 1.75, marginBottom: "16px" }}>Smallpdf lets you do two tasks per hour on their free tier and uploads your files to their servers. iLovePDF is generous for a while, then introduces daily limits and file-size caps. Adobe Acrobat online requires an Adobe account and stores your files in their cloud. PDF24 is genuinely good and free but still routes files through German servers — which matters if your documents contain personal information, contracts, or tax data.</p>
           <p style={{ fontSize: "15px", color: "#4a5568", lineHeight: 1.75, marginBottom: "16px" }}>The pattern across all these platforms is the same: start with something that feels free, then apply pressure — through limits, accounts, paywalls, or data collection — to convert users into paying customers. It works as a business model. But it is not what people need when they are trying to compress a resume at 11pm before a job application deadline.</p>
-          <p style={{ fontSize: "15px", color: "#4a5568", lineHeight: 1.75, marginBottom: "0" }}>TrulyFreeTools does not upload your files anywhere. Processing happens inside your browser tab using WebAssembly. Your file goes from your disk to browser memory, gets processed, and comes back as a download. No server ever sees it. That is not a policy promise — it is how the architecture is built.</p>
+          <p style={{ fontSize: "15px", color: "#4a5568", lineHeight: 1.75, marginBottom: "0" }}>TrulyFreeTools does not upload your files anywhere. Processing happens inside your browser tab. Your file goes from your disk to browser memory, gets processed, and comes back as a download. No server ever sees it. That is not a policy promise — it is how the architecture is built.</p>
         </div>
       </section>
 
@@ -77,10 +77,10 @@ export default function AboutPage() {
         <div style={{ maxWidth: "720px", margin: "0 auto" }}>
           <div style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.08em", color: "#718096", textTransform: "uppercase", marginBottom: "20px" }}>TECHNICAL APPROACH</div>
           <h2 style={{ fontSize: "clamp(22px, 3vw, 32px)", fontWeight: 700, letterSpacing: "-0.02em", color: "#181c1e", margin: "0 0 20px" }}>Client-side PDF processing — how it works</h2>
-          <p style={{ fontSize: "15px", color: "#4a5568", lineHeight: 1.75, marginBottom: "16px" }}>PDF compression runs a two-pass system. The first pass rebuilds the PDF internal object tree to remove redundancy — cross-reference tables, duplicate objects, unused resources. The second pass resamples embedded images. Both passes run in parallel and the smaller result is returned. If neither beats the original, the tool says so instead of returning a bloated file.</p>
+          <p style={{ fontSize: "15px", color: "#4a5568", lineHeight: 1.75, marginBottom: "16px" }}>PDF compression re-encodes embedded images at a lower resolution and quality, and cleans up the file&apos;s internal structure. Text, fonts, and links stay as they are. An optional image mode turns each page into an image for bigger savings, at the cost of selectable text. If the result doesn&apos;t beat the original, the tool says so instead of returning a bloated file.</p>
           <p style={{ fontSize: "15px", color: "#4a5568", lineHeight: 1.75, marginBottom: "16px" }}>Merging is a structural operation. Pages from source documents are combined without re-encoding any content. Fonts, images, vector graphics, and form fields pass through unchanged. That is why merging cannot degrade quality — the pixels and vectors are never touched, only reorganized into a new document structure.</p>
-          <p style={{ fontSize: "15px", color: "#4a5568", lineHeight: 1.75, marginBottom: "16px" }}>Password removal only works on PDFs that aren&apos;t actually encrypted — files with owner-level restrictions (editing/printing locked) that still open without a password. It cannot decrypt a PDF that genuinely requires a password to open; the browser has no way to do that without knowing the password, and this tool doesn&apos;t ask for one.</p>
-          <p style={{ fontSize: "15px", color: "#4a5568", lineHeight: 1.75, marginBottom: "0" }}>PDF-to-Word conversion uses PDF.js to parse the document and extract text with positional data, then writes a .docx file approximating the original layout. This works well for text-based PDFs. Scanned or image-based PDFs aren&apos;t supported — there&apos;s no OCR step, so a page with no extractable text comes back empty.</p>
+          <p style={{ fontSize: "15px", color: "#4a5568", lineHeight: 1.75, marginBottom: "16px" }}>Password removal runs qpdf, compiled to WebAssembly, in your browser tab. It decrypts AES and RC4 PDFs when you enter the password, and unlocks files that only restrict printing, copying, or editing with no password at all. It cannot recover a password you don&apos;t know.</p>
+          <p style={{ fontSize: "15px", color: "#4a5568", lineHeight: 1.75, marginBottom: "0" }}>PDF-to-Word conversion uses PDF.js to extract the text of each page and writes it to a .docx file as plain paragraphs. Layout, images, and tables are not carried over. Scanned or image-based PDFs aren&apos;t supported — there&apos;s no OCR step, so a page with no extractable text comes back empty.</p>
         </div>
       </section>
 
@@ -93,8 +93,8 @@ export default function AboutPage() {
               { name: "Compress PDF", href: "/compress-pdf", desc: "Two-pass compression — structural and image resampling — returns the smaller result. Works on text-heavy and image-heavy PDFs. No file size limit imposed by the tool." },
               { name: "Merge PDF", href: "/merge-pdf", desc: "Combine multiple PDFs into one. Drag files into order, click Merge. Fonts, images, and formatting from each source file are preserved exactly. No page or file count limit." },
               { name: "Split PDF", href: "/split-pdf", desc: "Extract specific pages or page ranges from a PDF. Useful for pulling a section from a large document or separating a batch-scanned file into individual records." },
-              { name: "PDF to Word", href: "/pdf-to-word", desc: "Convert text-based PDFs to editable .docx files. Preserves paragraph structure and basic formatting. Best for contracts, reports, and text-heavy documents." },
-              { name: "Remove PDF Password", href: "/remove-pdf-password", desc: "Strip owner-level restrictions (editing/printing locks) from a PDF that already opens without a password. Can't decrypt a file that genuinely requires a password." },
+              { name: "PDF to Word", href: "/pdf-to-word", desc: "Convert text-based PDFs to editable .docx files. Extracts the text as plain paragraphs, without layout, images, or tables. Best for contracts, reports, and text-heavy documents." },
+              { name: "Remove PDF Password", href: "/remove-pdf-password", desc: "Remove a password you know, or printing and editing locks, from a PDF. Decrypts AES and RC4 files locally. Can't recover a password you don't know." },
             ].map(({ name, href, desc }) => (
               <div key={name} style={{ background: "#f7fafc", borderRadius: "8px", padding: "24px 28px" }}>
                 <a href={href} style={{ fontSize: "16px", fontWeight: 700, color: "#0058c3", textDecoration: "none", letterSpacing: "-0.02em", display: "block", marginBottom: "8px" }}>{name} →</a>
